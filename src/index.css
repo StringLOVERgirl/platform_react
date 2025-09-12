@@ -207,7 +207,7 @@ h2 {
       background: linear-gradient(to right,transparent,#041b1d 10% 90%,transparent);
       z-index: 5;
       transition: opacity 1s;
-      display: none;
+      /* display: none; */
       /* display: none; */background: linear-gradient(to right,transparent,#041b1d 10% 75%,transparent);
     }
 
@@ -745,6 +745,9 @@ display: flex;
   .lang {
     padding-left: 0.5em;
   }
+  .inner {
+    z-index: 1;
+  }
   .title {
     font-size: 5em;
     
@@ -757,6 +760,8 @@ display: flex;
 
 
   .textCont{
+    z-index: 2;
+    border-radius: 35px;
     background: url('./assets/food.jpeg') 0 / cover no-repeat;
   }
 
@@ -796,6 +801,7 @@ display: flex;
 
   #blurOverlay{
     /* display: none; */
+    z-index: 3;
   }
 
   .preloaderOutter {
