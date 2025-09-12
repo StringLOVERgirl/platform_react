@@ -136,7 +136,7 @@ blur2.style.height = textcont.clientHeight+'px'
 window.innerWidth > 600 ? window.addEventListener('mousemove', unBlur) : window.addEventListener('touchmove', unBlur, { passive: false })
   
   function unBlur(e){
-    if (blurFlag) return
+    if (blurFlag) {return}
     // отключаем прокрутку при свайпе
   e.preventDefault(); // отключаем прокрутку при свайпе
   const evenet = window.innerWidth < 600 ? e.touches[0] : e
