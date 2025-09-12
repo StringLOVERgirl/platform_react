@@ -24,6 +24,9 @@ function App() {
 
   const inner = useRef()
   const psedoWindow = useRef()
+  const preloaderCont = useRef()
+  const preload = useRef()
+  let [isPreload, setPreload] = useState('')
   const title = useRef()
   const blur = useRef()
   const blur2 = useRef()
@@ -35,8 +38,10 @@ function App() {
   const year = useRef()
   const copyAccent = useRef()
   const titleCont = useRef()
-  let [blurFlag, setBlurFlag] = useState(false)
-  const blurefflag = useRef(false)
+  
+  const blurFlag = useRef(false)
+  const [isMobile, setIsMobile] = useState(null) 
+  let [isTitle, setTitle] = useState('')
 
   let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
 
@@ -60,21 +65,23 @@ function App() {
   function isBlur(){ 
     // setBlurFlag(prev => !prev)
     console.log(blurFlag)
-    blurefflag.current = !blurefflag.current
+    blurFlag.current = !blurFlag.current
     blur.current.classList.toggle('isBlur')
 }
 
 function unBlur(e){
-  console.log(blurefflag.current)
-  if (blurefflag.current) {
+
+  if (blurFlag.current) {
     blur.current.style.maskImage = `unset`;
-  blur.current.style.webkitMaskImage = `unset`;
+    blur.current.style.webkitMaskImage = `unset`;
     return
   }
-  console.log(121)
+
   // отключаем прокрутку при свайпе
-e.preventDefault(); // отключаем прокрутку при свайпе
-const evenet = window.innerWidth < 600 ? e.touches[0] : e
+  
+if (isMobile) {e.preventDefault(); // отключаем прокрутку при свайпе
+}
+const evenet = isMobile ? e.touches[0] : e
 // window.innerWidth < 600? e.preventDefault():""
   const x = evenet.clientX;
   const y = evenet.clientY;
@@ -83,84 +90,56 @@ const evenet = window.innerWidth < 600 ? e.touches[0] : e
   blur.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
   blur.current.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
 };
+
+const textDelay = 'We learned how to respect the Law on Level 24'.split(' ')
+const delayRef = useRef({delays: [0], acc: 0})
+function setDelay(){
+textDelay.forEach(e=> {
+let d =  e.length < 5 ? 0.3 : 0.6
+  delayRef.current.delays.push(d+delayRef.current.acc)
+ delayRef.current.acc += d
+}
+  )
+}
+function hideQuite(){
+  setPreload('hidePreloader')
+  console.log(12)
+  setTitle('setTitle')
+}
   useEffect(()=>{
 
+    window.addEventListener('resize', () => 
+    setIsMobile(window.innerWidth < 600?true:false)
+    )
+
+    setIsMobile(window.innerWidth < 600?true:false)
   
+setDelay()
+console.log(delayRef)
 
-  const title = document.querySelector('.title')
-  const blur = document.getElementById('blurOverlay');
-  const blur2 = document.getElementById('blurOverlay2');
-  const blurButton = document.getElementById('blur')
-  // const asideImgCont = document.getElementsByClassName('asideImgCont')
-   
-
-
-
-  // event.preventDefault(); // отключаем прокрутку при свайпе
-
-  // const touch = event.touches[0];
-
-  // const text = "Ты научился уважать закон на 24 уровне"
-  const text = 'We learned how to respect the Law on Level 24'
-  const arrtext = text.split(' ')
-  let delay = {value: 0}
-  const preloaderCont = document.querySelector('.preloaderCont')
-  const preload = document.querySelector('.preloaderOutter')
-
-  function vars(h2, delay, dur, upd){
-      h2.style.setProperty('--dur', dur+'s')
-          h2.style.setProperty('--delay', delay.value+'s')
-          delay.value+=upd
-  }
-
-   for (let i = 0; i < arrtext.length; i++){
-      let h2 = document.createElement('h2')
-      let bs = document.createElement('h2')
-      h2.textContent = arrtext[i]
-      bs.textContent = '"\u00A0"'
-      h2.classList.add('preloader')
-      if (arrtext[i].length<5){
-    
-          vars(h2, delay, 0.25, 0.3)
-      } else {
-
-          vars(h2, delay, 0.5, 0.6)
-      }
-      if (i == arrtext.length - 1){
-          h2.style.setProperty('--trigger', delay.value )    
-       h2.onanimationend = ()=>{
-          preload.classList.add('hidePreloader')  
-          preloaderCont.classList.add('hideTitle')
-      }  
-      }
-      h2.setAttribute('data-labe', arrtext[i])
-      preloaderCont.append(h2,bs)
-   }
-  console.log(arrtext)
-
-  const psedoWindow = document.querySelector('.outter')
   
-  psedoWindow.addEventListener('scroll', () => {
-    let value = psedoWindow.scrollTop / 5
+  
+  psedoWindow.current.addEventListener('scroll', () => {
+    let value = psedoWindow.current.scrollTop / 5
     asideImgCont.current.style.transform = `translateY(${-value}px)`
   })
   
-  function parallax(){
-      // console.log(psedoWindow.scrollTop)
-      let value = psedoWindow.scrollTop * 0.2
-      // console.log(value)
+  function parallaxSpacing(){
+      let value = psedoWindow.current.scrollTop * 0.2
       titleCont.current.style.setProperty('--ls',value+'px')
-      requestAnimationFrame(parallax)
+      requestAnimationFrame(parallaxSpacing)
   }
-  parallax()
+  parallaxSpacing()
   
+
+!isMobile ? window.addEventListener('mousemove', unBlur) 
+: window.addEventListener('touchmove', unBlur, { passive: false })
+  
+
+
+const blur2 = document.getElementById('blurOverlay2');
 const textcont = document.querySelector('.text')
-// console.log(textcont.clientHeight)
 blur2.style.height = textcont.clientHeight+'px'
-
-window.innerWidth > 600 ? window.addEventListener('mousemove', unBlur) : window.addEventListener('touchmove', unBlur, { passive: false })
-  
-
 
 //   textcont.addEventListener('mousemove', (e) => {
 //       const rect = textcont.getBoundingClientRect(); // координаты блока
@@ -175,11 +154,24 @@ window.innerWidth > 600 ? window.addEventListener('mousemove', unBlur) : window.
   return (
     <div className="App">
 
-      <div className="preloaderOutter">
-        <div className="preloaderCont"></div>
+      <div className={`preloaderOutter ${isPreload}`} ref={preload}>
+        <div className={`preloaderCont ${isTitle}`} ref={preloaderCont}>
+        {textDelay.map((e,i)=>{
+   return <>
+ <h2 className="preloader" 
+ onAnimationEnd={e==24?hideQuite:null}
+ style={{'--delay':delayRef.current.delays[i]+'s',
+ '--dur':e.length < 5 ? 0.25+'s' : 0.5+'s',
+'--trigger':e==24?delayRef.current.acc:''}}
+ data-labe={e}>{e}</h2>
+ <h2>{"'\u00A0'"}</h2>
+ </> 
+}
+)}
+        </div>
       </div>
 
-      <div className="outter">
+      <div className="outter" ref={psedoWindow}>
         
         <div className="inner" ref={inner}>
           
