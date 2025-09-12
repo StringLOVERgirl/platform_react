@@ -741,3 +741,33 @@ display: flex;
     width: 33vw;
   }
 }
+
+@media (min-width: 1300px) and (max-width:1500px) {
+  .lang {
+    font-size: 2em;
+  }
+
+  #blur {
+    font-size: 3em;
+  }
+
+  .title {
+    font-size: 8em;
+  }
+
+  .asideImg {
+    height: 15vh;
+  }
+
+  .asideImgCont {
+    bottom: 24vh;
+  }
+
+  .linkAcont {
+    font-size: 15em;
+  }
+
+  .decorLetter {
+    font-size: 5.7vh;
+  }
+}

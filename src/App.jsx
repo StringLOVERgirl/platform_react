@@ -66,14 +66,11 @@ function App() {
    
 
   blurButton.onclick = () => blurLayers.forEach(e=>e.classList.toggle('isBlur'))
-if (window.innerWidth < 600 ) {
-  blurButton.addEventListener('touchmove',(event) => {
-    blurLayers.forEach(e=>e.classList.toggle('isBlur'))
-  })
+
   // event.preventDefault(); // отключаем прокрутку при свайпе
 
   // const touch = event.touches[0];
-}
+
   // const text = "Ты научился уважать закон на 24 уровне"
   const text = 'We learned how to respect the Law on Level 24'
   const arrtext = text.split(' ')
@@ -131,14 +128,20 @@ if (window.innerWidth < 600 ) {
 const textcont = document.querySelector('.text')
 // console.log(textcont.clientHeight)
 blur2.style.height = textcont.clientHeight+'px'
-  window.addEventListener('mousemove', (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
+  window.addEventListener('mousemove', unBlur())
+  
+  function unBlur(e){
+    e.preventDefault(); // отключаем прокрутку при свайпе
+
+  const evenet = window.innerWidth < 600 ? e.touches[0]: e
+    
+    const x = evenet.clientX;
+    const y = evenet.clientY;
     const radius = 100; // можно менять радиус круга здесь
 // console.log(x,y)
     blur.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
     blur.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
-  });
+  };
 
 //   textcont.addEventListener('mousemove', (e) => {
 //       const rect = textcont.getBoundingClientRect(); // координаты блока
