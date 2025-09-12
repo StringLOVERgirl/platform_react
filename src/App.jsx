@@ -74,7 +74,7 @@ function unBlur(e){
   console.log(121)
   // отключаем прокрутку при свайпе
 e.preventDefault(); // отключаем прокрутку при свайпе
-const evenet = window.innerWidth < 600 ? e.touches[0] : e
+const evenet = e.touches[0] 
 // window.innerWidth < 600? e.preventDefault():""
   const x = evenet.clientX;
   const y = evenet.clientY;
