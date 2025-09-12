@@ -92,17 +92,22 @@ const evenet = isMobile.current ? e.touches[0] : e
   blur.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
   blur.current.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
 };
-
-
 useEffect(()=>{
 
-  window.addEventListener('resize', () => 
+  window.addEventListener('resize', () => {
+    isMobile.current ? window.removeEventListener('touchmove', unBlur)
+    : window.removeEventListener('mousemove', unBlur)
+    
   isMobile.current =  window.innerWidth < 600 ? true : false
+
+  isMobile.current ? window.addEventListener('touchmove', unBlur, { passive: false })
+  : window.addEventListener('mousemove', unBlur)
+  }
   )
   
 
   isMobile.current =  window.innerWidth < 600 ? true : false
-
+  
   isMobile.current ? window.addEventListener('touchmove', unBlur, { passive: false })
   : window.addEventListener('mousemove', unBlur)
 
