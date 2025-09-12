@@ -722,7 +722,8 @@ display: flex;
   }
 
   .linkMainCont {
-    backdrop-filter: grayscale(70%) blur(2px);
+    height: 100%;
+    backdrop-filter: grayscale(70%) blur(1px);
 
   }
 
