@@ -133,7 +133,7 @@ window.innerWidth > 600 ? window.addEventListener('mousemove', unBlur) : window.
   
   function unBlur(e){
     // отключаем прокрутку при свайпе
-  e.preventDefault(); // отключаем прокрутку при свайпе
+  // e.preventDefault(); // отключаем прокрутку при свайпе
   const evenet = window.innerWidth < 600 ? e.touches[0] : e
   // window.innerWidth < 600? e.preventDefault():""
     const x = evenet.clientX;
