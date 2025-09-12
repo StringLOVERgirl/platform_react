@@ -128,13 +128,13 @@ function App() {
 const textcont = document.querySelector('.text')
 // console.log(textcont.clientHeight)
 blur2.style.height = textcont.clientHeight+'px'
-  window.addEventListener('mousemove', unBlur())
+  window.addEventListener('mousemove', unBlur)
   
   function unBlur(e){
-    e.preventDefault(); // отключаем прокрутку при свайпе
-
+   ; // отключаем прокрутку при свайпе
+   e.preventDefault()
   const evenet = window.innerWidth < 600 ? e.touches[0]: e
-    
+  // window.innerWidth < 600? e.preventDefault():""
     const x = evenet.clientX;
     const y = evenet.clientY;
     const radius = 100; // можно менять радиус круга здесь
