@@ -128,7 +128,7 @@ function App() {
 const textcont = document.querySelector('.text')
 // console.log(textcont.clientHeight)
 blur2.style.height = textcont.clientHeight+'px'
-  window.addEventListener('mousemove', unBlur(event))
+  window.addEventListener('mousemove', unBlur(e))
   
   function unBlur(e){
     // отключаем прокрутку при свайпе
