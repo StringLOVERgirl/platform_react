@@ -188,7 +188,7 @@ h2 {
       z-index: 5;
       transition: opacity 1s;
       
-      /* display: none; */background: linear-gradient(to right,transparent,#041b1d 10% 70%,transparent);
+      /* display: none; */background: #041b1d ;
     }
 
     .hidePreloader{
@@ -713,7 +713,12 @@ display: flex;
 @media (max-width: 600px) {
   .title {
     font-size: 5em;
-    transition: letter-spacing 0.1s;
+    transition: letter-spacing 0.2s;
+  }
+
+
+  .textCont{
+    background: url('./assets/food.jpeg') 0 / cover no-repeat;
   }
 
   .decorOutter{
