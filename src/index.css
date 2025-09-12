@@ -765,7 +765,10 @@ display: flex;
 
     background:#041b1d 
   }
-
+.linkAcont {
+  position: relative;
+  bottom: -35%;
+}
 }
 
 @media (min-width: 1300px) and (max-width:1500px) {
