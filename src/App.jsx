@@ -35,6 +35,7 @@ function App() {
   const year = useRef()
   const copyAccent = useRef()
   const titleCont = useRef()
+  let [blurFlag, setBlurFlag] = useState(false)
 
   let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
 
@@ -65,7 +66,10 @@ function App() {
   // const asideImgCont = document.getElementsByClassName('asideImgCont')
    
 
-  blurButton.onclick = () => blurLayers.forEach(e=>e.classList.toggle('isBlur'))
+  blurButton.onclick = () => { 
+    setBlurFlag(prev => !prev)
+    blurLayers.forEach(e=>e.classList.toggle('isBlur'))
+}
 
   // event.preventDefault(); // отключаем прокрутку при свайпе
 
@@ -132,6 +136,7 @@ blur2.style.height = textcont.clientHeight+'px'
 window.innerWidth > 600 ? window.addEventListener('mousemove', unBlur) : window.addEventListener('touchmove', unBlur, { passive: false })
   
   function unBlur(e){
+    if (blurFlag) return
     // отключаем прокрутку при свайпе
   // e.preventDefault(); // отключаем прокрутку при свайпе
   const evenet = window.innerWidth < 600 ? e.touches[0] : e
