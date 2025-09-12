@@ -727,7 +727,9 @@ display: flex;
 
   .linkMainCont {
     height: 100%;
-    backdrop-filter: grayscale(70%) blur(1px);
+    backdrop-filter: grayscale(40%) blur(1px);
+    display: flex;
+    align-items: end;
 
   }
 
@@ -765,10 +767,7 @@ display: flex;
 
     background:#041b1d 
   }
-.linkAcont {
-  position: relative;
-  bottom: -35%;
-}
+
 }
 
 @media (min-width: 1300px) and (max-width:1500px) {
