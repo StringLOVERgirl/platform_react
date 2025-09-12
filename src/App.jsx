@@ -36,6 +36,7 @@ function App() {
   const copyAccent = useRef()
   const titleCont = useRef()
   let [blurFlag, setBlurFlag] = useState(false)
+  const blurefflag = useRef(false)
 
   let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
 
@@ -53,7 +54,35 @@ function App() {
     inner.current.style.setProperty('--opacityBg', value)
     asideImgCont.current.style.setProperty('--opacityMinBg', valueMin)
   }
+  const blurLayerss = document.querySelectorAll('.blurLayer')
 
+
+  function isBlur(){ 
+    // setBlurFlag(prev => !prev)
+    console.log(blurFlag)
+    blurefflag.current = !blurefflag.current
+    blur.current.classList.toggle('isBlur')
+}
+
+function unBlur(e){
+  console.log(blurefflag.current)
+  if (blurefflag.current) {
+    blur.current.style.maskImage = `unset`;
+  blur.current.style.webkitMaskImage = `unset`;
+    return
+  }
+  console.log(121)
+  // отключаем прокрутку при свайпе
+e.preventDefault(); // отключаем прокрутку при свайпе
+const evenet = window.innerWidth < 600 ? e.touches[0] : e
+// window.innerWidth < 600? e.preventDefault():""
+  const x = evenet.clientX;
+  const y = evenet.clientY;
+  const radius = 100; // можно менять радиус круга здесь
+// console.log(x,y)
+  blur.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
+  blur.current.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
+};
   useEffect(()=>{
 
   
@@ -62,14 +91,10 @@ function App() {
   const blur = document.getElementById('blurOverlay');
   const blur2 = document.getElementById('blurOverlay2');
   const blurButton = document.getElementById('blur')
-  const blurLayers = document.querySelectorAll('.blurLayer')
   // const asideImgCont = document.getElementsByClassName('asideImgCont')
    
 
-  blurButton.onclick = () => { 
-    setBlurFlag(prev => !prev)
-    blurLayers.forEach(e=>e.classList.toggle('isBlur'))
-}
+
 
   // event.preventDefault(); // отключаем прокрутку при свайпе
 
@@ -135,19 +160,7 @@ blur2.style.height = textcont.clientHeight+'px'
 
 window.innerWidth > 600 ? window.addEventListener('mousemove', unBlur) : window.addEventListener('touchmove', unBlur, { passive: false })
   
-  function unBlur(e){
-    if (blurFlag) {return}
-    // отключаем прокрутку при свайпе
-  e.preventDefault(); // отключаем прокрутку при свайпе
-  const evenet = window.innerWidth < 600 ? e.touches[0] : e
-  // window.innerWidth < 600? e.preventDefault():""
-    const x = evenet.clientX;
-    const y = evenet.clientY;
-    const radius = 100; // можно менять радиус круга здесь
-// console.log(x,y)
-    blur.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
-    blur.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
-  };
+
 
 //   textcont.addEventListener('mousemove', (e) => {
 //       const rect = textcont.getBoundingClientRect(); // координаты блока
@@ -199,7 +212,7 @@ window.innerWidth > 600 ? window.addEventListener('mousemove', unBlur) : window.
           }</div>
 
           <div className="blurButtonCont">
-            <div className="blutInnerCont">
+            <div className="blutInnerCont" onClick={isBlur}>
               <button id="blur">blur</button>
             </div>
           </div>
@@ -240,7 +253,7 @@ window.innerWidth > 600 ? window.addEventListener('mousemove', unBlur) : window.
         </div>
 
 
-        <div className="blurLayer blur-overlay" id="blurOverlay"></div>
+        <div className="blurLayer blur-overlay" id="blurOverlay" ref={blur}></div>
 <div className="scrollSpace"></div>
         <div className="textCont">
           <div className="textContOverlay"></div>
