@@ -59,7 +59,6 @@ function App() {
     inner.current.style.setProperty('--opacityBg', value)
     asideImgCont.current.style.setProperty('--opacityMinBg', valueMin)
   }
-  const blurLayerss = document.querySelectorAll('.blurLayer')
 
 
   function isBlur(){ 
@@ -104,8 +103,9 @@ useEffect(()=>{
 
   isMobile.current =  window.innerWidth < 600 ? true : false
 
-  !isMobile ? window.addEventListener('mousemove', unBlur)
-: window.addEventListener('touchmove', unBlur, { passive: false })
+  isMobile.current ? window.addEventListener('touchmove', unBlur, { passive: false })
+  : window.addEventListener('mousemove', unBlur)
+
   
 
 },[])
