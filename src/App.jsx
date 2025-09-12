@@ -106,14 +106,13 @@ function hideQuite(){
   console.log(12)
   setTitle('setTitle')
 }
-setIsMobile(window.innerWidth < 600?true:false)
-
   useEffect(()=>{
 
     window.addEventListener('resize', () => 
     setIsMobile(window.innerWidth < 600?true:false)
     )
 
+    setIsMobile(window.innerWidth < 600?true:false)
   
 setDelay()
 console.log(delayRef)
@@ -135,6 +134,7 @@ console.log(delayRef)
 
 !isMobile ? window.addEventListener('mousemove', unBlur) 
 : window.addEventListener('touchmove', unBlur, { passive: false })
+ alert()
   
 
 
