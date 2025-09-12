@@ -1,3 +1,5 @@
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -187,6 +189,7 @@ h2 {
       left: 50%;
       z-index: 5;
       transform: translate(-50%,-50%);
+      /* line-height: 1.4; */
     }
 
 
@@ -799,7 +802,9 @@ display: flex;
 
     background:#041b1d 
   }
-
+.preloader {
+  font-size: 4.5em;
+}
 }
 
 @media (min-width: 1300px) and (max-width:1500px) {
