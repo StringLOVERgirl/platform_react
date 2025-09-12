@@ -1,0 +1,743 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  margin:0;
+padding: 0;
+box-sizing: border-box;
+--textColor: #ffebcd82;
+--accentColor: #d12121;
+--bgOverlay: #00000033;
+}
+html {
+  background: transparent;
+}
+.App {
+  background: linear-gradient(to right,transparent,#041b1d 0% 100%,transparent);
+}
+h2 {
+  font-family: paper;      
+  font-weight: 800;
+}
+
+    p {
+      font-family: raleway;
+      font-size: 2em;
+      color: black;
+    }
+
+    @font-face {
+      font-family: paper;
+      src: url('../public/assets/RobotoCondensed-VariableFont_wght.ttf');
+    }
+
+    @font-face {
+      font-family: antonio;
+      src: url('../public/assets/Antonio-VariableFont_wght.ttf');
+    }
+
+    .outter {
+      perspective: 1px;
+      transform-style: preserve-3d; 
+      
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+
+    .inner {
+      --opacityBg: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translateZ(-1px) scale(2);
+      height: 100vh;
+      position: relative;
+      background: url('./assets/pl.webp') center / cover;
+      z-index: -1;
+    }
+
+    .inner::after {
+      content: '';
+      height: inherit;
+      width: 100%;
+      position: absolute;
+      opacity: var(--opacityBg);
+      transition: opacity 0.5s ;
+      z-index: -2;
+      background: url('./assets/the_platform2.webp') center / cover;
+    }
+
+  
+.titleCont {
+  display: flex;
+}
+    .title{
+      font-family: antonio;
+      text-transform: uppercase;
+      font-weight: 100;
+      font-size: 7em;
+      /* 4em */
+    transform: translateZ(0);
+      letter-spacing: var(--ls);
+      will-change: letter-spacing;
+      
+      transform: translateZ(-0.5px) scaleY(1.2);
+      /* color: blanchedalmond; 
+      good color  - хороший цвет*/
+      color: var(--textColor);
+
+
+      /* position: absolute; */
+      /* padding-inline: 0.25em; */
+      transition: letter-spacing 0.1s;
+
+      /* -webkit-text-stroke:1px #8c8698ba; */
+      background: rgba(0, 0, 0, 0.1);
+      
+      
+    
+      -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;
+    }
+
+    .hideTitle{
+      clip-path: inset(0 100% 0 100%) !important;
+      opacity: 0;
+    }
+
+
+    .d {
+      height: 100vh;
+    }
+
+    .preloader {
+      font-size: 5em;
+      transform: scaleY(1.2);
+      font-family: antonio;
+      letter-spacing: 0.03em;
+      /* padding-inline: 1em; */
+      font-weight: 500;
+      background: rgb(24, 46, 45);
+      -webkit-background-clip: text;
+      background-clip: text;
+      position: relative;
+      /* line-height: 1; */
+      transition: transform var(--trigger);
+      
+        }
+
+        .f{
+          transform: translateX(0px);
+        }
+
+    .preloader::before{
+      content: attr(data-labe);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      color: transparent;
+      background:  linear-gradient( var(--bgOverlay),var(--bgOverlay)), var(--textColor);
+      -webkit-background-clip: text;
+      background-clip: text;
+      will-change: clip-path;
+      clip-path: inset(0 100% 0 0);
+      /* transition: clip-path 0.5s; */
+      animation: shlop var(--dur) var(--delay) linear forwards;
+    }
+
+
+    
+    .preloaderCont {
+      width: 85vw;
+      color: transparent;
+      display: flex;
+      flex-wrap: wrap;
+      clip-path: inset(0 0 0 0);
+      transition: clip-path 0.7s ease-in, opacity 0.7s;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 5;
+      transform: translate(-50%,-50%);
+    }
+
+
+    @keyframes shlop {
+      to {
+          clip-path: inset(0 0 0 0);
+      }
+    }
+
+    .preloaderOutter {
+      height: 100vh;
+      width: 100vw;
+  
+      position: fixed;
+      background: linear-gradient(to right,transparent,#041b1d 10% 70%,transparent);
+      z-index: 5;
+      transition: opacity 1s;
+      
+      /* display: none; */background: linear-gradient(to right,transparent,#041b1d 10% 70%,transparent);
+    }
+
+    .hidePreloader{
+      /* height: 0; */
+      pointer-events: none;
+      opacity: 0;
+      /* visibility: hidden; */
+    }
+    .displayPreloader {
+      display: none;
+    }
+
+    .textCont{
+      background: url('./assets/food.jpeg') 0 / cover fixed no-repeat;
+      
+
+      /* background: black; */
+      width: 100vw;
+      /* height: 80vh; */
+height: 35svh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: absolute;
+      /* background: url('./assets/food.jpeg') center / cover fixed; */
+    } 
+
+    .textContOverlay {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      background: #0000005c;
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    #movieDescription {
+      color: beige;
+      font-weight: 300;
+      padding: 0.5em;
+      font-size: 1.3em;
+      line-height: 1.5;
+      text-align: center;
+      display: none;
+    }
+
+
+
+
+/* blur layers */
+    .isBlur {
+      backdrop-filter: unset !important;
+      }
+      
+      .blurLayer {
+        transition: mask-image 0.1s, -webkit-mask-image 0.1s, backdrop-filter 0.5s;;
+        pointer-events: none;
+        position: absolute;
+        inset: 0;
+      }
+
+    .blur-overlay {
+    background: #0000005c;
+    backdrop-filter: blur(8px);
+  }
+
+  .blur-overlay2 {
+    backdrop-filter: blur(5px);
+    display: none;
+  }
+
+
+/* description */
+  .text {
+    background: var(--bgOverlay);
+width: 80vw;
+box-sizing: border-box;
+margin-inline: auto;
+padding-top: 1em;
+position: relative;
+/* border-radius: 35px; */
+display: none;
+  }
+
+.desch2Cont{
+  display: flex;
+  display: none;
+}
+
+  .desch2 {
+    color: beige;
+    padding-inline-start: 1em;
+    text-transform: capitalize;
+    font-family: raleway;
+    font-weight: 300;
+    font-size: 2em;
+  }
+  /* рефакторинг
+  занести в переменные цвета 
+  снят ьперспективу с татйтла*/
+
+
+
+
+header {
+position: absolute;
+color: var(--textColor);
+top: 0;
+font-family: antonio;
+width: 100%;
+display: flex;
+
+}
+
+header ul {
+display: flex;
+gap: 0.5em;
+font-size: 1.4em;
+padding-left: 1em;
+padding-top: 0.5em;
+}
+
+li {
+list-style-type: none;
+/* transform: scale(1); */
+backface-visibility: hidden;
+/* вкупе с вилчендж убирает смещение пикслеьное при ховере */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.langText::after{
+content: attr(data-labe);
+color: var(--accentColor);
+position: absolute;
+/* transition: transform 0.4s; */
+transform: translateY(100%) translateX(-100%);
+}
+
+li:hover a{
+transform: translateY(-100%);
+}
+
+.langText {
+position: relative;
+transition: transform 0.6s  cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+li a {
+color: var(--textColor);
+text-decoration: none;
+transition: color 0.4s;
+}
+
+li a:hover{
+color: rgba(245, 245, 220, 0.7);
+}
+
+ul::after {
+content: '';
+height: 120%;
+width: 1px;
+background: var(--textColor);
+/* переменная цвета первого экаран */
+position: absolute;
+transform: translateX(1em);
+}
+
+
+#netflixLogo {
+  height: 10vh;
+  position: absolute;
+  right: 2em;
+  /* backface-visibility: hidden; */
+  transition: transform 0.4s;
+  }
+  
+  #netflixLogo:hover {
+  transform: scale(1.3);
+  }
+
+
+
+
+
+
+#blur {
+background: unset;
+border: none;
+color: var(--textColor);
+font-family: antonio;
+font-size: 2em;
+letter-spacing: 0;
+text-transform: uppercase;
+transition: transform 0.6s  cubic-bezier(0.65, 0, 0.35, 1);
+cursor: pointer;
+}
+
+#blur::after{
+content: 'blur';
+color: var(--accentColor);
+position: absolute;
+/* transition: transform 0.4s; */
+transform: translateY(100%) translateX(-100%);
+}
+
+.blurButtonCont { 
+/* overflow: hidden; */
+position: absolute;
+bottom: 10%;
+right: 10%;
+}
+
+.blutInnerCont {
+overflow: hidden;
+position: relative;
+transform: scaleY(1.1);
+}
+
+.blurButtonCont::before {
+content: '';
+height: 120%;
+width: 1px;
+background: var(--textColor);
+position: absolute;
+left: 0;
+transform: translateX(-0.5em);
+}
+
+.blurButtonCont:hover #blur {
+transform: translateY(-100%);
+}
+
+#blur:hover {
+transform: scale(1.1);
+} 
+
+
+.asideImgCont {
+--opacityMinBg: 0;
+position: absolute;
+bottom: 26vh;
+left: 3%;
+}
+
+.asideImg {
+height: 20vh;
+width: 15vw;
+object-fit: cover;
+opacity: 0.8;
+position: absolute;
+z-index: -1;
+cursor: pointer;
+left: 0;
+/* transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1); */
+}
+
+
+
+#asideImg:hover {
+transform: scale(2);
+}
+
+#second {
+transition: opacity 0.7s ;
+opacity: var(--opacityMinBg);
+}
+
+.year {
+color: var(--textColor);
+font-family: antonio;
+padding-bottom: 0.2em;
+transition: transform 0.6s  cubic-bezier(0.65, 0, 0.35, 1);
+position: relative;
+}
+
+
+
+
+
+.year::after {
+content: attr(data-labe);
+color: var(--accentColor);
+position: absolute;
+transform: translate(-100%, 100%);
+}
+
+.yearCont{
+position: relative;
+overflow: hidden;
+}
+
+.changeBg {
+transform: translateY(-100%);
+}
+
+.copyCont {
+  font-family: antonio;
+  letter-spacing: 0.5px;
+  color: var(--textColor);
+  position: absolute;
+  bottom: 1em;
+  width: 65vw;
+}
+
+.copyAccent {
+  font-family: paper;
+  font-size: 1.3em;
+  color: var(--accentColor);
+  text-decoration: none;
+  position: relative;
+  --copyAccentUnderline: 0;
+  --copyAccentTransformOrigin: left;
+  display: inline-block;
+  overflow: hidden;
+  transform: translateY(20%);
+}
+
+.copyAccent::after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  left: 0;
+  transform-origin: var(--copyAccentTransformOrigin);
+  transition: transform 0.7s  cubic-bezier(0.65, 0, 0.35, 1);
+  transform: scaleX(var(--copyAccentUnderline));
+  bottom: 0;
+  background: var(--accentColor);
+}
+
+.copyAccent:hover {
+  --copyAccentTransformOrigin: left !important;
+  --copyAccentUnderline: 1
+}
+
+
+.veticalOutter {
+  /* border: solid 1px var(--accentColor); */
+  display: flex;
+  height: 100%;
+  transform: scale(1.5);
+  display: none;
+}
+
+.verticalInner {
+  display: flex;
+  flex-direction: column;
+align-items: center;
+  will-change: transform;
+  perspective: 61svh;
+  animation: lift 30s linear infinite;
+  transform: translateY(100%);
+  /* animation: vertical 10s linear infinite; */
+}
+@keyframes rotatetop {
+  from {
+    transform: translateY(35%) rotateX(60deg);
+  }
+  to {
+    transform: translateY(35%) rotateX(98deg);
+  }
+}
+
+@keyframes rotatebottom {
+  from {
+    transform: translateY(-35%) rotateX(73deg);
+  }
+  to {
+    transform: translateY(-35%) rotateX(110deg);
+  }
+}
+@keyframes lift {
+  to {
+    transform: translateY(-100%);
+  }
+}
+.platform{
+  height: 50%;
+  width: 55%;
+  background: var(--textColor);
+}
+
+.platformTop {
+  animation: rotatetop 30s linear infinite;
+  /* transform: translateY(30%) rotateX(92deg); */
+}
+.platformBottom {
+  animation: rotatebottom 30s linear infinite;
+  position: relative;
+
+  }
+
+.verticalSpan {
+  color: var(--textColor);
+  text-transform: uppercase;
+  font-family: antonio;
+  font-size: 16vh;
+  line-height: 1;
+  transform: translateZ(-113svh) scaleY(1.2);
+}
+
+
+@keyframes vertical {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.decorOutter {
+  position: absolute;
+  display: flex;
+  left: 0;
+  height: 100%;
+  /* top: 0; */
+  /* position: fixed; */
+}
+.decorOutter::after{
+  content: '';
+  display: block;
+  width: 2px;
+  height: 100%;
+  margin-left: 0.5em;
+  /* background: var(--textColor); */
+  background: linear-gradient(to bottom, transparent,var(--textColor),transparent);
+}
+.decorTextCont {
+  display: flex;
+  flex-direction: column;
+  /* position: absolute; */
+  transform: translateY(var(--decorStart));
+  /* height: 80vh; */
+  overflow: hidden;
+  top: 0;
+margin-top: auto;
+  animation: liftDecor 30s linear infinite;
+}
+
+@keyframes liftDecor {
+  from {
+    transform: translateY(var(--decorStart));
+  }
+45%, 55% {
+  transform: translateY(-25%);
+
+} 
+
+  to {
+    transform: translateY(var(--decorEnd));
+  }
+}
+
+
+.decorLetter {
+  color: var(--textColor);
+  text-transform: uppercase;
+  transform: scaleY(1.2);
+  font-family: antonio;
+  font-size: 8svh;
+  
+}
+
+.strokeP {
+  color: var(--accentColor);
+  
+}
+
+.scrollSpace {
+  height: 100svh;
+  width: 100vw;
+  z-index: -5;
+  top: 0;
+  position: absolute;
+}
+
+
+.linkMainCont{
+position: absolute;
+bottom: 0;
+right: 0;
+backdrop-filter: blur(2px);
+
+}
+.linkAcont{
+  text-decoration: none;
+  display: block;
+  font-family: antonio;
+font-size: 12em;
+color: var(--textColor);
+line-height: 1;
+overflow: hidden;
+display: flex;
+}
+
+.linkSymbol {
+  display: block;
+  position: relative;
+  transition: transform 1s  cubic-bezier(0.65, 0, 0.35, 1) var(--delay);
+}
+
+.linkLetter::before{
+  content: attr(data-label);
+  color: var(--accentColor);
+  position: absolute;
+  transform: translateY(-105%);
+  }
+
+  .space{
+    width: 0.15em;
+  }
+
+  .linkAcont:hover .linkLetter{
+    transform: translateY(105%);
+    }
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 5em;
+  }
+
+  .decorOutter{
+    display: none;
+  }
+
+  #netflixLogo{
+    right: 0.25em;
+  }
+
+  .copyCont{
+    width: 100%;
+    letter-spacing: 0.1px;
+    font-size: 0.9em;
+  }
+
+  .copyAccent {
+    font-size: 1.2em;
+  }
+
+  .asideImgCont{
+    bottom: 22svh;
+  }
+  .asideImg {
+    height: 12svh;
+    width: 40vw;
+  }
+}
