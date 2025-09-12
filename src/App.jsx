@@ -82,10 +82,11 @@ function unBlur(e){
   // отключаем прокрутку при свайпе
   console.log(5555) 
 
-if (blurFlag.current) {e.preventDefault();
+// if (blurFlag.current) {
+  e.preventDefault();
 console.log(12345) 
 // alert() // отключаем прокрутку при свайпе
-}
+// }
 const evenet = isMobile ? e.touches[0] : e
 // window.innerWidth < 600? e.preventDefault():""
   const x = evenet.clientX;
