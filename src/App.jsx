@@ -79,7 +79,9 @@ function unBlur(e){
 
   // отключаем прокрутку при свайпе
   
-if (isMobile) {e.preventDefault(); // отключаем прокрутку при свайпе
+if (isMobile) {e.preventDefault();
+  alert()
+  // отключаем прокрутку при свайпе
 }
 const evenet = isMobile ? e.touches[0] : e
 // window.innerWidth < 600? e.preventDefault():""
@@ -134,7 +136,6 @@ console.log(delayRef)
 
 !isMobile ? window.addEventListener('mousemove', unBlur) 
 : window.addEventListener('touchmove', unBlur, { passive: false })
- alert()
   
 
 
