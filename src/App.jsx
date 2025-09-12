@@ -134,8 +134,7 @@ console.log(delayRef)
   parallaxSpacing()
   
 
-!isMobile ? window.addEventListener('mousemove', unBlur) 
-: window.addEventListener('touchmove', unBlur, { passive: false })
+!isMobile ? window.addEventListener('mousemove', unBlur) : window.addEventListener('touchmove', unBlur, { passive: false })
   
 
 
