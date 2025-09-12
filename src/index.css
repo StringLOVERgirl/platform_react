@@ -19,6 +19,8 @@ box-sizing: border-box;
 --textColor: #ffebcd82;
 --accentColor: #d12121;
 --bgOverlay: #00000033;
+--mainFont: oswald;
+--letterScale: scaleY(1.4)
 }
 html {
   background: transparent;
@@ -45,6 +47,11 @@ h2 {
     @font-face {
       font-family: antonio;
       src: url('../public/assets/Antonio-VariableFont_wght.ttf');
+    }
+
+    @font-face {
+      font-family: oswald;
+      src: url('../public/assets/Oswald-VariableFont_wght.ttf');
     }
 
     .outter {
@@ -84,9 +91,13 @@ h2 {
   display: flex;
 }
     .title{
-      font-family: antonio;
+      font-family: var(--mainFont);
       text-transform: uppercase;
       font-weight: 100;
+
+      /* for oswald */
+    font-weight: 300;
+
       font-size: 7em;
       /* 4em */
     transform: translateZ(0);
@@ -123,11 +134,17 @@ h2 {
 
     .preloader {
       font-size: 5em;
+      font-weight: 500;
       transform: scaleY(1.2);
-      font-family: antonio;
+
+      /* for oswald */
+    font-weight: 400;
+    transform: var(--letterScale);
+
+      font-family: var(--mainFont);
       letter-spacing: 0.03em;
       /* padding-inline: 1em; */
-      font-weight: 500;
+  
       background: rgb(24, 46, 45);
       -webkit-background-clip: text;
       background-clip: text;
@@ -298,7 +315,7 @@ header {
 position: absolute;
 color: var(--textColor);
 top: 0;
-font-family: antonio;
+font-family: var(--mainFont);
 width: 100%;
 display: flex;
 
@@ -382,7 +399,7 @@ transform: translateX(1em);
 background: unset;
 border: none;
 color: var(--textColor);
-font-family: antonio;
+font-family: var(--mainFont);
 font-size: 2em;
 letter-spacing: 0;
 text-transform: uppercase;
@@ -462,7 +479,7 @@ opacity: var(--opacityMinBg);
 
 .year {
 color: var(--textColor);
-font-family: antonio;
+font-family: var(--mainFont);
 padding-bottom: 0.2em;
 transition: transform 0.6s  cubic-bezier(0.65, 0, 0.35, 1);
 position: relative;
@@ -489,8 +506,12 @@ transform: translateY(-100%);
 }
 
 .copyCont {
-  font-family: antonio;
-  letter-spacing: 0.5px;
+  font-family: var(--mainFont);
+
+  /* for oswal deleted */
+  /* letter-spacing: 0.5px; */
+  transform: scaleY(1.3);
+
   color: var(--textColor);
   position: absolute;
   bottom: 1em;
@@ -588,7 +609,7 @@ align-items: center;
 .verticalSpan {
   color: var(--textColor);
   text-transform: uppercase;
-  font-family: antonio;
+  font-family: var(--mainFont);
   font-size: 16vh;
   line-height: 1;
   transform: translateZ(-113svh) scaleY(1.2);
@@ -652,8 +673,10 @@ margin-top: auto;
   color: var(--textColor);
   text-transform: uppercase;
   transform: scaleY(1.2);
-  font-family: antonio;
+  font-family: var(--mainFont);
   font-size: 8svh;
+  /* для освалдьа */
+  line-height: 1.2;
   
 }
 
@@ -681,7 +704,7 @@ backdrop-filter: blur(2px);
 .linkAcont{
   text-decoration: none;
   display: block;
-  font-family: antonio;
+  font-family: var(--mainFont);
 font-size: 12em;
 color: var(--textColor);
 line-height: 1;
@@ -700,14 +723,19 @@ display: flex;
   color: var(--accentColor);
   position: absolute;
   transform: translateY(-105%);
+  /* для антонио 105 */
   }
-
+  .linkLetter{
+    transform: translateY(5%);
+    /* для анонио нет */
+  }
   .space{
     width: 0.15em;
   }
 
   .linkAcont:hover .linkLetter{
-    transform: translateY(105%);
+    transform: translateY(110%);
+    /* для антонио 105 */
     }
 
 @media (max-width: 600px) {
@@ -716,6 +744,7 @@ display: flex;
   }
   .title {
     font-size: 5em;
+    
     transition: letter-spacing 0.2s;
   }
 
