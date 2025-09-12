@@ -760,7 +760,7 @@ display: flex;
   }
 
   #blurOverlay{
-    display: none;
+    /* display: none; */
   }
 
   .preloaderOutter {
