@@ -38,8 +38,10 @@ function App() {
   const year = useRef()
   const copyAccent = useRef()
   const titleCont = useRef()
-  let [blurFlag, setBlurFlag] = useState(false)
-  const blurefflag = useRef(false)
+  
+  const blurFlag = useRef(false)
+  const isMobile = useRef(false) 
+  let [isTitle, setTitle] = useState('')
 
   let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
 
@@ -61,24 +63,28 @@ function App() {
 
 
   function isBlur(){ 
-    // setBlurFlag(prev => !prev)
-    isMobile.current = !isMobile.current
     console.log(blurFlag)
     blurFlag.current = !blurFlag.current
     blur.current.classList.toggle('isBlur')
 }
 
 function unBlur(e){
-  console.log(blurefflag.current)
-  if (blurefflag.current) {
+
+  if (blurFlag.current) {
     blur.current.style.maskImage = `unset`;
     blur.current.style.webkitMaskImage = `unset`;
     return
   }
 
-  // отключаем прокрутку при свайпе
-e.preventDefault(); // отключаем прокрутку при свайпе
-const evenet = window.innerWidth < 600 ? e.touches[0] : e
+  console.log(5555) 
+
+if (isMobile.current) {
+   // отключаем прокрутку при свайпе
+   console.log('precent none')    
+  e.preventDefault();
+}
+
+const evenet = isMobile.current ? e.touches[0] : e
 // window.innerWidth < 600? e.preventDefault():""
   const x = evenet.clientX;
   const y = evenet.clientY;
@@ -87,65 +93,51 @@ const evenet = window.innerWidth < 600 ? e.touches[0] : e
   blur.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
   blur.current.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
 };
+
+
+useEffect(()=>{
+
+  window.addEventListener('resize', () => 
+  isMobile.current =  window.innerWidth < 600 ? true : false
+  )
+  
+
+  isMobile.current =  window.innerWidth < 600 ? true : false
+
+  !isMobile ? window.addEventListener('mousemove', unBlur)
+: window.addEventListener('touchmove', unBlur, { passive: false })
+  
+
+},[])
+
+
+
+
+const textDelay = 'We learned how to respect the Law on Level 24'.split(' ')
+const delayRef = useRef({delays: [0], acc: 0})
+function setDelay(){
+textDelay.forEach(e=> {
+let d =  e.length < 5 ? 0.3 : 0.6
+  delayRef.current.delays.push(d+delayRef.current.acc)
+ delayRef.current.acc += d
+}
+  )
+}
+function hideQuite(){
+  setPreload('hidePreloader')
+  console.log(12)
+  setTitle('setTitle')
+}
+
   useEffect(()=>{
 
+setDelay()
+console.log(delayRef)
+
   
-
-  const title = document.querySelector('.title')
-  const blur = document.getElementById('blurOverlay');
-  const blur2 = document.getElementById('blurOverlay2');
-  const blurButton = document.getElementById('blur')
-  // const asideImgCont = document.getElementsByClassName('asideImgCont')
-   
-
-
-
-  // event.preventDefault(); // отключаем прокрутку при свайпе
-
-  // const touch = event.touches[0];
-
-  // const text = "Ты научился уважать закон на 24 уровне"
-  const text = 'We learned how to respect the Law on Level 24'
-  const arrtext = text.split(' ')
-  let delay = {value: 0}
-  const preloaderCont = document.querySelector('.preloaderCont')
-  const preload = document.querySelector('.preloaderOutter')
-
-  function vars(h2, delay, dur, upd){
-      h2.style.setProperty('--dur', dur+'s')
-          h2.style.setProperty('--delay', delay.value+'s')
-          delay.value+=upd
-  }
-
-   for (let i = 0; i < arrtext.length; i++){
-      let h2 = document.createElement('h2')
-      let bs = document.createElement('h2')
-      h2.textContent = arrtext[i]
-      bs.textContent = '"\u00A0"'
-      h2.classList.add('preloader')
-      if (arrtext[i].length<5){
-    
-          vars(h2, delay, 0.25, 0.3)
-      } else {
-
-          vars(h2, delay, 0.5, 0.6)
-      }
-      if (i == arrtext.length - 1){
-          h2.style.setProperty('--trigger', delay.value )    
-       h2.onanimationend = ()=>{
-          preload.classList.add('hidePreloader')  
-          preloaderCont.classList.add('hideTitle')
-      }  
-      }
-      h2.setAttribute('data-labe', arrtext[i])
-      preloaderCont.append(h2,bs)
-   }
-  console.log(arrtext)
-
-  const psedoWindow = document.querySelector('.outter')
   
-  psedoWindow.addEventListener('scroll', () => {
-    let value = psedoWindow.scrollTop / 5
+  psedoWindow.current.addEventListener('scroll', () => {
+    let value = psedoWindow.current.scrollTop / 5
     asideImgCont.current.style.transform = `translateY(${-value}px)`
   })
   
@@ -156,6 +148,11 @@ const evenet = window.innerWidth < 600 ? e.touches[0] : e
   }
   parallaxSpacing()
   
+
+
+
+
+const blur2 = document.getElementById('blurOverlay2');
 const textcont = document.querySelector('.text')
 blur2.style.height = textcont.clientHeight+'px'
 

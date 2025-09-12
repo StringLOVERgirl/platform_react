@@ -207,7 +207,7 @@ h2 {
       background: linear-gradient(to right,transparent,#041b1d 10% 90%,transparent);
       z-index: 5;
       transition: opacity 1s;
-      
+      display: none;
       /* display: none; */background: linear-gradient(to right,transparent,#041b1d 10% 75%,transparent);
     }
 
