@@ -716,6 +716,10 @@ display: flex;
     transition: letter-spacing 0.2s;
   }
 
+  .blurButtonCont {
+    bottom: 12%;
+  }
+
 
   .textCont{
     background: url('./assets/food.jpeg') 0 / cover no-repeat;
