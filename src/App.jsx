@@ -66,7 +66,14 @@ function App() {
    
 
   blurButton.onclick = () => blurLayers.forEach(e=>e.classList.toggle('isBlur'))
+if (window.innerWidth < 600 ) {
+  blurButton.addEventListener('touchmove',(event) => {
+    blurLayers.forEach(e=>e.classList.toggle('isBlur'))
+  })
+  // event.preventDefault(); // отключаем прокрутку при свайпе
 
+  // const touch = event.touches[0];
+}
   // const text = "Ты научился уважать закон на 24 уровне"
   const text = 'We learned how to respect the Law on Level 24'
   const arrtext = text.split(' ')
