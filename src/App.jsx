@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import netflixLogo from "./assets/netflix.webp"
+import React from "react";
 import movie2019 from "./assets/the_platform2.webp"
 import movie2024 from "./assets/pl.webp"
 import { useEffect, useRef, useState } from "react";
@@ -22,26 +23,25 @@ function DecorBg({id, type}){
 
 function App() {
 
-  const inner = useRef()
-  const psedoWindow = useRef()
+  let [isPreload, setPreload] = useState('')
+
   const preloaderCont = useRef()
   const preload = useRef()
-  let [isPreload, setPreload] = useState('')
-  const title = useRef()
+
+  const psedoWindow = useRef()
+  const inner = useRef()
+
+  const titleCont = useRef()
+
   const blur = useRef()
-  const blur2 = useRef()
-  const textcont = useRef()
-  const blurButton = useRef()
-  const blurLayers = useRef()
+
   const asideImgCont = useRef()
-  const secondBg = useRef()
+
   const year = useRef()
   const copyAccent = useRef()
-  const titleCont = useRef()
   
   const blurFlag = useRef(false)
   const isMobile = useRef(false) 
-  let [isTitle, setTitle] = useState('')
 
   let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
 
@@ -116,6 +116,7 @@ useEffect(()=>{
 const textDelay = 'We learned how to respect the Law on Level 24'.split(' ')
 const delayRef = useRef({delays: [0], acc: 0})
 function setDelay(){
+
 textDelay.forEach(e=> {
 let d =  e.length < 5 ? 0.3 : 0.6
   delayRef.current.delays.push(d+delayRef.current.acc)
@@ -123,19 +124,17 @@ let d =  e.length < 5 ? 0.3 : 0.6
 }
   )
 }
+
+setDelay()
+
 function hideQuite(){
   setPreload('hidePreloader')
   console.log(12)
-  setTitle('setTitle')
 }
 
   useEffect(()=>{
-
-setDelay()
-console.log(delayRef)
-
   
-  
+  // на сам эл или родитель ближайшмй
   psedoWindow.current.addEventListener('scroll', () => {
     let value = psedoWindow.current.scrollTop / 5
     asideImgCont.current.style.transform = `translateY(${-value}px)`
@@ -147,40 +146,24 @@ console.log(delayRef)
       requestAnimationFrame(parallaxSpacing)
   }
   parallaxSpacing()
-  
 
-
-
-
-const blur2 = document.getElementById('blurOverlay2');
-const textcont = document.querySelector('.text')
-blur2.style.height = textcont.clientHeight+'px'
-
-//   textcont.addEventListener('mousemove', (e) => {
-//       const rect = textcont.getBoundingClientRect(); // координаты блока
-// const x = e.clientX - rect.left;
-// const y = e.clientY - rect.top;
-//     const radius = 100; // можно менять радиус круга здесь
-//     blur2.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
-//     blur2.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
-//   });
 
   },[])
   return (
     <div className="App">
 
       <div className={`preloaderOutter ${isPreload}`} ref={preload}>
-        <div className={`preloaderCont ${isTitle}`} ref={preloaderCont}>
+        <div className={`preloaderCont`} ref={preloaderCont}>
         {textDelay.map((e,i)=>{
-   return <>
- <h2 className="preloader" 
+   return <React.Fragment key={'preloader element'+i}>
+ <span className="preloader" 
  onAnimationEnd={e==24?hideQuite:null}
  style={{'--delay':delayRef.current.delays[i]+'s',
  '--dur':e.length < 5 ? 0.25+'s' : 0.5+'s',
 '--trigger':e==24?delayRef.current.acc:''}}
- data-labe={e}>{e}</h2>
- <h2>{"'\u00A0'"}</h2>
- </> 
+ data-labe={e}>{e}</span>
+ <span >{"'\u00A0'"}</span>
+ </React.Fragment> 
 }
 )}
         </div>
