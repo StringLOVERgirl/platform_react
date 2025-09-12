@@ -113,12 +113,26 @@ function hideQuite(){
 // window.innerWidth < 600?isMobile.current= true: isMobile.currentfalse
 setDelay()
 
-  useEffect(()=>{
-    window.innerWidth < 600?isMobile.current= true: isMobile.currentfalse
+useEffect(()=>{
+  window.innerWidth < 600?isMobile.current= true: isMobile.current=false
 console.log(67)
-    window.addEventListener('resize', () => 
-    setIsMobile(window.innerWidth < 600?true:false)
+    window.addEventListener('resize', () => {
+    window.innerWidth < 600?isMobile.current= true: isMobile.current=false
+    }
     )
+
+
+
+  if (isMobile){
+    window.addEventListener('touchmove', unBlur, { passive: false })
+    , console.log('touch')
+  } else {
+    window.addEventListener('mousemove', unBlur) 
+   }
+},[])
+
+  useEffect(()=>{
+    
 
     // setIsMobile(window.innerWidth < 600?true:false)
   
@@ -140,12 +154,6 @@ console.log(delayRef)
   parallaxSpacing()
   
 
-  if (isMobile){
-    window.addEventListener('touchmove', unBlur, { passive: false })
-    , console.log('touch')
-  } else {
-    window.addEventListener('mousemove', unBlur) 
-   }
 // !isMobile ? window.addEventListener('mousemove', unBlur), console.log('touch')
 // : window.addEventListener('touchmove', unBlur, { passive: false })
   
