@@ -711,6 +711,9 @@ display: flex;
     }
 
 @media (max-width: 600px) {
+  .lang {
+    padding-left: 0.5em;
+  }
   .title {
     font-size: 5em;
     transition: letter-spacing 0.2s;
