@@ -40,7 +40,7 @@ function App() {
   const titleCont = useRef()
   
   const blurFlag = useRef(false)
-  const [isMobile, setIsMobile] = useState(null) 
+  let [isMobile, setIsMobile] = useState(null) 
   let [isTitle, setTitle] = useState('')
 
   let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
@@ -133,7 +133,7 @@ console.log(delayRef)
   parallaxSpacing()
   
 
-isMobile ? window.addEventListener('mousemove', unBlur)
+!isMobile ? window.addEventListener('mousemove', unBlur)
 : window.addEventListener('touchmove', unBlur, { passive: false })
   
 
