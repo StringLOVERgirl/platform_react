@@ -719,7 +719,11 @@ display: flex;
 
   .textCont{
     background: url('./assets/food.jpeg') 0 / cover no-repeat;
+  }
+
+  .linkMainCont {
     backdrop-filter: grayscale(70%) blur(2px);
+
   }
 
   .decorOutter{
