@@ -40,7 +40,7 @@ function App() {
   const titleCont = useRef()
   
   const blurFlag = useRef(false)
-  // let [isMobile, setIsMobile] = useState(null) 
+  let [isMobilee, setIsMobile] = useState(false) 
   const isMobile = useRef(false)
   let [isTitle, setTitle] = useState('')
 
@@ -65,6 +65,7 @@ function App() {
 
   function isBlur(){ 
     // setBlurFlag(prev => !prev)
+    isMobile.current = !isMobile.current
     console.log(blurFlag)
     blurFlag.current = !blurFlag.current
     blur.current.classList.toggle('isBlur')
@@ -72,7 +73,7 @@ function App() {
 
 function unBlur(e){
 
-  if (blurFlag.current) {
+  if (!isMobile.current) {
     blur.current.style.maskImage = `unset`;
     blur.current.style.webkitMaskImage = `unset`;
     return
@@ -81,9 +82,9 @@ function unBlur(e){
   // отключаем прокрутку при свайпе
   console.log(5555) 
 
-if (isMobile) {e.preventDefault();
+if (blurFlag.current) {e.preventDefault();
 console.log(12345) 
-alert() // отключаем прокрутку при свайпе
+// alert() // отключаем прокрутку при свайпе
 }
 const evenet = isMobile ? e.touches[0] : e
 // window.innerWidth < 600? e.preventDefault():""
@@ -113,8 +114,13 @@ function hideQuite(){
 // window.innerWidth < 600?isMobile.current= true: isMobile.currentfalse
 setDelay()
 
+
+
 useEffect(()=>{
-  window.innerWidth < 600?isMobile.current= true: isMobile.current=false
+  if(window.innerWidth < 600){
+    isMobile.current = true} else {
+      isMobile.current = true
+    }
 console.log(67)
     window.addEventListener('resize', () => {
     window.innerWidth < 600?isMobile.current= true: isMobile.current=false
