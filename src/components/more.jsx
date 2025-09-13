@@ -11,7 +11,7 @@ export function More (){
             <div className="blurLayer blur-overlay3"></div>
                     <Header></Header>
                     {/* <Link to="/" state={{from:'read'}}></Link> */}
-                    <Link to="/"  state={{from:'more'}}
+                    <Link to="/"  state={'more'}
             style={{position:'absolute',color: 'var(--textColor)',fontFamily:'oswald',
              fontSize: '1.4em',
         top:0, left: '3em', left: '8em', paddingTop: '0.5em',

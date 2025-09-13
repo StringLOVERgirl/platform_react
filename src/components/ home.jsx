@@ -198,7 +198,7 @@ useLayoutEffect(()=>{
 console.log(location.state)
     return(
         <>
-                         {location.state.from === 'more'   ? '' : <Preloader></Preloader>}
+                         {location.state && location.state === 'more'   ? '' : <Preloader></Preloader>}
                    {/* <div className={`preloaderOutter ${isPreload}`} ref={preload}>
         <div className={`preloaderCont`} ref={preloaderCont}>
         {textDelay.map((e,i)=>{
