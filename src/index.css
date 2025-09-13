@@ -22,6 +22,7 @@ box-sizing: border-box;
 --accentColor: #d12121;
 --bgOverlay: #00000033;
 --mainFont: oswald;
+--italica: italica;
 --letterScale: scaleY(1.4)
 }
 html {
@@ -39,6 +40,13 @@ h2 {
       font-family: raleway;
       font-size: 2em;
       color: black;
+    }
+
+
+
+    @font-face {
+      font-family: italica;
+      src: url('../public/assets/GreatVibes-Regular.ttf');
     }
 
     @font-face {
@@ -744,6 +752,25 @@ display: flex;
     /* для антонио 105 */
     }
 
+    .italicMain{
+      font-family: var(--mainFont);
+      color: var(--textColor);
+      font-size: 1.1em;
+    }
+
+    .italicMainCont {
+      margin-right: auto;
+      margin-top: auto;
+      padding-left: 5em;
+    }
+
+
+    .more {
+      background: black;
+      height: 100svh;
+      width: 100vw;
+    }
+
 @media (max-width: 600px) {
   .lang {
     padding-left: 0.5em;
@@ -764,7 +791,6 @@ display: flex;
 
   .textCont{
     /* z-index: 2; */
-    /* border-radius: 35px; */
     background: url('./assets/food.jpeg') 0 / cover no-repeat;
   }
 
@@ -804,7 +830,7 @@ display: flex;
 
   #blurOverlay{
     /* display: none; */
-    z-index: 3;
+    /* z-index: 3; */
   }
 
   .preloaderOutter {
