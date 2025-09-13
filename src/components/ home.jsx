@@ -5,16 +5,19 @@ import movie2024 from "../assets/pl.webp"
 import React from "react";
 import { DecorBg } from "./decorbg";
 import { Header } from "./header";
+import { Preloader } from "./preloader";
 import { useLocation } from "react-router-dom";
 
 export function Home(){
 
-    const state = useLocation();
+    const location = useLocation();
+    // const params = new URLSearchParams(location.search);
+    // const mode = params.get('mode'); // Например, "more"
 
-    let [isPreload, setPreload] = useState('')
+    // let [isPreload, setPreload] = useState('')
 
-    const preloaderCont = useRef()
-    const preload = useRef()
+    // const preloaderCont = useRef()
+    // const preload = useRef()
   
     const psedoWindow = useRef()
     const inner = useRef()
@@ -22,6 +25,7 @@ export function Home(){
     const titleCont = useRef()
   
     const blur = useRef()
+    let [blurState, setBlur] = useState(null)
   
     const asideImgCont = useRef()
   
@@ -30,6 +34,8 @@ export function Home(){
     
     const blurFlag = useRef(false)
     const isMobile = useRef(false) 
+
+    let [bg, setBg] = useState(null)
   
     let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
   
@@ -43,16 +49,21 @@ export function Home(){
       let valueMin = flags.flagMinBg ? 0.8 : 0
       setFlags(prev=> ({flagBg: !prev.flagBg ,flagMinBg: !prev.flagMinBg}))
       console.log(flags)
-      year.current.classList.toggle('changeBg')
+    //   заменили на стейт
+    //   year.current.classList.toggle('changeBg')
+      setBg(prev=> prev =='changeBg' ? '' : 'changeBg')
       inner.current.style.setProperty('--opacityBg', value)
       asideImgCont.current.style.setProperty('--opacityMinBg', valueMin)
     }
   
   
     function isBlur(){ 
+
       console.log(blurFlag)
       blurFlag.current = !blurFlag.current
-      blur.current.classList.toggle('isBlur')
+      //   заменили на стейт
+    //   blur.current.classList.toggle('isBlur')
+      setBlur(prev=> prev =='isBlur' ? '' : 'isBlur')
   }
   
   function unBlur(e){
@@ -62,9 +73,7 @@ export function Home(){
       blur.current.style.webkitMaskImage = `unset`;
       return
     }
-  
-    // console.log(5555) 
-  
+    
   if (isMobile.current) {
      // отключаем прокрутку при свайпе
      console.log('precent none')    
@@ -112,11 +121,11 @@ export function Home(){
   
   useEffect(()=>{
   
-    window.addEventListener('resize', () => {     
-      removeBlurLisrs()
-      changeMobileState()
-      addBlurLisrs()
-    })
+    // window.addEventListener('resize', () => {     
+    //   removeBlurLisrs()
+    //   changeMobileState()
+    //   addBlurLisrs()
+    // })
     
   
     changeMobileState()
@@ -130,37 +139,40 @@ export function Home(){
   
   
   
-  const textDelay = 'We learned how to respect the Law on Level 24'.split(' ')
-  const delayRef = useRef({delays: [0], acc: 0})
-  function setDelay(){
+//   const textDelay = 'We learned how to respect the Law on Level 24'.split(' ')
+//   const delayRef = useRef({delays: [0], acc: 0})
+//   function setDelay(){
   
-  textDelay.forEach(e=> {
-  let d =  e.length < 5 ? 0.3 : 0.6
-    delayRef.current.delays.push(d+delayRef.current.acc)
-   delayRef.current.acc += d
-  }
-    )
-  }
+//   textDelay.forEach(e=> {
+//   let d =  e.length < 5 ? 0.3 : 0.6
+//     delayRef.current.delays.push(d+delayRef.current.acc)
+//    delayRef.current.acc += d
+//   }
+//     )
+//   }
   
-  setDelay()
+//   setDelay()
   
-  function hideQuite(){
-    setPreload('hidePreloader')
-    console.log(12)
-  }
+//   function hideQuite(){
+//     setPreload('hidePreloader')
+//     console.log(12)
+//   }
   
 
   function asideParallax(){
       let speed = isMobile.current ? 7 : 5
       let value = psedoWindow.current.scrollTop / speed
-      asideImgCont.current.style.transform = `translateY(${-value}px)`
+      asideImgCont.current.style.setProperty('--parallaxImg', -value+'px')
   }
+
   const raf = useRef(null)
+
   function parallaxSpacing(){
     let value = psedoWindow.current.scrollTop * 0.2
     titleCont.current.style.setProperty('--ls',value+'px')
     raf.current = requestAnimationFrame(parallaxSpacing)
 }
+
 useLayoutEffect(()=>{
     // нужен он если добавляю обработчики на элемент и очищаю их то в обычном 
     // юс эффект ссылки на элемнты на моменты выполнения очистки будут ноль 
@@ -169,18 +181,12 @@ useLayoutEffect(()=>{
     // паралакс картинки
     console.log(psedoWindow.current)
     psedoWindow.current.addEventListener('scroll', asideParallax)
-    //   let speed = isMobile ? 7 : 5
-    //   let value = psedoWindow.current.scrollTop / speed
-    //   asideImgCont.current.style.transform = `translateY(${-value}px)`
-    // })
-    
    
     parallaxSpacing()
   
     return ()=>{
-        // console.log(preload.current)
-            psedoWindow.current.removeEventListener('scroll', asideParallax)
-            console.log('aside parallax has been removed')
+        psedoWindow.current.removeEventListener('scroll', asideParallax)
+        console.log('aside parallax has been removed')
         cancelAnimationFrame(raf.current)
     }
     },[])
@@ -189,13 +195,11 @@ useLayoutEffect(()=>{
   
 
 
-
-
+console.log(location.state)
     return(
         <>
-        {/* выенсти всю логику предлодарев в отедльныей компоента и условно 
-        не  рендерить по стейту */}
-        <div className={`preloaderOutter ${isPreload}`} ref={preload}>
+                         {location.state.from === 'more'   ? '' : <Preloader></Preloader>}
+                   {/* <div className={`preloaderOutter ${isPreload}`} ref={preload}>
         <div className={`preloaderCont`} ref={preloaderCont}>
         {textDelay.map((e,i)=>{
    return <React.Fragment key={'preloader element'+i}>
@@ -210,7 +214,7 @@ useLayoutEffect(()=>{
 }
 )}
         </div>
-      </div>
+      </div> */}
       
 <div className="outter" ref={psedoWindow}>
         
@@ -253,7 +257,7 @@ useLayoutEffect(()=>{
           <aside className="asideImgCont" ref={asideImgCont} onClick={changeBg}>
 
             <div className="yearCont">
-              <div className="year" ref={year} data-labe="2024">
+              <div className={`year ${bg}`} ref={year} data-labe="2024">
                 2019
               </div>
             </div>
@@ -286,7 +290,7 @@ useLayoutEffect(()=>{
         </div>
 
 
-        <div className="blurLayer blur-overlay" id="blurOverlay" ref={blur}></div>
+        <div className={`blurLayer blur-overlay ${blurState}`} ref={blur}></div>
 <div className="scrollSpace"></div>
         <div className="textCont">
           <div className="textContOverlay"></div>

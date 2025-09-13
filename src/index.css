@@ -463,6 +463,7 @@ transform: scale(1.1);
 position: absolute;
 bottom: 26vh;
 left: 3%;
+transform: translateY(var(--parallaxImg));
 }
 
 .asideImg {
@@ -767,8 +768,14 @@ display: flex;
 
     .more {
       background: black;
+      background: url('./assets/book.jpeg') center / auto 100% no-repeat ;
       height: 100dvh;
       width: 100vw;
+    }
+
+    .blur-overlay3 {
+      background: var(--bgOverlay);
+      z-index: 2;
     }
 
 @media (max-width: 600px) {
@@ -840,6 +847,10 @@ display: flex;
   margin-top: unset;
   padding-left: 0.5em;
   transform: translateY(-10%);
+}
+
+.h1More{
+  font-size: 6em !important;
 }
 }
 
