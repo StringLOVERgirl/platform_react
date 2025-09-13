@@ -85,12 +85,13 @@ if (isMobile.current) {
   e.preventDefault();
 }
 
-const evenet = isMobile.current ? e.touches[0] : e
-// window.innerWidth < 600? e.preventDefault():""
+  const evenet = isMobile.current ? e.touches[0] : e
+
   const x = evenet.clientX;
   const y = evenet.clientY;
   const radius = 100; // можно менять радиус круга здесь
-// console.log(x,y)
+
+// на сам эл или родитель ближайшмй
   blur.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
   blur.current.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
 };
@@ -141,9 +142,10 @@ function hideQuite(){
 
   useEffect(()=>{
   
-  // на сам эл или родитель ближайшмй
+  // паралакс картинки
   psedoWindow.current.addEventListener('scroll', () => {
     let value = psedoWindow.current.scrollTop / 5
+    // замедлить но бильном
     asideImgCont.current.style.transform = `translateY(${-value}px)`
   })
   
