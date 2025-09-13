@@ -6,7 +6,7 @@ export function More (){
         <div className="more" 
         style={{display:'flex', justifyContent:'center', alignItems:'center'}}
         >
-            <Link to='/'
+            <Link to='/' state={'more'}
             style={{position:'absolute',color: 'var(--textColor)',fontFamily:'oswald',
              fontSize: '1.4em',
         top:0, left: '3em', paddingLeft: '5em', paddingTop: '0.5em',

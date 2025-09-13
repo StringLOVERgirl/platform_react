@@ -828,17 +828,17 @@ display: flex;
     width: 33vw;
   }
 
-  #blurOverlay{
-    /* display: none; */
-    /* z-index: 3; */
-  }
-
   .preloaderOutter {
 
     background:#041b1d 
   }
 .preloader {
   font-size: 4.5em;
+}
+
+.italicMainCont {
+  margin-top: unset;
+  padding-left: 0.5em;
 }
 }
 

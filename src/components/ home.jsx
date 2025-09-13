@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState , useLayoutEffect} from "react";
 import movie2019 from "../assets/the_platform2.webp"
 import movie2024 from "../assets/pl.webp"
 import React from "react";
 import { DecorBg } from "./decorbg";
 import { Header } from "./header";
+import { useLocation } from "react-router-dom";
+
 export function Home(){
+
+    const state = useLocation();
 
     let [isPreload, setPreload] = useState('')
 
@@ -33,7 +37,7 @@ export function Home(){
       copyAccent.current.style.setProperty('--copyAccentTransformOrigin', 'right')
     }
   
-  
+    
       function changeBg (){
       let value = flags.flagBg ? 1 : 0
       let valueMin = flags.flagMinBg ? 0.8 : 0
@@ -145,24 +149,42 @@ export function Home(){
     console.log(12)
   }
   
-    useEffect(()=>{
-    
-    // паралакс картинки
-    psedoWindow.current.addEventListener('scroll', () => {
-      let value = psedoWindow.current.scrollTop / 5
-      // замедлить но бильном
+
+  function asideParallax(){
+      let speed = isMobile.current ? 7 : 5
+      let value = psedoWindow.current.scrollTop / speed
       asideImgCont.current.style.transform = `translateY(${-value}px)`
-    })
+  }
+  const raf = useRef(null)
+  function parallaxSpacing(){
+    let value = psedoWindow.current.scrollTop * 0.2
+    titleCont.current.style.setProperty('--ls',value+'px')
+    raf.current = requestAnimationFrame(parallaxSpacing)
+}
+useLayoutEffect(()=>{
+    // нужен он если добавляю обработчики на элемент и очищаю их то в обычном 
+    // юс эффект ссылки на элемнты на моменты выполнения очистки будут ноль 
+
+
+    // паралакс картинки
+    console.log(psedoWindow.current)
+    psedoWindow.current.addEventListener('scroll', asideParallax)
+    //   let speed = isMobile ? 7 : 5
+    //   let value = psedoWindow.current.scrollTop / speed
+    //   asideImgCont.current.style.transform = `translateY(${-value}px)`
+    // })
     
-    function parallaxSpacing(){
-        let value = psedoWindow.current.scrollTop * 0.2
-        titleCont.current.style.setProperty('--ls',value+'px')
-        requestAnimationFrame(parallaxSpacing)
-    }
+   
     parallaxSpacing()
   
-  
+    return ()=>{
+        // console.log(preload.current)
+            psedoWindow.current.removeEventListener('scroll', asideParallax)
+            console.log('aside parallax has been removed')
+        cancelAnimationFrame(raf.current)
+    }
     },[])
+
     console.log('montirovanie')
   
 
@@ -171,6 +193,8 @@ export function Home(){
 
     return(
         <>
+        {/* выенсти всю логику предлодарев в отедльныей компоента и условно 
+        не  рендерить по стейту */}
         <div className={`preloaderOutter ${isPreload}`} ref={preload}>
         <div className={`preloaderCont`} ref={preloaderCont}>
         {textDelay.map((e,i)=>{
