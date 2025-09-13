@@ -839,7 +839,7 @@ display: flex;
 .italicMainCont {
   margin-top: unset;
   padding-left: 0.5em;
-  transform: translateY(-25%);
+  transform: translateY(-10%);
 }
 }
 
