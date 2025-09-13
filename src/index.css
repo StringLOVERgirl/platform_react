@@ -519,11 +519,14 @@ transform: translateY(-100%);
   position: absolute;
   bottom: 1em;
   width: 65vw;
+  line-height: 1.2;
+
 }
 
 .copyAccent {
   font-family: paper;
   font-size: 1.3em;
+  font-weight: 500;
   color: var(--accentColor);
   text-decoration: none;
   position: relative;
@@ -677,7 +680,7 @@ margin-top: auto;
   text-transform: uppercase;
   transform: scaleY(1.2);
   font-family: var(--mainFont);
-  font-size: 8svh;
+  font-size: 6svh;
   /* для освалдьа */
   line-height: 1.2;
   
@@ -718,7 +721,7 @@ display: flex;
 .linkSymbol {
   display: block;
   position: relative;
-  transition: transform 1s  cubic-bezier(0.65, 0, 0.35, 1) var(--delay);
+  transition: transform 0.8s  cubic-bezier(0.65, 0, 0.35, 1) var(--delay);
 }
 
 .linkLetter::before{
@@ -746,7 +749,7 @@ display: flex;
     padding-left: 0.5em;
   }
   .inner {
-    z-index: 1;
+    /* z-index: 1; */
   }
   .title {
     font-size: 5em;
@@ -760,8 +763,8 @@ display: flex;
 
 
   .textCont{
-    z-index: 2;
-    border-radius: 35px;
+    /* z-index: 2; */
+    /* border-radius: 35px; */
     background: url('./assets/food.jpeg') 0 / cover no-repeat;
   }
 

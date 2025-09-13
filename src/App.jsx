@@ -3,6 +3,8 @@ import netflixLogo from "./assets/netflix.webp"
 import React from "react";
 import movie2019 from "./assets/the_platform2.webp"
 import movie2024 from "./assets/pl.webp"
+import './index.css'
+
 import { useEffect, useRef, useState } from "react";
 
 function DecorBg({id, type}){
@@ -97,7 +99,7 @@ useEffect(()=>{
   window.addEventListener('resize', () => {
     isMobile.current ? window.removeEventListener('touchmove', unBlur)
     : window.removeEventListener('mousemove', unBlur)
-    
+
   isMobile.current =  window.innerWidth < 600 ? true : false
 
   isMobile.current ? window.addEventListener('touchmove', unBlur, { passive: false })
