@@ -1,11 +1,13 @@
 import {Link } from "react-router-dom"
-
+import { Header } from "./header"
 export function More (){
 
     return (
         <div className="more" 
         style={{display:'flex', justifyContent:'center', alignItems:'center'}}
         >
+                    <Header></Header>
+
             <Link to='/' state={'more'}
             style={{position:'absolute',color: 'var(--textColor)',fontFamily:'oswald',
              fontSize: '1.4em',

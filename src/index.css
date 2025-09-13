@@ -208,7 +208,7 @@ h2 {
     }
 
     .preloaderOutter {
-      height: 100svh;
+      height: 100dvh;
       width: 100vw;
   
       position: fixed;
@@ -839,6 +839,7 @@ display: flex;
 .italicMainCont {
   margin-top: unset;
   padding-left: 0.5em;
+  transform: translateY(-25%);
 }
 }
 
