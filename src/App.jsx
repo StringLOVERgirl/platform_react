@@ -10,7 +10,9 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 function App() {
   let [blurState, setBlur] = useState(null)
+  const blurFlag = useRef()
 const location = useLocation()
+
   return (
   
     <div className="App">
@@ -25,7 +27,7 @@ const location = useLocation()
         
         <Routes location={location} //для переходов
         >
-        <Route path="/" element={<Home blurState={blurState} setBlur={setBlur}></Home>}></Route>
+        <Route path="/" element={<Home blurState={blurState} setBlur={setBlur} blurFlag={blurFlag}></Home>}></Route>
           <Route path="/more" element={<More></More>}></Route>
        </Routes>
       

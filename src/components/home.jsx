@@ -8,7 +8,7 @@ import { Header } from "./header";
 import { Preloader } from "./preloader";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export function Home({blurState, setBlur}){
+export function Home({blurState, setBlur, blurFlag}){
 
     const location = useLocation();
     // const navigate = useNavigate();
@@ -35,7 +35,7 @@ export function Home({blurState, setBlur}){
     const year = useRef()
     const copyAccent = useRef()
     
-    const blurFlag = useRef(false)
+    // const blurFlag = useRef(false)
     const isMobile = useRef(false) 
 
     let [bg, setBg] = useState(null)
@@ -252,7 +252,7 @@ console.log(location.state)
           </div>
 
           {/* vertical platform */}
-          <div className="veticalOutter">
+          {/* <div className="veticalOutter">
 
             <div className='verticalInner'>
                <div className="platform platformTop"></div> 
@@ -261,7 +261,7 @@ console.log(location.state)
                 
             </div>
         
-          </div>  
+          </div>   */}
 
           
           <div className="linkMainCont"><Link className="linkAcont" data-label='read more' href="" to={"/more"}>

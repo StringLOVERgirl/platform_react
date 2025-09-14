@@ -5,16 +5,27 @@ export function More (){
 
 
     return (
-        <div className="more" 
-        style={{display:'flex', justifyContent:'center', alignItems:'center'}}
-        >
+        <div className="more">
+
+<div className="veticalOutter">
+
+<div className='verticalInner'>
+   <div className="platform platformTop"></div> 
+   <span className="verticalSpan">platform</span> 
+   <div className="platform platformBottom"></div> 
+    
+</div>
+
+</div>  
+
+
             <div className="blurLayer blur-overlay3"></div>
-                    <Header zindex={1} ></Header>
+                    <Header zindex={1}></Header>
                     {/* <Link to="/" state='read'>read</Link>
                     работает
                      */}
                     <Link to="/"  state='more' 
-            style={{position:'absolute',color: 'var(--textColor)',fontFamily:'oswald',
+            style={{position:'absolute',color: 'var(--moreColor)',fontFamily:'oswald',
              fontSize: '1.4em',
         top:0, left: '3em', left: '8em', paddingTop: '0.5em',
 textDecoration: "none", textAlign: "center", zIndex:1}}

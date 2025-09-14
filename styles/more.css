@@ -1,9 +1,12 @@
 .more {
     /* для странциы по она и той  */
     /* background:rgb(152, 18, 18); */
-    background: url('../src/assets/trima.jpeg') center / auto 100% no-repeat fixed;
-    height: 100dvh;
+    /* background: url('../src/assets/the-platform-banner.webp') center / 80% no-repeat fixed,#041b1db2 ; */
     width: 100vw;
+    /* background: #0d140f91; */
+    background: #041b1db2;
+
+    position: relative;
   }
 
   .blur-overlay3 {
@@ -21,10 +24,11 @@ height: 100%;
 pointer-events: none;
 box-sizing: border-box;
 /* margin-left: auto; */
-padding-top: 1em;
+padding-top: 6em;
 position: relative;
 display: flex;
 /* align-items: center; */
+
   }
 
   .desch2Cont{
@@ -58,15 +62,15 @@ display: flex;
   }
 
   #movieDescription {
-    color: beige;
+    color: var(--moreColor);
     font-family: oswald;
     font-weight: 300;
     padding-inline: 1em;
     /* padding-top: 2em; */
-    font-size: 4em;
+    font-size: 3em;
     letter-spacing: 0.2px;
-    line-height: 1.2;
-    text-align: center;
+    /* line-height: 1.2; */
+    /* text-align: center; */
     /* display: none; */
   }
 
@@ -80,3 +84,88 @@ display: flex;
     left: 0;
     transform: translateX(-0.5em);
     } */
+
+
+
+.veticalOutter {
+  /* border: solid 1px var(--accentColor); */
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  justify-content: center;
+  opacity: 0.6;
+
+  /* perspective: 500px; */
+  /* transform: scale(1.5); */
+  /* display: none; */
+}
+
+.verticalInner {
+  display: flex;
+  flex-direction: column;
+align-items: center;
+  will-change: transform;
+  perspective: 61svh;
+  animation: lift 30s linear infinite;
+  transform: translateY(100%);
+  /* animation: vertical 10s linear infinite; */
+}
+@keyframes rotatetop {
+  from {
+    transform: translateY(35%) rotateX(60deg);
+  }
+  to {
+    transform: translateY(35%) rotateX(98deg);
+  }
+}
+@keyframes rotateSpan {
+  from {
+transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
+  }
+  to {
+    transform: translateZ(-60svh) scale(0.8)rotateX(20deg) ;
+  }
+}
+
+@keyframes rotatebottom {
+  from {
+    transform: translateY(-35%) rotateX(80deg);
+  }
+  to {
+    transform: translateY(-35%) rotateX(120deg);
+  }
+}
+@keyframes lift {
+  to {
+    transform: translateY(-100%);
+  }
+}
+.platform{
+  height: 45%;
+  width: 50%;
+  background: #617a6b;
+  /* background: url('../src/assets/trima.jpeg') center / auto 100% no-repeat fixed; */
+}
+
+.platformTop {
+  animation: rotatetop 30s linear infinite;
+  /* transform: translateY(30%) rotateX(92deg); */
+}
+.platformBottom {
+  animation: rotatebottom 30s linear infinite;
+  position: relative;
+
+  }
+
+.verticalSpan {
+  color: var(--moreColor);
+  text-transform: uppercase;
+  font-family: var(--mainFont);
+  font-size: 16vh;
+  line-height: 1;
+  animation: rotateSpan 30s linear infinite;
+  /* transform: translateZ(-60svh) scale(0.8); */
+}
+

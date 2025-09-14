@@ -23,7 +23,9 @@ box-sizing: border-box;
 --bgOverlay: #00000033;
 --mainFont: oswald;
 --italica: italica;
---letterScale: scaleY(1.4)
+--letterScale: scaleY(1.4);
+--moreColor: beige;
+--darkGreen: #041b1d;
 }
 html {
   background: transparent;
@@ -286,7 +288,9 @@ top: 0;
 font-family: var(--mainFont);
 width: 100%;
 display: flex;
-
+}
+.more header a {
+  color: var(--moreColor);
 }
 
 header ul {
@@ -533,73 +537,6 @@ transform: translateY(-100%);
   --copyAccentTransformOrigin: left !important;
   --copyAccentUnderline: 1
 }
-
-
-.veticalOutter {
-  /* border: solid 1px var(--accentColor); */
-  display: flex;
-  height: 100%;
-  transform: scale(1.5);
-  display: none;
-}
-
-.verticalInner {
-  display: flex;
-  flex-direction: column;
-align-items: center;
-  will-change: transform;
-  perspective: 61svh;
-  animation: lift 30s linear infinite;
-  transform: translateY(100%);
-  /* animation: vertical 10s linear infinite; */
-}
-@keyframes rotatetop {
-  from {
-    transform: translateY(35%) rotateX(60deg);
-  }
-  to {
-    transform: translateY(35%) rotateX(98deg);
-  }
-}
-
-@keyframes rotatebottom {
-  from {
-    transform: translateY(-35%) rotateX(73deg);
-  }
-  to {
-    transform: translateY(-35%) rotateX(110deg);
-  }
-}
-@keyframes lift {
-  to {
-    transform: translateY(-100%);
-  }
-}
-.platform{
-  height: 50%;
-  width: 55%;
-  background: var(--textColor);
-}
-
-.platformTop {
-  animation: rotatetop 30s linear infinite;
-  /* transform: translateY(30%) rotateX(92deg); */
-}
-.platformBottom {
-  animation: rotatebottom 30s linear infinite;
-  position: relative;
-
-  }
-
-.verticalSpan {
-  color: var(--textColor);
-  text-transform: uppercase;
-  font-family: var(--mainFont);
-  font-size: 16vh;
-  line-height: 1;
-  transform: translateZ(-113svh) scaleY(1.2);
-}
-
 
 @keyframes vertical {
   from {
