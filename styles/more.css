@@ -1,0 +1,82 @@
+.more {
+    /* для странциы по она и той  */
+    /* background:rgb(152, 18, 18); */
+    background: url('../src/assets/trima.jpeg') center / auto 100% no-repeat fixed;
+    height: 100dvh;
+    width: 100vw;
+  }
+
+  .blur-overlay3 {
+    background: var(--bgOverlay);
+    z-index: 2;
+  }
+
+.text {
+    /* background: #041b1db2; */
+/* width: 80vw; */
+height: 100%;
+/* width: 50%; */
+/* background: #041b1d; */
+/* backdrop-filter:  blur(2px); */
+pointer-events: none;
+box-sizing: border-box;
+/* margin-left: auto; */
+padding-top: 1em;
+position: relative;
+display: flex;
+/* align-items: center; */
+  }
+
+  .desch2Cont{
+    display: flex;
+    /* display: none; */
+  }
+
+  .desch2 {
+    color: beige;
+    padding-inline-start: 1em;
+    text-transform: capitalize;
+    font-family: oswald;
+    font-weight: 300;
+    font-size: 3em;
+    
+  }
+  .desch2::after{
+    content: '';
+    display: block;
+    background: linear-gradient(to right, transparent, beige, transparent);
+    height: 2px;
+  }
+
+  .h1More{
+    font-family: 'antonio';
+     color: var(--textColor);
+     font-size: 10em;
+     position: absolute;
+     left: 25%;
+     transform: translateX(-50%);
+  }
+
+  #movieDescription {
+    color: beige;
+    font-family: oswald;
+    font-weight: 300;
+    padding-inline: 1em;
+    /* padding-top: 2em; */
+    font-size: 4em;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    text-align: center;
+    /* display: none; */
+  }
+
+/* 
+  . {
+    content: '';
+    height: 120%;
+    width: 1px;
+    background: var(--textColor);
+    position: absolute;
+    left: 0;
+    transform: translateX(-0.5em);
+    } */

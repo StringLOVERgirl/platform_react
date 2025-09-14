@@ -5,6 +5,7 @@ export function Preloader(){
 
 
     let [isPreload, setPreload] = useState('')
+    let [quite,setQuite] = useState('')
 
     const preloaderCont = useRef(null)
     const preload = useRef(null)
@@ -25,12 +26,13 @@ export function Preloader(){
     
     function hideQuite(){
       setPreload('hidePreloader')
+      setQuite('hideQuite')
       console.log(12)
     }
 
     return (
  <div className={`preloaderOutter ${isPreload}`} ref={preload}>
-        <div className={`preloaderCont`} ref={preloaderCont}>
+        <div className={`preloaderCont ${quite}`} ref={preloaderCont}>
         {textDelay.map((e,i)=>{
    return <React.Fragment key={'preloader element'+i}>
  <span className="preloader" 

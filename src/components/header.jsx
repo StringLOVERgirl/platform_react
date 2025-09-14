@@ -1,9 +1,9 @@
 import netflixLogo from "../assets/netflix.webp"
 
-export function Header() {
+export function Header({zindex = 0}) {
 
     return(
-        <header>
+        <header style={{zIndex:zindex}}>
           
             <nav>
               <ul className="lang">
@@ -16,7 +16,7 @@ export function Header() {
               </ul>
             </nav>
 
-            <a href="https://www.netflix.com/title/81128579">
+            <a href="https://www.google.com/search?q=platform+netflix" target="_blank">
               <img
                 id="netflixLogo"
                 src={netflixLogo}

@@ -29,7 +29,8 @@ html {
   background: transparent;
 }
 .App {
-  background: linear-gradient(to right,transparent,#041b1d 0% 100%,transparent);
+  background: linear-gradient(to right,#1f292a, #1f292a);
+  /* old 041b1d */
 }
 h2 {
   font-family: paper;      
@@ -132,7 +133,7 @@ h2 {
       -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;
     }
 
-    .hideTitle{
+    .hideQuite{
       clip-path: inset(0 100% 0 100%) !important;
       opacity: 0;
     }
@@ -254,15 +255,7 @@ height: 35svh;
       pointer-events: none;
     }
 
-    #movieDescription {
-      color: beige;
-      font-weight: 300;
-      padding: 0.5em;
-      font-size: 1.3em;
-      line-height: 1.5;
-      text-align: center;
-      display: none;
-    }
+  
 
 
 
@@ -283,42 +276,6 @@ height: 35svh;
     background: #0000005c;
     backdrop-filter: blur(8px);
   }
-
-  .blur-overlay2 {
-    backdrop-filter: blur(5px);
-    display: none;
-  }
-
-
-/* description */
-  .text {
-    background: var(--bgOverlay);
-width: 80vw;
-box-sizing: border-box;
-margin-inline: auto;
-padding-top: 1em;
-position: relative;
-/* border-radius: 35px; */
-display: none;
-  }
-
-.desch2Cont{
-  display: flex;
-  display: none;
-}
-
-  .desch2 {
-    color: beige;
-    padding-inline-start: 1em;
-    text-transform: capitalize;
-    font-family: raleway;
-    font-weight: 300;
-    font-size: 2em;
-  }
-  /* рефакторинг
-  занести в переменные цвета 
-  снят ьперспективу с татйтла*/
-
 
 
 
@@ -409,7 +366,7 @@ transform: translateX(1em);
 #blur {
 background: unset;
 border: none;
-color: var(--textColor);
+color: var(--accentColor);
 font-family: var(--mainFont);
 font-size: 2em;
 letter-spacing: 0;
@@ -417,10 +374,23 @@ text-transform: uppercase;
 transition: transform 0.6s  cubic-bezier(0.65, 0, 0.35, 1);
 cursor: pointer;
 }
-
+.transition-enter {
+  opacity: 0;
+}
+.transition-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.transition-exit {
+  opacity: 1;
+}
+.transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
 #blur::after{
 content: 'blur';
-color: var(--accentColor);
+color: var(--textColor);
 position: absolute;
 /* transition: transform 0.4s; */
 transform: translateY(100%) translateX(-100%);
@@ -766,17 +736,7 @@ display: flex;
     }
 
 
-    .more {
-      background: black;
-      background: url('./assets/book.jpeg') center / auto 100% no-repeat ;
-      height: 100dvh;
-      width: 100vw;
-    }
 
-    .blur-overlay3 {
-      background: var(--bgOverlay);
-      z-index: 2;
-    }
 
 @media (max-width: 600px) {
   .lang {
