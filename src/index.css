@@ -750,8 +750,8 @@ display: flex;
   transform: scale(0.6);
 }
 
-.h1More{
-  font-size: 5em !important;
+.moreH1{
+  font-size: 6em !important;
 }
 
 .moreTitleCont{
