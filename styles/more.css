@@ -11,17 +11,7 @@ overflow: hidden;
     top: 0;
     position: relative;
   }
-@keyframes bg1 {
-  from {
-    background: url('../src/assets/82806.jpg') left/ 300% 100% no-repeat fixed;
-  }
-  50% {
-    background: repeating-radial-gradient(  blue,transparent) center 0/ 15svh;
-  }
-  to {
 
-  }
-}
   .more header a{
     color: #c5c5b8 !important;
     /* background: url('../src/assets/bg3.jpg')center/ contain; */
@@ -170,7 +160,7 @@ width: 7em;
 }  
 .innerText {
   /* padding-inline: 5vw;   */
-  background: url('../src/assets/82806.jpg') center / cover fixed; 
+  background: url('../src/assets/82806.jpg') center / cover; 
   /* background: black; */
   position: relative;
   /* z-index: -1; */
@@ -393,7 +383,7 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
 
 .similar {
   height: 100svh;
-  background: url('../src/assets/82806.jpg') center / cover fixed;
+  background: url('../src/assets/82806.jpg') center / cover;
   /* position: relative; */
   z-index: -1;
 }
@@ -412,7 +402,7 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
   top: 0;
   position: fixed;
   height: 100svh;
-  background: url('../src/assets/food.jpeg') center/ cover no-repeat ;
+  background: url('../src/assets/food.jpeg') center/ cover no-repeat;
   width: 100%;
   
   /* animation: bg 30s linear infinite; */

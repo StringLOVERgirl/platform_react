@@ -10,8 +10,8 @@ import { store } from '../js/routers'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    <HashRouter>
+    <BrowserRouter>
       <App />
-    </HashRouter>
+    </BrowserRouter>
   </Provider>
 )
