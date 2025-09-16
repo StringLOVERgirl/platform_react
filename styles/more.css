@@ -4,14 +4,33 @@
     /* background: url('../src/assets/the-platform-banner.webp') center / 80% no-repeat fixed,#041b1db2 ; */
     width: 100vw;
     /* background: #0d140f91; */
-    background: #041b1db2;
-
+    
+    /* background: url('../src/assets/food.jpeg') center/ cover no-repeat fixed; */
+    /* background: repeating-radial-gradient(  rgba(230, 230, 250, 0.197),transparent) center 0/ 15svh; */
+overflow: hidden;
+    top: 0;
     position: relative;
   }
+@keyframes bg1 {
+  from {
+    background: url('../src/assets/82806.jpg') left/ 300% 100% no-repeat fixed;
+  }
+  50% {
+    background: repeating-radial-gradient(  blue,transparent) center 0/ 15svh;
+  }
+  to {
+
+  }
+}
+  .more header a{
+    color: #c5c5b8 !important;
+    /* background: url('../src/assets/bg3.jpg')center/ contain; */
+  }
+
 
   .blur-overlay3 {
     background: var(--bgOverlay);
-    z-index: 2;
+    z-index: 5;
   }
 
 .text {
@@ -27,9 +46,224 @@ box-sizing: border-box;
 padding-top: 6em;
 position: relative;
 display: flex;
+flex-direction: column;
 /* align-items: center; */
 
   }
+  .titleText{
+    /* position: absolute; */
+    z-index: 1;
+    padding-left: 5vw;
+    /* backdrop-filter: blur(3px); */
+    
+    
+  }
+
+  .trailer {
+    height: 20em;
+    width: 60em;
+    position: relative;
+    /* right: 0; */
+    
+    /* transform: translateX(-20vw); */
+    object-fit: cover;
+    /* flex-grow: 1; */
+  }
+.moreH1 {
+  color:  var(--textColor);
+font-family: oswald;
+height: fit-content;
+font-size: 7em;
+/* 6.5 mobile */
+font-weight: 400;
+padding: 0.25em;
+padding-left: 0;
+width: fit-content;
+position: relative;
+display: flex;
+transform: scaleY(1.1);
+}
+.moreH1::before{
+  content: '2019';
+  display: block;
+  font-size: 0.15em;
+  align-self: center;
+  position: absolute;
+  right: 0;
+  transform: translateY(-1em) ;
+}
+.moreH1::after{
+  content: '( El Hoyo )';
+  display: block;
+  font-size: 0.15em;
+  align-self: center;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(-1.5em);
+}
+.moreTitleCont {
+position: relative;
+align-self: flex-start;
+/* width: 90%; */
+text-align: left;
+display: flex;
+gap: 2em;
+width: 100%;
+height: fit-content;
+z-index: 2;
+
+}
+
+.asideMore {
+  /* background: rgba(0, 0, 0, 0.18); */
+  border-radius: 25px;
+  width: fit-content;
+}
+.ganreCont, .rateCont {
+  color: #c5c5b8;
+  text-transform: capitalize;
+}
+.rateCont {
+  width: fit-content;
+  display: flex;
+}
+.rateCont svg {
+  transform: translateY(-6%);
+}
+.rate {
+  font-size: 1.1em;
+}
+.ganreCont {
+  font-size: 1.1em;
+  display: flex;
+  gap: 0.25em;
+  padding-bottom: 0.4em;
+}
+.ganre {
+  border-radius: 25px;
+  border: solid 1px var(--textColor);
+  padding-right: 0.5em;
+  padding-left: 0.7em;
+  text-align: end;
+}
+
+
+iframe {
+  pointer-events: all;
+  /* position: absolute; */
+  /* transform: translateX(-10%); */
+}
+.titleMoreBg {
+/* flex-basis: 30%; задать ширину */
+/* align-self: stretch; высоту сто процнетов*/
+margin-inline: 5vw;  
+border-radius: 20px;
+height: 2.5em;
+width: 7em;
+/* width: fit-content; */
+  background: url('../src/assets/goreng.webp') center 40% / cover no-repeat ;
+  
+  float: left;
+  margin-right:0.75em ;
+  transform: translateY(50%);
+}  
+.innerText {
+  /* padding-inline: 5vw;   */
+  background: url('../src/assets/82806.jpg') center / cover fixed; 
+  /* background: black; */
+  position: relative;
+  /* z-index: -1; */
+}
+.quiteCont{
+  height: 150svh;
+  z-index: 2;
+  display: flex;
+  position: relative;
+  align-items: center;
+  /* justify-content: center; */
+  
+}
+.quiteBg{
+  align-self: center;
+  height: 90svh;
+  margin-inline: auto;
+  /* position: absolute; */
+  width: 35%;
+  position: relative;
+  z-index: 1;
+  background: url('../src/assets/orig.webp') center / cover ;
+}
+.quoite {
+  position: absolute;
+  color: var(--textColor);
+  font-size: 4em;
+  text-transform: uppercase;
+  will-change: transform;
+  font-weight: 400;
+  white-space: nowrap;
+  /* animation: 20s linear infinite */
+}
+.qu{
+  z-index: 1;
+  
+  animation: qu 20s 5s linear infinite
+}
+.qu2{
+  right: 0;
+  animation: qu2 20s 5s linear infinite
+}
+
+@keyframes qu {
+  from {
+transform: translate(-110%,-50%);
+z-index: 1;
+  }
+  49% {
+    z-index: 1;
+  }
+  50% {
+    transform: translate(105vw,-50%);
+    z-index: 0;
+  }
+  to {
+    transform: translate(-110%,-50%);
+    z-index: 0;
+  }
+}
+
+@keyframes qu2 {
+    from {
+      transform: translate(110%,50%);
+      z-index: 0;
+  }
+  49% {
+    z-index: 0;
+  }
+  50% {
+    transform: translate(-100vw,50%);
+    z-index: 1;
+  }
+  to {
+    transform: translate(110%,50%);
+    z-index: 1;
+  }
+}
+
+  #movieDescription {
+    padding-inline: 5vw;  
+    color:  #c5c5b8;
+    font-family: oswald;
+    font-weight: 300;
+    font-size: 3em;
+    text-align: start;
+    /* text-indent: 40vw; */
+    letter-spacing: 0.2px;
+    /* line-height: 1.2; */
+    /* text-align: center; */
+    /* display: none; */
+    
+  }
+
 
   .desch2Cont{
     display: flex;
@@ -43,7 +277,6 @@ display: flex;
     font-family: oswald;
     font-weight: 300;
     font-size: 3em;
-    
   }
   .desch2::after{
     content: '';
@@ -59,19 +292,6 @@ display: flex;
      position: absolute;
      left: 25%;
      transform: translateX(-50%);
-  }
-
-  #movieDescription {
-    color: var(--moreColor);
-    font-family: oswald;
-    font-weight: 300;
-    padding-inline: 1em;
-    /* padding-top: 2em; */
-    font-size: 3em;
-    letter-spacing: 0.2px;
-    /* line-height: 1.2; */
-    /* text-align: center; */
-    /* display: none; */
   }
 
 /* 
@@ -93,10 +313,11 @@ display: flex;
   height: 100vh;
   width: 100%;
   top: 0;
+  z-index: 2;
   position: fixed;
   justify-content: center;
   opacity: 0.6;
-
+pointer-events: none;
   /* perspective: 500px; */
   /* transform: scale(1.5); */
   /* display: none; */
@@ -169,3 +390,50 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
   /* transform: translateZ(-60svh) scale(0.8); */
 }
 
+.similar {
+  height: 100svh;
+  background: url('../src/assets/82806.jpg') center / cover fixed;
+  /* position: relative; */
+  z-index: -1;
+}
+
+
+.animateBg{
+  /* background: repeating-linear-gradient( 90deg,  red,transparent 100px) center; */
+  /* background: repeating-radial-gradient(   red,transparent) center 0/ 15svh; */
+   
+  /* background-size: 40vh 40vh; */
+/*      farthest-corner at 40px 40px,
+*/
+
+  /* background: radial-gradient(red 20%,transparent 70%) center 0/ 100px  100px no-repeat; */
+  
+  top: 0;
+  position: absolute;
+  height: 100svh;
+  background: url('../src/assets/food.jpeg') center/ cover no-repeat fixed;
+  width: 100%;
+  
+  /* animation: bg 30s linear infinite; */
+}
+
+.ab {
+  background: radial-gradient(farthest-corner at 50% 50%, var(--accentColor) 40%,transparent 70%) no-repeat;
+  background-size: 30em 30em;
+  transform: translate(-4vw,3vw);
+}
+
+.ab2 {
+  background: radial-gradient(farthest-corner at 50% 50%, var(--darkGreen) 0,transparent 70%) no-repeat;
+  background-size: 40vw 40vw;
+  transform: translate(-23vw, -23vw);
+}
+
+@keyframes bg {
+  from {
+transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
