@@ -206,11 +206,11 @@ width: 7em;
 .qu{
   z-index: 1;
   
-  animation: qu 20s 5s linear infinite
+  animation: qu 20s linear infinite
 }
 .qu2{
   right: 0;
-  animation: qu2 20s 5s linear infinite
+  animation: qu2 20s linear infinite
 }
 
 @keyframes qu {
@@ -409,9 +409,9 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
   /* background: radial-gradient(red 20%,transparent 70%) center 0/ 100px  100px no-repeat; */
   
   top: 0;
-  position: absolute;
+  position: fixed;
   height: 100svh;
-  background: url('../src/assets/food.jpeg') center/ cover no-repeat fixed;
+  background: url('../src/assets/food.jpeg') center/ cover no-repeat ;
   width: 100%;
   
   /* animation: bg 30s linear infinite; */
