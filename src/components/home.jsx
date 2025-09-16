@@ -19,7 +19,7 @@ export function Home({blurState, setBlur, blurFlag}){
       //   location.state = ''
       //   navigate(location.pathname, { replace: true, state: {} });
       // }
-      window.history.replaceState({}, '')
+      // window.history.replaceState({}, '')
 
   
     const psedoWindow = useRef()
