@@ -704,7 +704,7 @@ display: flex;
   }
 
   .blurButtonCont {
-    bottom: 16svh;
+    bottom: 18svh;
   }
 
 
@@ -733,7 +733,7 @@ display: flex;
   .copyCont{
     bottom: unset;
     top: 100svh;
-    transform: translateY(-100%);
+    transform: translateY(-105%);
     width: 100%;
     letter-spacing: 0.1px;
     font-size: 0.9em;
@@ -744,7 +744,7 @@ display: flex;
   }
 
   .asideImgCont{
-    bottom: 30svh;
+    bottom: 18svh;
   }
   .asideImg {
     height: 10svh;
