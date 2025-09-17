@@ -167,7 +167,7 @@ useLayoutEffect(()=>{
 
 console.log(location.state)
 function tozero(){
-  window.screenTop = 0
+  window.scrollY = 0
 }
 
     return(
