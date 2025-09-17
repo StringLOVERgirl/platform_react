@@ -246,7 +246,7 @@ height: 35svh;
       justify-content: center;
       align-items: center;
       overflow: hidden;
-      position: absolute;
+      position: relative;
       /* background: url('./assets/food.jpeg') center / cover fixed; */
     } 
 
