@@ -680,18 +680,18 @@ display: flex;
 
 @media (max-width: 600px) {
   .outter{
-    height: 100lvh;
-    perspective: unset;
-    transform-style: unset;
-    overflow: unset;
+    height: fit-content;
+    /* perspective: unset; */
+    /* transform-style: unset; */
+    /* overflow: unset; */
   }
   .lang {
     padding-left: 0.5em;
   }
   .inner {
-    height: 100lvh;
-    z-index: unset;
-    transform: unset !important;
+    /* height: 100lvh; */
+    /* z-index: unset; */
+    /* transform: unset !important; */
 
   }
   footer {

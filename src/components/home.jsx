@@ -171,7 +171,7 @@ function tozero(){
 }
 
     return(
-        <div>
+        <div style={{display: 'flex'}}>
   {location.state === 'more' ? '' : <Preloader></Preloader>}
 
   <div className="outter" ref={psedoWindow}>
@@ -239,8 +239,7 @@ function tozero(){
             <Link className="linkAcont" 
             data-label='read more'
              href="" 
-             to={"/more"}
-             onClick={tozero}>
+             to={"/more"}>
             {'read more'.split('').map((e,i)=>
             <span className={`linkSymbol ${ e === " "?'space':'linkLetter'}`} 
                key={'linkLetter '+i}
