@@ -79,7 +79,7 @@ console.log(1)
         <div className="quiteCont">
                 <div className="quiteBg"></div>
                 <span className="quoite qu">it's better to eat</span>
-                <span className="quoite qu2">than be aaten</span>
+                <span className="quoite qu2">than be eaten</span>
         </div>
         <div className="quiteDeepBg"></div>
 

@@ -748,6 +748,11 @@ display: flex;
   transform: translateY(-10%);
 }
 
+.homeLinkCont {
+  left: 50% !important;
+  transform: translateX(-50%);
+}
+
 .veticalOutter{
   transform: scale(0.6);
 }
@@ -768,8 +773,18 @@ display: flex;
   padding-top: 5.5em !important;
 }
 
+.quiteCont{
+  height: 100svh !important;
+}
+
 .quiteBg {
+  height: 80svh !important;
   width: 80% !important;
+}
+
+.quiteDeepBg{
+  filter: unset !important;
+  background: unset !important;
 }
 
 .qu{
