@@ -685,7 +685,7 @@ display: flex;
 
     perspective: unset;
     transform-style: unset;
-    overflow: unset;
+    /* overflow: unset; */
   }
   .lang {
     padding-left: 0.5em;
