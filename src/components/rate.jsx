@@ -61,7 +61,7 @@ function player(){
         <div className="videoCont">
         <video src={video} className="trailer" 
         ref={trailer}
-        muted={true} 
+        // muted={true} 
         >
             
         </video>
