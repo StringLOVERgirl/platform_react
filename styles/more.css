@@ -534,7 +534,7 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
 }
 
 .similar {
-  height: 100lvh;
+  height: 100svh;
   background: url('../src/assets/82806.jpg') center / cover;
   /* position: relative; */
   z-index: -1;
@@ -548,7 +548,7 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
   
   top: 0;
   position: fixed;
-  height: 100svh;
+  height: 100lvh;
   background: url('../src/assets/food.jpg') center/ cover no-repeat;
   width: 100%;
 }
