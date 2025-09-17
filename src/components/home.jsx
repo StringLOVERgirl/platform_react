@@ -136,7 +136,7 @@ export function Home({blurState, setBlur, blurFlag}){
   const raf = useRef(null)
 
   function parallaxSpacing(){
-    let value = psedoWindow.current.scrollTop * 0.2
+    let value = window.scrollY * 0.2
     titleCont.current.style.setProperty('--ls',value+'px')
     raf.current = requestAnimationFrame(parallaxSpacing)
 }
