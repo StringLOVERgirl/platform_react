@@ -680,17 +680,20 @@ display: flex;
 
 @media (max-width: 600px) {
   .outter{
-    perspective: unset;
-    transform-style: unset;
-    overflow: unset;
+    /* perspective: unset; */
+    /* transform-style: unset; */
+    /* overflow: unset; */
   }
   .lang {
     padding-left: 0.5em;
   }
   .inner {
-    z-index: unset;
-    transform: unset !important;
+    /* z-index: unset; */
+    /* transform: unset !important; */
 
+  }
+  footer {
+position: relative;
   }
   .title {
     font-size: 5em;

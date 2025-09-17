@@ -171,7 +171,7 @@ function tozero(){
 }
 
     return(
-        <>
+        <div>
   {location.state === 'more' ? '' : <Preloader></Preloader>}
 
   <div className="outter" ref={psedoWindow}>
@@ -253,6 +253,6 @@ function tozero(){
         </footer>
         {/* end of outter */}
       </div>
-</>
+</div>
     )
 }
