@@ -73,7 +73,7 @@ h2 {
       perspective: 1px;
       transform-style: preserve-3d; 
       
-      height: 100svh;
+      height: 100lvh;
       overflow-x: hidden;
       overflow-y: scroll;
     }
@@ -84,7 +84,7 @@ h2 {
       align-items: center;
       justify-content: center;
       transform: translateZ(-1px) scale(2);
-      height: 100svh;
+      height: 100lvh;
       position: relative;
       background: url('./assets/pl.webp') center / cover;
       z-index: -1;
@@ -241,7 +241,7 @@ h2 {
       /* background: black; */
       width: 100vw;
       /* height: 80vh; */
-height: 35svh;
+height: 35lvh;
       display: flex;
       justify-content: center;
       align-items: center;
