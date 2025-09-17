@@ -73,7 +73,7 @@ h2 {
       perspective: 1px;
       transform-style: preserve-3d; 
       position: relative;
-      height: 100lvh;
+      height: 100svh;
       overflow-x: hidden;
       overflow-y: scroll;
     }
@@ -84,7 +84,7 @@ h2 {
       align-items: center;
       justify-content: center;
       transform: translateZ(-1px) scale(2);
-      height: 100lvh;
+      height: 100svh;
       position: relative;
       background: url('./assets/pl.webp') center / cover;
       z-index: -1;
@@ -682,6 +682,7 @@ display: flex;
   .outter{
     perspective: unset;
     transform-style: unset;
+    overflow: unset;
   }
   .lang {
     padding-left: 0.5em;
@@ -704,7 +705,7 @@ display: flex;
 
   .textCont{
     /* z-index: 2; */
-    height: 35lvh;
+    height: 35svh;
     background: url('./assets/food.jpeg') 0 / cover no-repeat;
   }
 
