@@ -448,7 +448,7 @@ z-index: 1;
 
 .veticalOutter {
   display: flex;
-  height: 100vh;
+  height: 100svh;
   width: 100%;
   top: 0;
   z-index: 2;
@@ -548,7 +548,7 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
   
   top: 0;
   position: fixed;
-  height: 100lvh;
+  height: 100svh;
   background: url('../src/assets/food.jpg') center/ cover no-repeat;
   width: 100%;
 }
