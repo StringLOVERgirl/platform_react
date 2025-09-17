@@ -5,6 +5,7 @@ import { Rate } from "./rate"
 
 
 export function More ({rate, setRate}){
+        window.scrollTo(0,0)
 
         const h1Trigger = useRef(null)
         const observer = useRef(null)
