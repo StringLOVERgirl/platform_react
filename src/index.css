@@ -70,8 +70,8 @@ h2 {
     }
 
     .outter {
-      /* perspective: 1px; */
-      /* transform-style: preserve-3d;  */
+      perspective: 1px;
+      transform-style: preserve-3d; 
       
       height: 100lvh;
       overflow-x: hidden;
