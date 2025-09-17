@@ -171,7 +171,7 @@ function tozero(){
 }
 
     return(
-        <div style={{display: 'flex'}}>
+        <div>
   {location.state === 'more' ? '' : <Preloader></Preloader>}
 
   <div className="outter" ref={psedoWindow}>

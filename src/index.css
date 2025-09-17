@@ -696,9 +696,7 @@ display: flex;
     transform: unset !important;
 
   }
-  footer {
-position: relative;
-  }
+  
   .title {
     font-size: 5em;
     /* transform: unset; */
@@ -711,7 +709,7 @@ position: relative;
 
 
   .textCont{
-    /* z-index: 2; */
+    z-index: 2;
     /* height: 35svh; */
     background: url('./assets/food.jpeg') 0 / cover no-repeat;
   }
