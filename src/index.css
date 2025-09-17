@@ -678,17 +678,21 @@ display: flex;
 
 
 @media (max-width: 600px) {
+  .outter{
+    perspective: unset;
+    transform-style: unset;
+  }
   .lang {
     padding-left: 0.5em;
   }
   .inner {
-    /* z-index: 1; */
+    z-index: unset;
     transform: unset !important;
 
   }
   .title {
     font-size: 5em;
-    transform: unset;
+    /* transform: unset; */
     transition: letter-spacing 0.2s;
   }
 
