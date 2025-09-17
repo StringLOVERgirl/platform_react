@@ -692,7 +692,7 @@ display: flex;
   }
   .inner {
     height: 100lvh;
-    z-index: unset;
+    z-index: 0;
     transform: unset !important;
 
   }
