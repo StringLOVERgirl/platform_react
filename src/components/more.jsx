@@ -2,6 +2,8 @@ import {Link } from "react-router-dom"
 import { Header } from "./header"
 import { useState, useRef , useEffect} from "react"
 import { Rate } from "./rate"
+import { Homecopy } from "./homecopy"
+import { Recommend } from "./recomend"
 
 
 export function More ({rate, setRate}){
@@ -50,6 +52,7 @@ console.log(1)
 
 
             <div className="blurLayer blur-overlay3"></div>
+            
             <Header zindex={1}></Header>
                     {/* <Link to="/" state='read'>read</Link>
                     работает
@@ -77,10 +80,12 @@ console.log(1)
 <Rate rate={rate}></Rate>
 
 <div className="innerText">
+        
         <div className="quiteCont">
                 <div className="quiteBg"></div>
                 <span className="quoite qu">it's better to eat</span>
                 <span className="quoite qu2">than be eaten</span>
+                <Homecopy></Homecopy>
         </div>
         <div className="quiteDeepBg"></div>
 
@@ -104,10 +109,10 @@ console.log(1)
 </div>
 {/* end of text */}
 </div>
-
-
+<Recommend></Recommend>
+{/* end of more */}
         </div>
-        <div className="similar"></div>
+        {/* <div className="similar"></div> */}
 
         </section>
         </>

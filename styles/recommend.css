@@ -1,0 +1,24 @@
+.recommendOutter {
+    height: 100svh;
+    background: red;
+    position: relative;
+    z-index: 1;
+    display: flex;
+
+}
+
+.recLeft {
+    background: blue;
+    width: 50%;
+    height: 100%;
+    
+}
+.recBgCont {
+    height: 100%;
+    background: url('../src/assets/bg3.jpg') center / cover;
+}
+.recRight{
+    background: greenyellow;
+    width: 50%;
+    height: 100%;
+}

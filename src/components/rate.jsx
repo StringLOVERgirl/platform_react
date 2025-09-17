@@ -1,25 +1,33 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import video from '../assets/trailer.mp4'
 
 
 export function Rate({rate}){
 
 const trailer = useRef(null)
+let [changePlayer, setPlayer] = useState({play: '', volume: 'changePlayer'})
 
 function volume(){
 //   if(trailer.current){
     console.log(1)
     if(trailer.current.muted == false){
         trailer.current.muted = true
+        setPlayer(prev => ({...prev,volume: 'changePlayer'}))
     } else {
         trailer.current.muted = false
+        setPlayer(prev => ({...prev,volume: ''}))
     // }
   }
 }
 
 function player(){
-    if (!trailer.current.paused){trailer.current.pause()} 
-    else {trailer.current.play()}
+    if (!trailer.current.paused){
+        trailer.current.pause()
+        setPlayer(prev => ({...prev,play: 'changePlayer'}))
+    } else {
+        trailer.current.play()
+        setPlayer(prev => ({...prev, play: ''}))
+    }
 }
 
     return(
@@ -53,16 +61,16 @@ function player(){
         <div className="videoCont">
         <video src={video} className="trailer" 
         ref={trailer}
-        autoPlay muted={true} 
+        muted={true} 
         >
             
         </video>
         <div className="playerCont">
             <div className="playCont" onClick={player}>
-            <button className='playerButton playButton'>play</button>
+            <button className={`playerButton playButton ${changePlayer.play}`}></button>
             </div>
             <div className="volumeCont" onClick={volume}>
-            <button className='playerButton volumeButton'>volume</button>
+            <button className={`playerButton volumeButton ${changePlayer.volume}`}></button>
             </div>
         </div>
         </div>
