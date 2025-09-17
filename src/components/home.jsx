@@ -166,6 +166,9 @@ useLayoutEffect(()=>{
 
 
 console.log(location.state)
+function tozero(){
+  window.screenTop = 0
+}
 
     return(
         <>
@@ -232,7 +235,12 @@ console.log(location.state)
                 <span className="italicMain">what is your favorite dish?</span>
           </div>
           
-          <div className="linkMainCont"><Link className="linkAcont" data-label='read more' href="" to={"/more"}>
+          <div className="linkMainCont">
+            <Link className="linkAcont" 
+            data-label='read more'
+             href="" 
+             to={"/more"}
+             onClick={tozero}>
             {'read more'.split('').map((e,i)=>
             <span className={`linkSymbol ${ e === " "?'space':'linkLetter'}`} 
                key={'linkLetter '+i}

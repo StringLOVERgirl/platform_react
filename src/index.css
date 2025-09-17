@@ -739,6 +739,7 @@ display: flex;
   .asideImg {
     height: 10svh;
     width: 33vw;
+    z-index: unset;
   }
 
   .preloaderOutter {
