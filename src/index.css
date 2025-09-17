@@ -241,7 +241,7 @@ h2 {
       /* background: black; */
       width: 100vw;
       /* height: 80vh; */
-height: 35lvh;
+height: 35svh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -681,17 +681,17 @@ display: flex;
 @media (max-width: 600px) {
   .outter{
     height: 100lvh;
-    /* perspective: unset; */
-    /* transform-style: unset; */
-    /* overflow: unset; */
+    perspective: unset;
+    transform-style: unset;
+    overflow: unset;
   }
   .lang {
     padding-left: 0.5em;
   }
   .inner {
     height: 100lvh;
-    /* z-index: unset; */
-    /* transform: unset !important; */
+    z-index: unset;
+    transform: unset !important;
 
   }
   footer {
