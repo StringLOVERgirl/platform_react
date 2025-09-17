@@ -84,7 +84,7 @@ h2 {
       align-items: center;
       justify-content: center;
       transform: translateZ(-1px) scale(2);
-      height: 100lvh;
+      height: 100svh;
       position: relative;
       background: url('./assets/pl.webp') center / cover;
       z-index: -1;
