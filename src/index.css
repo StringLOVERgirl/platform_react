@@ -683,17 +683,17 @@ display: flex;
     /* height: unset; */
     flex-basis: 100%;
 
-    /* perspective: unset; */
-    /* transform-style: unset; */
-    /* overflow: unset; */
+    perspective: unset;
+    transform-style: unset;
+    overflow: unset;
   }
   .lang {
     padding-left: 0.5em;
   }
   .inner {
-    height: 100lvh;
-    /* z-index: unset; */
-    /* transform: unset !important; */
+    /* height: 100lvh; */
+    z-index: unset;
+    transform: unset !important;
 
   }
   footer {
