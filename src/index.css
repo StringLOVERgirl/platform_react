@@ -680,7 +680,7 @@ display: flex;
 
 @media (max-width: 600px) {
   .outter{
-    height: 100lvh;
+    height: unset;
     /* flex-basis: 100%; */
 
     perspective: unset;
