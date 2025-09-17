@@ -72,7 +72,7 @@ h2 {
     .outter {
       perspective: 1px;
       transform-style: preserve-3d; 
-      
+      position: relative;
       height: 100lvh;
       overflow-x: hidden;
       overflow-y: scroll;
@@ -679,16 +679,16 @@ display: flex;
 
 
 @media (max-width: 600px) {
-  .outter{
-    perspective: unset;
-    transform-style: unset;
-  }
+  /* .outter{ */
+    /* perspective: unset; */
+    /* transform-style: unset; */
+  /* } */
   .lang {
     padding-left: 0.5em;
   }
   .inner {
-    z-index: unset;
-    transform: unset !important;
+    /* z-index: unset; */
+    /* transform: unset !important; */
 
   }
   .title {

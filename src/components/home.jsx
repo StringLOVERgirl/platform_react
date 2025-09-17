@@ -167,11 +167,11 @@ useLayoutEffect(()=>{
 
 console.log(location.state)
 function tozero(){
-  // window.scrollTo(0,0)
+  // window.scrollTo()
 }
 
     return(
-        <div>
+        <>
   {location.state === 'more' ? '' : <Preloader></Preloader>}
 
   <div className="outter" ref={psedoWindow}>
@@ -253,6 +253,6 @@ function tozero(){
         </footer>
         {/* end of outter */}
       </div>
-</div>
+</>
     )
 }
