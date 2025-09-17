@@ -12,6 +12,8 @@ function App() {
   let [blurState, setBlur] = useState(null)
   const blurFlag = useRef()
 const location = useLocation()
+let [rate, setRate] = useState('')
+
 
   return (
   
@@ -28,7 +30,7 @@ const location = useLocation()
         <Routes location={location} //для переходов
         >
         <Route path="/" element={<Home blurState={blurState} setBlur={setBlur} blurFlag={blurFlag}></Home>}></Route>
-          <Route path="/more" element={<More></More>}></Route>
+          <Route path="/more" element={<More rate={rate} setRate={setRate}></More>}></Route>
        </Routes>
       
        </CSSTransition>

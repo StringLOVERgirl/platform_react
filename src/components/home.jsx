@@ -6,19 +6,13 @@ import React from "react";
 import { DecorBg } from "./decorbg";
 import { Header } from "./header";
 import { Preloader } from "./preloader";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Homecopy } from "./homecopy";
+import { useLocation } from "react-router-dom";
 
 export function Home({blurState, setBlur, blurFlag}){
 
     const location = useLocation();
-    // const navigate = useNavigate();
-
-    // useEffect(() => {
-      // if (location.state == 'more') {
-      //   console.log('blabla1', location.pathname)
-      //   location.state = ''
-      //   navigate(location.pathname, { replace: true, state: {} });
-      // }
+  
       // window.history.replaceState({}, '')
 
   
@@ -28,33 +22,29 @@ export function Home({blurState, setBlur, blurFlag}){
     const titleCont = useRef()
   
     const blur = useRef()
-    // let [blurState, setBlur] = useState(null)
   
     const asideImgCont = useRef()
   
     const year = useRef()
-    const copyAccent = useRef()
     
-    // const blurFlag = useRef(false)
     const isMobile = useRef(false) 
 
     let [bg, setBg] = useState(null)
   
     let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
   
-    function accentOrigin(){
-      copyAccent.current.style.setProperty('--copyAccentTransformOrigin', 'right')
-    }
-  
     
       function changeBg (){
-      let value = flags.flagBg ? 1 : 0
-      let valueMin = flags.flagMinBg ? 0.8 : 0
-      setFlags(prev=> ({flagBg: !prev.flagBg ,flagMinBg: !prev.flagMinBg}))
-      console.log(flags)
-      setBg(prev=> prev =='changeBg' ? '' : 'changeBg')
-      inner.current.style.setProperty('--opacityBg', value)
-      asideImgCont.current.style.setProperty('--opacityMinBg', valueMin)
+
+         let value = flags.flagBg ? 1 : 0
+         let valueMin = flags.flagMinBg ? 0.8 : 0
+
+         setFlags(prev=> ({flagBg: !prev.flagBg ,flagMinBg: !prev.flagMinBg}))
+         console.log(flags)
+         setBg(prev=> prev =='changeBg' ? '' : 'changeBg')
+
+         inner.current.style.setProperty('--opacityBg', value)
+         asideImgCont.current.style.setProperty('--opacityMinBg', valueMin)
     }
   
   
@@ -179,7 +169,7 @@ console.log(location.state)
 
     return(
         <>
-  {location.state === 'more'   ? '' : <Preloader></Preloader>}
+  {location.state === 'more' ? '' : <Preloader></Preloader>}
 
   <div className="outter" ref={psedoWindow}>
         
@@ -222,16 +212,7 @@ console.log(location.state)
         </aside>
 
 
-        <div className="copyCont">
-          The film "The Platform" is available on&nbsp;
-
-          <a href="https://www.google.com/search?q=platform+netflix" target="_blank" 
-            onMouseOut={accentOrigin} 
-            ref={copyAccent} 
-            className="copyAccent">Netflix
-            </a>. All materials used on this site are the intellectual property of their respective copyright holders and are for informational purposes only.
-              {/* Фильм «Платформа» доступен на <span className="copyAccent">Netflix</span>. Все материалы, использованные на этом сайте, являются интеллектуальной собственностью их правообладателей и размещены в ознакомительных целях. */}
-        </div>
+        <Homecopy></Homecopy>
 
           {/* <!-- end of inner --> */}
     </div>
@@ -250,19 +231,6 @@ console.log(location.state)
           <div className="italicMainCont">
                 <span className="italicMain">what is your favorite dish?</span>
           </div>
-
-          {/* vertical platform */}
-          {/* <div className="veticalOutter">
-
-            <div className='verticalInner'>
-               <div className="platform platformTop"></div> 
-               <span className="verticalSpan">platform</span> 
-               <div className="platform platformBottom"></div> 
-                
-            </div>
-        
-          </div>   */}
-
           
           <div className="linkMainCont"><Link className="linkAcont" data-label='read more' href="" to={"/more"}>
             {'read more'.split('').map((e,i)=>
