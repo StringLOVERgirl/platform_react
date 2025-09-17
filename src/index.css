@@ -704,7 +704,7 @@ display: flex;
   }
 
   .blurButtonCont {
-    bottom: 12%;
+    bottom: 16svh;
   }
 
 
@@ -744,7 +744,7 @@ display: flex;
   }
 
   .asideImgCont{
-    bottom: 19svh;
+    bottom: 30svh;
   }
   .asideImg {
     height: 10svh;
