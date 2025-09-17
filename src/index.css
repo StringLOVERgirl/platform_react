@@ -731,6 +731,9 @@ position: relative;
   }
 
   .copyCont{
+    bottom: unset;
+    top: 100svh;
+    transform: translateY(-100%);
     width: 100%;
     letter-spacing: 0.1px;
     font-size: 0.9em;
