@@ -5,7 +5,7 @@ import video from '../assets/trailer.mp4'
 export function Rate({rate}){
 
 const trailer = useRef(null)
-let [changePlayer, setPlayer] = useState({play: '', volume: 'changePlayer'})
+let [changePlayer, setPlayer] = useState({play: 'changePlayer', volume: ''})
 
 function volume(){
 //   if(trailer.current){
