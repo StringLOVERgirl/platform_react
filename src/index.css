@@ -73,7 +73,7 @@ h2 {
       perspective: 1px;
       transform-style: preserve-3d; 
       
-      height: 100lvh;
+      height: 100dvh;
       overflow-x: hidden;
       overflow-y: scroll;
     }
