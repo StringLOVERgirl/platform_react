@@ -73,7 +73,7 @@ h2 {
       perspective: 1px;
       transform-style: preserve-3d; 
       
-      height: 100svh;
+      height: 100lvh;
       overflow-x: hidden;
       overflow-y: scroll;
     }
@@ -84,7 +84,7 @@ h2 {
       align-items: center;
       justify-content: center;
       transform: translateZ(-1px) scale(2);
-      height: 100svh;
+      height: 100lvh;
       position: relative;
       background: url('./assets/pl.webp') center / cover;
       z-index: -1;
@@ -277,6 +277,7 @@ height: 35svh;
       }
 
     .blur-overlay {
+      height: 100lvh;
     background: #0000005c;
     backdrop-filter: blur(8px);
   }
@@ -678,17 +679,21 @@ display: flex;
 
 
 @media (max-width: 600px) {
+  .outter{
+    perspective: unset;
+    transform-style: unset;
+  }
   .lang {
     padding-left: 0.5em;
   }
   .inner {
-    /* z-index: 1; */
-    transform: unset;
+    z-index: unset;
+    transform: unset !important;
 
   }
   .title {
     font-size: 5em;
-    
+    /* transform: unset; */
     transition: letter-spacing 0.2s;
   }
 
@@ -734,6 +739,7 @@ display: flex;
   .asideImg {
     height: 10svh;
     width: 33vw;
+    z-index: unset;
   }
 
   .preloaderOutter {
