@@ -704,6 +704,7 @@ display: flex;
 
   .textCont{
     /* z-index: 2; */
+    height: 35lvh;
     background: url('./assets/food.jpeg') 0 / cover no-repeat;
   }
 
