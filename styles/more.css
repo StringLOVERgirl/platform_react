@@ -217,7 +217,7 @@ padding-bottom: 0.15em;
   color: var(--moreColor2);
   display: block;
   font-size: 1em;
-transition: transform 0.6s var(--cubic), color 0s 0.5s;
+transition: transform 0.5s var(--cubic), color 0s 0.5s;
   /* transition: transform 0.6s var(--cubic); */
   line-height: 1.5;
   cursor: pointer;
@@ -242,7 +242,7 @@ transition: transform 0.6s var(--cubic), color 0s 0.5s;
 .volumeButton {
   /* height: 1.5em;
   width: 3.5em; */
-  background: url(/src/assets/volume.svg) center 35% / 60% no-repeat;
+  background: url(/src/assets/volume.svg) center 25% / 55% no-repeat;
 }
 
 .volumeButton::after, .playButton::after{
@@ -255,7 +255,7 @@ top: 0;
 }
 .volumeButton::after{
 content: '';
-background: url(/src/assets/volumemuted.svg) center 35% / 60% no-repeat;
+background: url(/src/assets/volumemuted.svg) center 25% / 55% no-repeat;
 transform: translate(110%,0);
 }
 
@@ -362,8 +362,8 @@ overflow: hidden;
 margin-inline: 5vw;  
 border-radius: 20px;
 height: 2.5em;
-width: 7em;
-  background: url('../src/assets/goreng.webp') center 40% / cover no-repeat ;
+/* width: 7em; */
+  /* background: url('../src/assets/goreng.webp') center 40% / cover no-repeat ; */
   float: left;
   margin-right:0.75em ;
   transform: translateY(50%);
@@ -376,6 +376,7 @@ width: 7em;
   /* padding-top: 10em; */
   /* transform: translateY(-10em); */
   position: relative;
+  padding-bottom: 3em;
 }
 
 

@@ -55,6 +55,11 @@ h2 {
     }
 
     @font-face {
+      font-family: inter;
+      src: url('../public/assets/Inter-VariableFont_opsz\,wght.ttf');
+    }
+
+    @font-face {
       font-family: paper;
       src: url('../public/assets/RobotoCondensed-VariableFont_wght.ttf');
     }
@@ -828,6 +833,30 @@ display: flex;
  white-space: nowrap;
  left: 50% !important;
  transform: translateX(-50%);
+}
+
+.recommendSec {
+  background: url(/src/assets/collageoutter.png) 0 90% / 140% !important;
+}
+.recRight {
+  width: 100% !important  ;
+}
+
+.recBg{
+height: 80% !important;
+width: 100% !important;
+border-radius: 35px;
+left: unset !important;
+transform: unset !important;
+background: linear-gradient(rgba(0, 0, 0, 0.2),rgba(0, 0, 0, 0.2)), url(/src/assets/bluredcollage.png) right / 130% !important;
+}
+.posterCont {
+width: 100vw !important;
+}
+
+.poster {
+  height: 50svh !important;
+
 }
 }
 
