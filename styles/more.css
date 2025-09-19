@@ -170,6 +170,7 @@ flex-direction: column;
     z-index: 1;
     color: var(--moreColor2);
     width: 70%;
+    height: fit-content;
     /* font-family: paper; */
     pointer-events: all;
     margin-inline: auto;

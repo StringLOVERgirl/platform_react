@@ -22,8 +22,9 @@ console.log(toObserve.current)
         <>
         {posters.map((e,i)=>
         <div className={`posterCont posterCont${i}`} 
-        key={'postercony'+i}>
-            <div className="posterImgCont" ref={addPoster}>
+        key={'postercony'+i}
+        >
+            <div className="posterImgCont" ref={addPoster} data-labe='ofset'>
               <img className='poster' src={posters[i]}></img>
               <div className="titleRightCont">
                 <span>{titles[i]}</span>

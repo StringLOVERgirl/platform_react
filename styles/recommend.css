@@ -80,7 +80,7 @@
     display: flex;
     height: fit-content;
     position: relative;
-    transition: transform 0.8s var(--cubic);
+    transition: transform 1.8s var(--cubic);
     transform: translate(var(--ofset), -5svh); 
 }
 
@@ -91,7 +91,8 @@
     justify-content: center;
     position: relative;
     /* overflow: hidden; */
-    will-change: clip-path;
+    
+
 }
 
 .posterImgCont {
@@ -100,6 +101,7 @@
     position: relative;
     display: flex;
     justify-content: center;
+    --ofsetInner: 100%
 }
 
 .poster{
@@ -144,7 +146,7 @@ line-height: 1;
     white-space: nowrap;
     color: var(--moreColor);
     /* background: red; */
-    transform: translateX(100%);
+    transform: translateX(var(--ofsetInner))  ;
     transition: transform 1s var(--cubic);
 }
 
@@ -155,9 +157,13 @@ line-height: 1;
 .posterCont:hover .titleRightCont{
 }
 
-.posterImgCont:hover span{
+/* .posterImgCont:hover span{
     transform: translateY(0);
-}
+} */
+
+/* .posterImgCont:hover{ */
+/*  */
+/* } */
 
 .arrowsCont {
     /* width: fit-content; */

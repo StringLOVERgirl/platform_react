@@ -31,14 +31,30 @@ export function More ({rate, setRate}){
 
                 observer.current = new IntersectionObserver(entry => {
                         entry.forEach(e=>{
-                          if (e.isIntersecting){
-                                  console.log(entry[0])
+                                if(e.isIntersecting){ if (e.target.dataset.labe != 'ofset'){
+                                        console.log(entry[e])
+                                        setRate('showRate')
+                                        }}
+                          if (e.intersectionRatio > 0.5){
+                                console.log('fgghdh')
+                                if (e.target.dataset.labe != 'ofset'){
+                                  console.log(entry[e])
                                   setRate('showRate')
-                          }
+                                  }
+        
+                                  else  {
+                                        console.log('back')
+                                         e.target.style.setProperty('--ofsetInner',0)
+                                  }
+                                } else  {
+                                        if(e.intersectionRatio < 0.5){
+                                        e.target.style.setProperty('--ofsetInner','100%')
+                                        }
+                                }
                         })
                 }, {
                         root: null,
-                        threshold: 0
+                        threshold: [0,0.5]
                 })
 
                 toObserve.current.forEach(e=>observer.current.observe(e))
