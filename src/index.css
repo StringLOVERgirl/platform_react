@@ -821,11 +821,12 @@ display: flex;
   right: 0;
   animation: qu2 10s linear infinite
 }
-/* 
+
 #movieDescription {
- font-size: 2.5em !important;
- padding-left: unset !important;
-} */
+ /* font-size: 2.5em !important; */
+ padding-top: 1em !important;
+ text-indent: unset !important;
+}
 
 .titleMoreBg{
   height: 2em !important;
