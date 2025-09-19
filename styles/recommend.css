@@ -196,7 +196,12 @@ line-height: 1;
     transform: scale(1.2);
     fill: var(--textColor);
 } */
-
+@keyframes arrowHover {
+    to {
+        transform: scale(1.2);
+        fill: var(--textColor);
+    }
+}
 .arrowHover{
     transform: scale(1.2);
     fill: var(--textColor);
