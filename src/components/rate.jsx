@@ -1,5 +1,7 @@
 import { useRef, useState } from 'react'
 import video from '../assets/trailer.mp4'
+import parasyte from '/parasyte480.mp4'
+
 
 export function Rate({rate}){
 
@@ -58,7 +60,7 @@ function player(){
            
         </div>
      <div className="videoCont">
-        <video src={video} className="trailer" 
+        <video src={parasyte} className="trailer" 
         ref={trailer}
         // muted={true} 
         ></video>
