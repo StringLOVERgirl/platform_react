@@ -161,19 +161,23 @@ flex-direction: column;
   }
 
   /* адаптировать */
-  .innerText .copyCont {
+  .more .copyCont {
     position: absolute;
     /* top: 10svh; */
-    left: 50%;
-    transform: translate(-50%, -50%) ;
-    bottom: 0;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%) ; */
+    /* transform-origin: left; */
+    transform: translate(0px, 50%);
+    right: 0;
+    top: 0;
     z-index: 1;
-    color: var(--moreColor2);
-    width: 70%;
+    /* color: var(--moreColor2); */
+    width: 50%;
     height: fit-content;
+    /* line-height: 1; */
     /* font-family: paper; */
     pointer-events: all;
-    margin-inline: auto;
+    margin-right: auto;
     
   }
   .showRate{
@@ -318,7 +322,7 @@ gap: 2em;
 width: 100%;
 height: fit-content;
 z-index: 2;
-overflow: hidden;
+/* overflow: hidden; */
 }
 
 .asideMore {
@@ -624,3 +628,24 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
   transform: translate(-23vw, -23vw);
 }
 
+@media (max-width: 600px) {
+  .more .copyCont{
+
+      bottom: unset;
+      width: 90%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      letter-spacing: 0.1px;
+      font-size: 0.9em;
+    }
+
+    #movieDescription {
+      font-size: 2em;
+      text-indent: unset ;
+     }
+
+     .quiteCont{
+      height: 100svh ;
+      margin-bottom: 1em;
+    }
+  }

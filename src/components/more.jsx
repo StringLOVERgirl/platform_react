@@ -104,17 +104,18 @@ export function More ({rate, setRate}){
 <Rate rate={rate}></Rate>
 
 <div className="innerText">
-        
+<Homecopy></Homecopy>
         <div className="quiteCont">
                 <div className="quiteBg"></div>
                 <span className="quoite qu">it's better to eat</span>
                 <span className="quoite qu2">than be eaten</span>
-                <Homecopy></Homecopy>
+                {/* <Homecopy></Homecopy> */}
         </div>
         <div className="quiteDeepBg"></div>
 
 
 <div className="titleMoreMini"></div>
+
 
 <p id="movieDescription">
 

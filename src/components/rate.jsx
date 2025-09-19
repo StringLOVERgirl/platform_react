@@ -1,7 +1,6 @@
 import { useRef, useState } from 'react'
 import video from '../assets/trailer.mp4'
 
-
 export function Rate({rate}){
 
 const trailer = useRef(null)
@@ -58,21 +57,21 @@ function player(){
            </aside>
            
         </div>
-        <div className="videoCont">
+     <div className="videoCont">
         <video src={video} className="trailer" 
         ref={trailer}
         // muted={true} 
-        >
-            
-        </video>
+        ></video>
         <div className="playerCont">
             <div className="playCont" onClick={player}>
-            <button className={`playerButton playButton ${changePlayer.play}`}></button>
+               <button className={`playerButton playButton ${changePlayer.play}`}></button>
             </div>
             <div className="volumeCont" onClick={volume}>
-            <button className={`playerButton volumeButton ${changePlayer.volume}`}></button>
+               <button className={`playerButton volumeButton ${changePlayer.volume}`}></button>
             </div>
         </div>
-        </div>
+    
+        {/* end of video cont */}
+     </div>
     </div>)
 }

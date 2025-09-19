@@ -143,7 +143,7 @@ line-height: 1;
 
 .titleRightCont span{
     display: block;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     color: var(--moreColor);
     /* background: red; */
     transform: translateX(var(--ofsetInner))  ;

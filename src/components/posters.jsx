@@ -1,14 +1,14 @@
 
 export const posters = [
 
-    "/images/exit8.jpg",
-    "/images/the8show.jpeg",
-    "/images/pyramid.jpg",
-    "/images/substance.jpeg",
-    "/images/parasyte.jpeg",
-    "/images/dudeinsideme.jpg",
-    "/images/squidgame.jpeg",
-    "/images/alice.jpg",
+    "/posters/exit8.jpg",
+    "/posters/the8show.jpeg",
+    "/posters/pyramid.jpg",
+    "/posters/substance.jpeg",
+    "/posters/parasyte.jpeg",
+    "/posters/dudeinsideme.jpg",
+    "/posters/squidgame.jpeg",
+    "/posters/alice.jpg",
 
 ]
 
