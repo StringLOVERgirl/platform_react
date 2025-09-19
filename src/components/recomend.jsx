@@ -50,9 +50,12 @@ export function Recommend({toObserve}){
 
     return(
         <section className="recommendSec">
+            {window.innerWidth > 600 ?
             <h2 className="toWatch">
-                Something<br></br>to watch
-            </h2>
+                Something<br></br>to watch*
+            </h2> : <h2 className="toWatch">
+                Something to watch*
+            </h2>  }
 
             {/* <nav className="ancorCont">
                <a className="toTopMore" onClick={toTop}>to top</a>
