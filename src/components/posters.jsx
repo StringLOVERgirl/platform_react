@@ -1,14 +1,14 @@
 
 export const posters = [
 
-    '../../public/posters/exit8.jpg',
-    '../../public/posters/the8show.jpeg',
-    '../../public/posters/pyramid.jpg',
-    '../../public/posters/substance.jpeg',
-    '../../public/posters/parasyte.jpeg',
-    '../../public/posters/dudeinsideme.jpg',
-    '../../public/posters/squidgame.jpeg',
-    '../../public/posters/alice.jpg',
+    '../../public/images/exit8.jpg',
+    '../../public/images/the8show.jpeg',
+    '../../public/images/pyramid.jpg',
+    '../../public/images/substance.jpeg',
+    '../../public/images/parasyte.jpeg',
+    '../../public/images/dudeinsideme.jpg',
+    '../../public/images/squidgame.jpeg',
+    '../../public/images/alice.jpg',
 
 ]
 
@@ -26,7 +26,7 @@ export const titles = [
 ]
 
 export const types = [
-    
+
     'movie 2025',
     'show 2024',
     'show 2024',
