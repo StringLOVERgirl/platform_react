@@ -1,14 +1,14 @@
 
 export const posters = [
 
-    '../../public/images/exit8.jpg',
-    '../../public/images/the8show.jpeg',
-    '../../public/images/pyramid.jpg',
-    '../../public/images/substance.jpeg',
-    '../../public/images/parasyte.jpeg',
-    '../../public/images/dudeinsideme.jpg',
-    '../../public/images/squidgame.jpeg',
-    '../../public/images/alice.jpg',
+    '../assets/posters/exit8.jpg',
+    '../assets/posters/the8show.jpeg',
+    '../assets/posters/pyramid.jpg',
+    '../assets/posters/substance.jpeg',
+    '../assets/posters/parasyte.jpeg',
+    '../assets/posters/dudeinsideme.jpg',
+    '../assets/posters/squidgame.jpeg',
+    '../assets/posters/alice.jpg',
 
 ]
 
