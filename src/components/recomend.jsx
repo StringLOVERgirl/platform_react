@@ -26,6 +26,8 @@ export function Recommend({toObserve}){
     },[linemetrics])
 
     function toLeft(){
+        if(window.innerWidth < 600)return
+
         if (linemetrics.offset < 100 - linemetrics.stepWidth){
             console.log('left')
             let value = linemetrics.offset + linemetrics.stepWidth
@@ -35,6 +37,8 @@ export function Recommend({toObserve}){
     }
 
     function toRight(){
+        if(window.innerWidth < 600)return
+
         if (linemetrics.offset > 0){
             console.log('left')
             let value = linemetrics.offset - linemetrics.stepWidth
@@ -48,7 +52,7 @@ export function Recommend({toObserve}){
     }
 
     function touchstart(e){
-        if(window.innerWidth < 600)return
+        if(window.innerWidth > 600)return
         if (e.currentTarget.dataset.labe == 'left'){
             toRight()
         setarrow(prev=>({...prev,left:'arrowHover'}))
@@ -59,7 +63,7 @@ export function Recommend({toObserve}){
     }
 
     function touchend(e){
-        if(window.innerWidth < 600)return
+        if(window.innerWidth > 600)return
         if (e.currentTarget.dataset.labe == 'right'){
             setarrow(prev=>({...prev,left:''}))
            } else {
