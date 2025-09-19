@@ -25,7 +25,7 @@ console.log(toObserve.current)
         key={'postercony'+i}
         >
             <div className="posterImgCont" ref={addPoster} data-labe='ofset'>
-              <img className='poster' src={posters[i]}></img>
+              <div className='poster' style={{'background':`url(${posters[i]}) center / cover`}}></div>
               <div className="titleRightCont">
                 <span>{titles[i]}</span>
                 <span className='type'>{types[i]}</span>
