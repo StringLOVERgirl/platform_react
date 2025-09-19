@@ -52,7 +52,7 @@ console.log(toObserve.current)
               className={`poster ${posters[i].includes('para')?'parasiteTrigger':''}`} 
               ref={posters[i].includes('para')?parasyteref:null} 
               src={`${posters[i]}`}></img>
-              {posters[i].includes('para')?<video onClick={parasyteplayer} onDoubleClick={dbl} src={parasyte} className={`parasyte ${parasytestate}`} ref={parasytevideo}></video>:null}
+              {/* {posters[i].includes('para')?<video onClick={parasyteplayer} onDoubleClick={dbl} src={parasyte} className={`parasyte ${parasytestate}`} ref={parasytevideo}></video>:null} */}
               <div className="titleRightCont"
                             onClick={posters[i].includes('para')?dbl:null}
                             >
