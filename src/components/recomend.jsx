@@ -31,7 +31,7 @@ export function Recommend({toObserve}){
 
         setarrow(prev=>({...prev, right:'arrowHover'}))
 
-        setTimeout(()=>setarrow(prev=>({...prev, right:''})),500)
+        setTimeout(()=>setarrow(prev=>({...prev, right:''})),400)
         if (linemetrics.offset < 100 - linemetrics.stepWidth){
             console.log('left')
             let value = linemetrics.offset + linemetrics.stepWidth
@@ -44,7 +44,7 @@ export function Recommend({toObserve}){
         // if(window.innerWidth < 600)return
        setarrow(prev=>({...prev, left:'arrowHover'}))
 
-        setTimeout(()=>setarrow(prev=>({...prev, left:''})),500)
+        setTimeout(()=>setarrow(prev=>({...prev, left:''})),400)
 
         if (linemetrics.offset > 0){
             console.log('left')
