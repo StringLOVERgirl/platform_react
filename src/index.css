@@ -57,7 +57,7 @@ h2 {
 
     @font-face {
       font-family: inter;
-      src: url('../public/assets/Inter-VariableFont_opsz\,wght.ttf');
+      src: url('../public/assets/inter.ttf');
     }
 
     @font-face {
