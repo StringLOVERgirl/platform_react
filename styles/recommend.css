@@ -189,7 +189,7 @@ line-height: 1;
     /* height: fit-content; */
     position: relative;
     /* height: 10svh; */
-    /* width: fit-content; */
+    width: fit-content;
     margin-top: 2.5em;
     margin-inline: auto;
     padding-bottom: 1.25em;
@@ -282,6 +282,10 @@ padding-right: 0.5em;
      .toWatch {
         padding-top: 0.5em;
         font-size: 2em;
+     }
+
+     .moreFooter {
+        width: 85%;
      }
 
     }
