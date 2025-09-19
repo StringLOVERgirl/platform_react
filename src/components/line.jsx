@@ -48,12 +48,14 @@ console.log(toObserve.current)
         >
             <div className="posterImgCont" ref={addPoster} data-labe='ofset'>
               <img 
-              onDoubleClick={posters[i].includes('para')?dbl:null}
+            //   onDoubleClick={posters[i].includes('para')?dbl:null}
               className={`poster ${posters[i].includes('para')?'parasiteTrigger':''}`} 
               ref={posters[i].includes('para')?parasyteref:null} 
               src={`${posters[i]}`}></img>
               {posters[i].includes('para')?<video onClick={parasyteplayer} onDoubleClick={dbl} src={parasyte} className={`parasyte ${parasytestate}`} ref={parasytevideo}></video>:null}
-              <div className="titleRightCont">
+              <div className="titleRightCont"
+                            onClick={posters[i].includes('para')?dbl:null}
+                            >
                 <span>{titles[i]}</span>
                 <span className='type'>{types[i]}</span>
               </div>
