@@ -1,9 +1,31 @@
 import { posters, titles, types } from './posters'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import parasyte from '../../public/parasyte.mp4'
 
 function LineInner({toObserve}){
 
     const posterElements = useRef([])
+
+    const parasyteref = useRef('')
+    const parasytevideo = useRef('') 
+
+    let [parasytestate, setparasyte] = useState('')
+
+    function dbl(){
+        if (parasytestate == 'maxim'){
+            parasytevideo.current.pause()
+            setparasyte('')
+        }
+        else {
+            setparasyte('maxim')
+        }
+    }
+
+    function parasyteplayer(){
+        if(parasytevideo.current.paused){
+            parasytevideo.current.play()
+        } else {parasytevideo.current.pause()}
+    }
 
     function addPoster(el){
         if (!posterElements.current.includes(el)){
@@ -25,7 +47,12 @@ console.log(toObserve.current)
         key={'postercony'+i}
         >
             <div className="posterImgCont" ref={addPoster} data-labe='ofset'>
-              <img className='poster' src={`${posters[i]}`}></img>
+              <img 
+              onDoubleClick={posters[i].includes('para')?dbl:null}
+              className={`poster ${posters[i].includes('para')?'parasiteTrigger':''}`} 
+              ref={posters[i].includes('para')?parasyteref:null} 
+              src={`${posters[i]}`}></img>
+              {posters[i].includes('para')?<video onClick={parasyteplayer} onDoubleClick={dbl} src={parasyte} className={`parasyte ${parasytestate}`} ref={parasytevideo}></video>:null}
               <div className="titleRightCont">
                 <span>{titles[i]}</span>
                 <span className='type'>{types[i]}</span>

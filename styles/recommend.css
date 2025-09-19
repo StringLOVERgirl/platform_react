@@ -202,6 +202,45 @@ line-height: 1;
         fill: var(--textColor);
     }
 }
+
+.maxim {
+    position: fixed !important;
+    z-index: 10;
+    object-fit: contain;
+    height: 100% !important;
+    width: 100%;
+    display: block;
+ 
+}
+
+
+@keyframes parasyte {
+    from {
+        transform: translateY(0%);
+    }
+    25% {
+transform: translateY(-3%);
+    }
+    50% {
+        transform: translateY(0%);
+    }
+    75% {
+        transform: translateY(3%);
+    }
+    to {
+    transform: translateY(0%);
+}
+}
+.parasiteTrigger {
+animation: parasyte 20s linear infinite;
+}
+
+.parasyte{
+
+
+    position: absolute;
+    height: 0;
+}
 .arrowHover{
     transform: scale(1.2);
     fill: var(--textColor);
