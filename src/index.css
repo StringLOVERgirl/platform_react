@@ -92,6 +92,8 @@ h2 {
       transform: translateZ(-1px) scale(2);
       height: 100svh;
       position: relative;
+      overflow-x: hidden;
+
       background: url('./assets/pl.webp') center / cover;
       z-index: -1;
     }
@@ -221,7 +223,6 @@ h2 {
     .preloaderOutter {
       height: 100dvh;
       width: 100vw;
-  
       position: fixed;
       background: linear-gradient(to right,transparent,#041b1d 10% 90%,transparent);
       z-index: 5;
