@@ -25,9 +25,13 @@ export function Recommend({toObserve}){
      console.log(linemetrics)
     },[linemetrics])
 
-    function toLeft(){
-        if(window.innerWidth < 600)return
+    function toLeft(event){
+        // if(window.innerWidth < 600)return
+        console.log(event.currentTarget)
 
+        setarrow(prev=>({...prev, right:'arrowHover'}))
+
+        setTimeout(()=>setarrow(prev=>({...prev, right:''})),500)
         if (linemetrics.offset < 100 - linemetrics.stepWidth){
             console.log('left')
             let value = linemetrics.offset + linemetrics.stepWidth
@@ -36,8 +40,11 @@ export function Recommend({toObserve}){
         }
     }
 
-    function toRight(){
-        if(window.innerWidth < 600)return
+    function toRight(event){
+        // if(window.innerWidth < 600)return
+       setarrow(prev=>({...prev, left:'arrowHover'}))
+
+        setTimeout(()=>setarrow(prev=>({...prev, left:''})),500)
 
         if (linemetrics.offset > 0){
             console.log('left')
@@ -51,25 +58,7 @@ export function Recommend({toObserve}){
         window.scrollTo(0,0)
     }
 
-    function touchstart(e){
-        if(window.innerWidth > 600)return
-        if (e.currentTarget.dataset.labe == 'left'){
-            toRight()
-        setarrow(prev=>({...prev,left:'arrowHover'}))
-       } else {
-        toLeft()
-        setarrow(prev=>({...prev, right:'arrowHover'}))
-        }
-    }
 
-    function touchend(e){
-        if(window.innerWidth > 600)return
-        if (e.currentTarget.dataset.labe == 'right'){
-            setarrow(prev=>({...prev,left:''}))
-           } else {
-            setarrow(prev=>({...prev, right:''}))
-            }
-    }
 
 
 
@@ -79,7 +68,7 @@ export function Recommend({toObserve}){
             <h2 className="toWatch">
                 Something<br></br>to watch
             </h2> : <h2 className="toWatch">
-                Something to watch*
+                Something to watch
             </h2>  }
 
             {/* <nav className="ancorCont">
@@ -97,10 +86,10 @@ export function Recommend({toObserve}){
                     <LineOutter line={line} toObserve={toObserve}></LineOutter>
 
                     <div className="arrowsCont">
-                        <svg onClick={toRight} className={arrow.left}  onTouchStart={touchstart} data-labe='right' xmlns="http://www.w3.org/2000/svg" fill="rgba(110,110,110,0.359)" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
+                        <svg onClick={toRight}   className={arrow.left}   xmlns="http://www.w3.org/2000/svg" fill="rgba(110,110,110,0.359)" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
                         <path d="M50,8A42,42,0,1,0,92,50,42.08,42.08,0,0,0,50,8ZM64.16,52.6,47.36,67.68a3.5,3.5,0,1,1-4.67-5.21L56.58,50,42.69,37.6a3.5,3.5,0,0,1,4.67-5.22l16.8,15A3.54,3.54,0,0,1,65.33,50,3.5,3.5,0,0,1,64.16,52.6Z"/>
                         </svg>
-                        <svg onClick={toLeft} data-labe='left' onTouchEnd={touchend} className={`toLeftArrow ${arrow.right}`} fill="rgba(110,110,110,0.359)" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
+                        <svg onClick={toLeft}   className={`toLeftArrow ${arrow.right}`} fill="rgba(110,110,110,0.359)" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
                         <path transform="rotate(180 50 50)" d="M50,8A42,42,0,1,0,92,50,42.08,42.08,0,0,0,50,8ZM64.16,52.6,47.36,67.68a3.5,3.5,0,1,1-4.67-5.21L56.58,50,42.69,37.6a3.5,3.5,0,0,1,4.67-5.22l16.8,15A3.54,3.54,0,0,1,65.33,50,3.5,3.5,0,0,1,64.16,52.6Z"/>
                         </svg>
 
