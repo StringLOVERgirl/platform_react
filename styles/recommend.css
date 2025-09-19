@@ -266,6 +266,10 @@ padding-right: 0.5em;
       padding-left: 5vw;
      }
 
+     .titleRightCont {
+        font-size: 1.7em;
+     }
+
      .ancorCont {
         bottom: 3.75em;
         padding-right: 0.5em;
@@ -274,4 +278,5 @@ padding-right: 0.5em;
      .arrowsCont {
         bottom: -0.5em;
      }
+
     }
