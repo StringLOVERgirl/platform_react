@@ -7,10 +7,13 @@ import { Recommend } from "./recomend"
 
 
 export function More ({rate, setRate}){
-        window.scrollTo(0,0)
+        // window.scrollTo(0,0)
 
         const h1Trigger = useRef(null)
         const observer = useRef(null)
+
+        const toObserve = useRef([])
+
         let [platform, setPlatform] = useState({platform: '', button:  ''})
 
         function platformButton(){
@@ -23,18 +26,23 @@ export function More ({rate, setRate}){
         }
         
         useEffect(()=>{
-console.log(1)
+
+                toObserve.current.push(h1Trigger.current)
+
                 observer.current = new IntersectionObserver(entry => {
-                        if (entry[0].isIntersecting){
-                                console.log(entry[0])
-                                setRate('showRate')
-                        }
+                        entry.forEach(e=>{
+                          if (e.isIntersecting){
+                                  console.log(entry[0])
+                                  setRate('showRate')
+                          }
+                        })
                 }, {
                         root: null,
                         threshold: 0
                 })
 
-                observer.current.observe(h1Trigger.current)
+                toObserve.current.forEach(e=>observer.current.observe(e))
+                
 
                 return(() =>{
                         observer.current.disconnect()
@@ -109,7 +117,7 @@ console.log(1)
 </div>
 {/* end of text */}
 </div>
-<Recommend></Recommend>
+<Recommend toObserve={toObserve}></Recommend>
 {/* end of more */}
         </div>
         {/* <div className="similar"></div> */}

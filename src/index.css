@@ -31,6 +31,7 @@ box-sizing: border-box;
 }
 html {
   background: transparent;
+  scroll-behavior: smooth;
 }
 .App {
   background: linear-gradient(to right,#1f292a, #1f292a);
@@ -684,6 +685,7 @@ display: flex;
 
 
 @media (max-width: 600px) {
+  
   .outter{
     height: unset;
     /* flex-basis: 100%; */
@@ -819,10 +821,11 @@ display: flex;
   right: 0;
   animation: qu2 10s linear infinite
 }
-
+/* 
 #movieDescription {
  font-size: 2.5em !important;
-}
+ padding-left: unset !important;
+} */
 
 .titleMoreBg{
   height: 2em !important;
@@ -837,6 +840,7 @@ display: flex;
 
 .recommendSec {
   background: url(/src/assets/collageoutter.png) 0 90% / 140% !important;
+  padding-top: unset !important;
 }
 .recRight {
   width: 100% !important  ;

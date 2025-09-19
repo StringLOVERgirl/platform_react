@@ -482,7 +482,9 @@ z-index: 1;
 
 
   #movieDescription {
-    padding-inline: 5vw;  
+    padding-inline: 5vw; 
+    padding-left: 30vw; 
+    text-indent: 4em;
     color: var(--moreColor2);
     font-family: oswald;
     font-weight: 300;

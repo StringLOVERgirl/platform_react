@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { LineOutter } from "./line"
 import { posters } from "./posters"
 
-export function Recommend(){
+export function Recommend({toObserve}){
 
     const line = useRef(null)
 
@@ -41,11 +41,23 @@ export function Recommend(){
         }
     }
 
+    function toTop(){
+        window.scrollTo(0,0)
+    }
+
 
 
 
     return(
         <section className="recommendSec">
+            <h2 className="toWatch">
+                Something<br></br>to watch
+            </h2>
+
+            {/* <nav className="ancorCont">
+               <a className="toTopMore" onClick={toTop}>to top</a>
+            </nav> */}
+
             <div className="recommendOutter">
 
                 {/* <div className="recLeft">
@@ -54,7 +66,7 @@ export function Recommend(){
 
                 <div className="recRight">
                     <div className="recBg"></div>
-                    <LineOutter line={line}></LineOutter>
+                    <LineOutter line={line} toObserve={toObserve}></LineOutter>
 
                     <div className="arrowsCont">
                         <svg onClick={toRight} xmlns="http://www.w3.org/2000/svg" fill="rgba(110,110,110,0.359)" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
@@ -63,6 +75,10 @@ export function Recommend(){
                         <svg onClick={toLeft} className="toLeftArrow" fill="rgba(110,110,110,0.359)" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
                         <path transform="rotate(180 50 50)" d="M50,8A42,42,0,1,0,92,50,42.08,42.08,0,0,0,50,8ZM64.16,52.6,47.36,67.68a3.5,3.5,0,1,1-4.67-5.21L56.58,50,42.69,37.6a3.5,3.5,0,0,1,4.67-5.22l16.8,15A3.54,3.54,0,0,1,65.33,50,3.5,3.5,0,0,1,64.16,52.6Z"/>
                         </svg>
+
+                        <nav className="ancorCont">
+               <a className="toTopMore" onClick={toTop}>to top</a>
+            </nav>
                     </div>
                 </div>
             </div>
