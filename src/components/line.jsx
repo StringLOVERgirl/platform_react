@@ -1,6 +1,6 @@
 import { posters, titles, types } from './posters'
 import { useEffect, useRef, useState } from 'react'
-import parasyte from '../../public/parasyte.mp4'
+import parasyte from '../../public/parasyte480.mp4'
 
 function LineInner({toObserve}){
 
