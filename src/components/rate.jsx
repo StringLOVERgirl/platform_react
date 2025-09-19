@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import video from '../assets/trailer.mp4'
-import parasyte from '/parasyte480.mp4'
+import parasyte from '../assets/parasyte480.mp4'
 
 
 export function Rate({rate}){
