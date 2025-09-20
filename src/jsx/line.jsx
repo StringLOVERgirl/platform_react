@@ -2,22 +2,25 @@ import { posters, titles, types } from './posters'
 import { useEffect, useRef, useState } from 'react'
 import parasyte from '/Ocin-Parasite480.mp4'
 
-function LineInner({toObserve}){
+function Parasyte(){
 
-    const posterElements = useRef([])
 
     const parasyteref = useRef('')
     const parasytevideo = useRef('') 
 
-    let [parasytestate, setparasyte] = useState('')
+    let [maxCont, setMaxCont] = useState('')
+    let [isParasyte, setParasyte] = useState('')
+
 
     function dbl(){
-        if (parasytestate == 'maxim'){
+        if (maxCont == 'maxContScale'){
             parasytevideo.current.pause()
-            setparasyte('')
+            setMaxCont('')
+            setParasyte('')
         }
         else {
-            setparasyte('maxim')
+            setMaxCont('maxContScale')
+            setParasyte('parasyteOn')
         }
     }
 
@@ -26,6 +29,28 @@ function LineInner({toObserve}){
             parasytevideo.current.play()
         } else {parasytevideo.current.pause()}
     }
+
+
+    return(
+        <>
+        <img 
+              className={`poster`} 
+              ref={parasyteref} 
+              src={`${posters[4]}`}></img>
+              <div className={`parasyteCont ${maxCont}`}
+                            onDoubleClick={dbl}
+
+              >
+              <video className={`parasiteVideo ${isParasyte}`} onClick={parasyteplayer} onDoubleClick={dbl} src={parasyte} ref={parasytevideo}></video>
+              <div className="bgvideo"></div>
+              </div>
+        </>
+    )
+}
+
+function LineInner({toObserve}){
+
+    const posterElements = useRef([])
 
     function addPoster(el){
         if (!posterElements.current.includes(el)){
@@ -47,13 +72,9 @@ console.log(toObserve.current)
         key={'postercony'+i}
         >
             <div className="posterImgCont" ref={addPoster} data-labe='ofset'>
-              <img 
-            //   onDoubleClick={posters[i].includes('para')?dbl:null}
-              className={`poster ${posters[i].includes('para')?'parasiteTrigger':''}`} 
-              onDoubleClick={posters[i].includes('para')?dbl:null}
-              ref={posters[i].includes('para')?parasyteref:null} 
-              src={`${posters[i]}`}></img>
-              {posters[i].includes('para')?<video onClick={parasyteplayer} onDoubleClick={dbl} src={parasyte} className={`parasyte ${parasytestate}`} ref={parasytevideo}></video>:null}
+            {posters[i].includes('para')?<Parasyte/>:
+            <img className={`poster`} src={`${posters[i]}`}></img>}
+              
               <div className="titleRightCont">
                 <span>{titles[i]}</span>
                 <span className='type'>{types[i]}</span>

@@ -2,8 +2,8 @@ import { useSelector, useDispatch } from "react-redux";
 import React from "react";
 import './index.css'
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { More } from "./components/more";
-import { Home } from "./components/home";
+import { More } from "./jsx/more";
+import { Home } from "./jsx/home";
 import { useEffect, useRef, useState } from "react";
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 // npm install react-transition-group

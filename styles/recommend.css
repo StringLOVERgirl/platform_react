@@ -125,13 +125,10 @@
     border-radius: 35px;
 }
 
-.posterImgCont:hover {
-    /* clip-path: polygon(2% 2%, 98% 2%, 98% 98%, 2% 98%); */
-}
 
-.posterImgCont:hover .poster {
+/* .posterImgCont:hover .poster {
     transform: scale(1.05);
-}
+} */
 
 .titleRightCont {
     width: 100%;
@@ -168,16 +165,6 @@ line-height: 1;
     font-size: 0.6em;
 }
 
-.posterCont:hover .titleRightCont{
-}
-
-/* .posterImgCont:hover span{
-    transform: translateY(0);
-} */
-
-/* .posterImgCont:hover{ */
-/*  */
-/* } */
 
 .arrowsCont {
     /* width: fit-content; */
@@ -204,17 +191,34 @@ line-height: 1;
         fill: var(--textColor);
     }
 }
-
-.maxim {
-    position: fixed !important;
-    z-index: 10;
-    object-fit: contain;
-    height: 100% !important;
+.parasyteCont{
+   position: absolute;
+    height: 100%;
     width: 100%;
-    display: block;
- 
+    transition: width 0.7s var(--cubic);
 }
 
+.parasiteVideo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    clip-path: inset(100% 0% 0 0);
+    transition: clip-path 0.7s 0.7s var(--cubic);
+}
+.parasyteOn {
+    clip-path: inset(0 0 0 0);
+}
+.maxContScale {
+    visibility: unset;
+    width: 42vw
+}
+.bgvideo {
+    position: absolute;
+    bottom: 0;
+    /* background: green; */
+    height: 10%;
+    width: 100%;
+}
 
 @keyframes parasyte {
     from {
@@ -234,15 +238,10 @@ transform: translateY(-3%);
 }
 }
 .parasiteTrigger {
-animation: parasyte 20s linear infinite;
+/* animation: parasyte 20s linear infinite; */
 }
 
-.parasyte{
 
-
-    position: absolute;
-    height: 0;
-}
 .arrowHover{
     transform: scale(1.2);
     fill: var(--textColor);
@@ -317,6 +316,7 @@ padding-right: 0.5em;
     transform: scaleX(0);
     transform-origin: left;
 }
+
 .toTopMore:hover::after{
     transform: scaleX(1);
 }
