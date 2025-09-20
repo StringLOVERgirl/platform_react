@@ -50,12 +50,11 @@ console.log(toObserve.current)
               <img 
             //   onDoubleClick={posters[i].includes('para')?dbl:null}
               className={`poster ${posters[i].includes('para')?'parasiteTrigger':''}`} 
+              onDoubleClick={posters[i].includes('para')?dbl:null}
               ref={posters[i].includes('para')?parasyteref:null} 
               src={`${posters[i]}`}></img>
               {posters[i].includes('para')?<video onClick={parasyteplayer} onDoubleClick={dbl} src={parasyte} className={`parasyte ${parasytestate}`} ref={parasytevideo}></video>:null}
-              <div className="titleRightCont"
-                            onClick={posters[i].includes('para')?dbl:null}
-                            >
+              <div className="titleRightCont">
                 <span>{titles[i]}</span>
                 <span className='type'>{types[i]}</span>
               </div>
