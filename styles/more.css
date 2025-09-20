@@ -205,11 +205,21 @@ flex-direction: column;
   gap: 0.5em;
   cursor: pointer;
   transform: scale(0.85);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.on {
+  opacity: 1;
+}
+
+.videoCont:hover .playerCont{
+  opacity: 1;
 }
 .volumeCont, .playCont{
   overflow: hidden;
   height: fit-content;
-  border: solid 1px var(--moreAccent);
+  /* border: solid 1px var(--moreAccent); */
 border-radius: 35px;
 padding-top: 0.15em;
 padding-bottom: 0.15em;
@@ -645,5 +655,32 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
      .quiteCont{
       height: 100svh ;
       margin-bottom: 1em;
+    }
+  }
+
+
+  @media (min-width: 1300px) and (max-width:1500px) {
+
+
+  .homeLinkCont {
+    margin-top: 0.6em ;
+    font-size: 2em ;
+  }
+
+  .plBtnCont {
+    margin-top: 0.6em ;
+    font-size: 2em ;
+  }
+
+  .moreH1{
+    font-size: 10.5em 
+  }
+
+  .trailer {
+    height: 30em ;
+  }
+
+    .quiteCont {
+      margin-bottom: 0;
     }
   }

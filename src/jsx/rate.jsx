@@ -4,6 +4,7 @@ import video from '../assets/trailer.mp4'
 export function Rate({rate}){
 
 const trailer = useRef(null)
+let [first, setFirst] = useState('on')
 let [changePlayer, setPlayer] = useState({play: 'changePlayer', volume: ''})
 
 function volume(){
@@ -62,13 +63,13 @@ function player(){
         ref={trailer}
         // muted={true} 
         ></video>
-        <div className="playerCont">
+        <div className={`playerCont ${first}`} onClick={()=>{if(first == 'on'){setFirst('')}}}>
             <div className="playCont" onClick={player}>
                <button className={`playerButton playButton ${changePlayer.play}`}></button>
             </div>
-            <div className="volumeCont" onClick={volume}>
+            {/* <div className="volumeCont" onClick={volume}>
                <button className={`playerButton volumeButton ${changePlayer.volume}`}></button>
-            </div>
+            </div> */}
         </div>
     
         {/* end of video cont */}

@@ -894,23 +894,4 @@ width: 100vw !important;
     font-size: 1.3em;
   }
 
-  .homeLinkCont {
-    margin-top: 0.6em !important;
-    /* margin-top: 100vh !important; */
-    font-size: 2em !important;
-  }
-
-  .plBtnCont {
-    margin-top: 0.6em !important;
-    font-size: 2em !important;
-  }
-
-  .moreH1{
-    font-size: 10em !important;
-  }
-
-  .trailer {
-    height: 30em !important;
-  }
-
 }

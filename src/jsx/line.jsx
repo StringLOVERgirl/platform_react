@@ -1,52 +1,6 @@
 import { posters, titles, types } from './posters'
 import { useEffect, useRef, useState } from 'react'
-import parasyte from '/Ocin-Parasite480.mp4'
-
-function Parasyte(){
-
-
-    const parasyteref = useRef('')
-    const parasytevideo = useRef('') 
-
-    let [maxCont, setMaxCont] = useState('')
-    let [isParasyte, setParasyte] = useState('')
-
-
-    function dbl(){
-        if (maxCont == 'maxContScale'){
-            parasytevideo.current.pause()
-            setMaxCont('')
-            setParasyte('')
-        }
-        else {
-            setMaxCont('maxContScale')
-            setParasyte('parasyteOn')
-        }
-    }
-
-    function parasyteplayer(){
-        if(parasytevideo.current.paused){
-            parasytevideo.current.play()
-        } else {parasytevideo.current.pause()}
-    }
-
-
-    return(
-        <>
-        <img 
-              className={`poster`} 
-              ref={parasyteref} 
-              src={`${posters[4]}`}></img>
-              <div className={`parasyteCont ${maxCont}`}
-                            onDoubleClick={dbl}
-
-              >
-              <video className={`parasiteVideo ${isParasyte}`} onClick={parasyteplayer} onDoubleClick={dbl} src={parasyte} ref={parasytevideo}></video>
-              <div className="bgvideo"></div>
-              </div>
-        </>
-    )
-}
+import { Parasyte } from './parasyte'
 
 function LineInner({toObserve}){
 

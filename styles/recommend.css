@@ -102,7 +102,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    /* overflow: hidden; */
+    overflow: hidden;
     
 
 }
@@ -120,6 +120,7 @@
     display: block;
     height: 65svh;
     aspect-ratio: 1.43 / 2;
+    max-width: 100%;
     will-change: transform;
     transition: transform 0.8s var(--cubic);
     border-radius: 35px;
@@ -195,6 +196,8 @@ line-height: 1;
    position: absolute;
     height: 100%;
     width: 100%;
+    border-radius: 35px;
+    overflow: hidden;
     transition: width 0.7s var(--cubic);
 }
 
@@ -205,21 +208,62 @@ line-height: 1;
     clip-path: inset(100% 0% 0 0);
     transition: clip-path 0.7s 0.7s var(--cubic);
 }
-.parasyteOn {
-    clip-path: inset(0 0 0 0);
-}
+
 .maxContScale {
     visibility: unset;
     width: 42vw
 }
-.bgvideo {
+
+.maxPlayerCont {
+    padding-bottom: 1em;
     position: absolute;
     bottom: 0;
     /* background: green; */
-    height: 10%;
+    height: 15%;
     width: 100%;
+    display: flex;
+    justify-content: space-between;;
+}
+.maxButtonCont {
+    height: 100%;
+    aspect-ratio:  1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background: purple; */
+    /* background: #9e7f7f37;  */
+    /* border-radius: 35px; */
+    margin-inline: 1.5em;
+}
+.maxButton {
+    background: none;
+    border: none;
+    height: 80%;
+    aspect-ratio: 1/1;
+    transition: transform 0.3s, opacity 0.3s, clip-path 0.7s 0.7s var(--cubic);;
+    will-change: transform;
+    /* align-self: center; */
 }
 
+.maxButton:hover {
+    transform: scale(1.2);
+}
+
+.maxScreen{
+background: url('../src/assets/fullscreen.svg') no-repeat center bottom / 70%;
+}
+
+.maxPlay {
+    clip-path: inset(100% 0% 0 0);
+    background: url('../src/assets/pause.svg') no-repeat 75% 100% / 80%;   
+}
+
+.play {
+    background: url('../src/assets/playtrue.svg') no-repeat center / 55%;   
+}
+.parasyteOn {
+    clip-path: inset(0 0 0 0);
+}
 @keyframes parasyte {
     from {
         transform: translateY(0%);
@@ -355,3 +399,14 @@ padding-right: 0.5em;
         width: 100vw
     }
     }
+
+
+
+     @media (min-width: 800px) and (max-width:1500px) {
+
+        .recBg {
+            left: -13%;
+            height: 125%;
+            width: 125%;
+         }
+     }
