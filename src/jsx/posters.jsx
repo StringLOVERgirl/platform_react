@@ -9,6 +9,7 @@ export const posters = [
     "/posters/dudeinsideme.jpg",
     "/posters/squidgame.jpeg",
     "/posters/alice.jpg",
+    '/posters/hierarchy.jpg'
 
 ]
 
@@ -21,7 +22,8 @@ export const titles = [
     'Parasyte: The Grey',
     'The Dude In Me',
     'Squid Game',
-    'Alice in Borderland'
+    'Alice in Borderland',
+    'Hierarchy'
 
 ]
 
@@ -34,6 +36,7 @@ export const types = [
     'show 2024',
     'movie 2019',
     'show 2021',
-    'show 2022'
+    'show 2022',
+    'show 2024'
 
 ]

@@ -31,26 +31,26 @@ export function More ({rate, setRate}){
 
                 observer.current = new IntersectionObserver(entry => {
                         entry.forEach(e=>{
-                                if(e.isIntersecting){ if (e.target.dataset.labe != 'ofset'){
-                                        console.log(entry[e])
-                                        setRate('showRate')
-                                        }}
+                          if(e.isIntersecting){ 
+                            if (e.target.dataset.labe != 'ofset'){
+                                console.log(entry[e])
+                                setRate('showRate')
+                          }}
+
                           if (e.intersectionRatio > 0.5){
                                 console.log('fgghdh')
                                 if (e.target.dataset.labe != 'ofset'){
                                   console.log(entry[e])
                                   setRate('showRate')
-                                  }
-        
-                                  else  {
+                                  } else {
                                         console.log('back')
                                          e.target.style.setProperty('--ofsetInner',0)
                                   }
-                                } else  {
-                                        if(e.intersectionRatio < 0.5){
-                                        e.target.style.setProperty('--ofsetInner','100%')
-                                        }
+                          } else  {
+                                if(e.intersectionRatio < 0.5){
+                                  e.target.style.setProperty('--ofsetInner','100%')
                                 }
+                          }
                         })
                 }, {
                         root: null,
@@ -62,18 +62,15 @@ export function More ({rate, setRate}){
 
                 return(() =>{
                         observer.current.disconnect()
-                }
-                )
+                })
         },[])
 
+
     return (
-        <>
         <section>
         <div className="more">
-                <div className="morTopBg"></div>
 
-  
-
+            <div className="morTopBg"></div>
 
             <div className="blurLayer blur-overlay3"></div>
             
@@ -90,17 +87,19 @@ export function More ({rate, setRate}){
             </div>
 
 <div className="text" ref={h1Trigger}>
-      {/* vertical platform */} 
-      <div className="veticalOutter">
+
+{/* platform */}
+<div className="veticalOutter">
 
 <div className={`verticalInner ${platform.platform}`}>
    <div className="platform platformTop"></div> 
    <span className="verticalSpan">el hoyo</span> 
-   <div className="platform platformBottom"></div> 
-    
+   <div className="platform platformBottom"></div>     
+</div>
+{/* end of platform */}
 </div>
 
-</div>
+
 <Rate rate={rate}></Rate>
 
 <div className="innerText">
@@ -116,7 +115,7 @@ export function More ({rate, setRate}){
 
 <div className="titleMoreMini"></div>
 
-
+<div className="descriptionCont">
 <p id="movieDescription">
 
   The film is set in a large, industrial tower named the "Vertical
@@ -130,16 +129,14 @@ export function More ({rate, setRate}){
   as they can, those on the lower floors are unable to eat as much
   food as those at the top, leading to conflict.
 </p>
-{/* end of inner text */}
-</div>
-{/* end of text */}
-</div>
-<Recommend toObserve={toObserve}></Recommend>
-{/* end of more */}
-        </div>
-        {/* <div className="similar"></div> */}
 
-        </section>
-        </>
-    )
+       </div>
+    {/* end of inner text */}
+    </div>
+  {/* end of text */}
+  </div>
+  <Recommend toObserve={toObserve}></Recommend>
+{/* end of more */}
+</div>
+</section>)
 }

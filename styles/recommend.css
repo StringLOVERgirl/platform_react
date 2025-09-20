@@ -102,7 +102,7 @@
     display: flex;
     justify-content: center;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
     
 
 }
@@ -222,6 +222,7 @@ line-height: 1;
     height: 15%;
     width: 100%;
     display: flex;
+    /* background: #6a4e4e57; */
     justify-content: space-between;;
 }
 .maxButtonCont {
@@ -234,6 +235,7 @@ line-height: 1;
     /* background: #9e7f7f37;  */
     /* border-radius: 35px; */
     margin-inline: 1.5em;
+    mix-blend-mode: difference;
 }
 .maxButton {
     background: none;
@@ -409,4 +411,67 @@ padding-right: 0.5em;
             height: 125%;
             width: 125%;
          }
+     }
+
+     @media (min-width: 1800px) and (min-height: 900px) {
+
+        .toWatch {
+            font-size: 6em;
+        }
+
+        .recBg {
+            height: 128%;
+            position: absolute;
+           width: 128%;
+           left: -12%;
+        }
+
+        .titleRightCont {
+            font-size: 3.2em;
+        }
+
+        .arrowsCont svg {
+            height: 5em;
+            width: 5em;
+        }
+
+        .ancorCont {
+            font-size: 2.7em;
+        }
+
+        .footerMoreCont span {
+            font-size: 1.1em;
+        }
+
+     }
+
+     @media (min-width: 2000px) and (min-height: 1000px) {
+
+        .toWatch{
+            font-size: 7em;
+        }
+
+        .recBg{
+            height: 128%;
+            position: absolute;
+           width: 128%;
+           left: -12%;
+        }
+
+        .titleRightCont {
+            font-size: 4em;
+        }
+
+        .maxButton {
+            height: 65%;
+        }
+
+        .arrowsCont svg {
+            height: 6em;
+            width: 6em;
+        }
+
+        .footerMoreCont span {
+            font-size: 1.5em;
+        }
      }

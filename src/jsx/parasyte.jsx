@@ -52,6 +52,7 @@
                 //  onClick={parasytePlayer} 
                 onEnded={()=>setStatus('')}
                  src={parasyte} 
+                 onClick={parasytePlayer}
                  ref={parasyteVideo}></video>
 
 
