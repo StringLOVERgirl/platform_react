@@ -691,7 +691,9 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
       height: 80svh ;
       width: 80% ;
     }
-    
+    .quite{
+      font-size: 3em;
+    }
     .quiteDeepBg{
       filter: unset ;
       background: unset ;
@@ -700,11 +702,11 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
     .qu{
       z-index: 1;
       
-      animation: qu 20s linear infinite
+      animation: qu 15s linear infinite
     }
     .qu2{
       right: 0;
-      animation: qu2 20s linear infinite
+      animation: qu2 15s linear infinite
     }
     
     
