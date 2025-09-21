@@ -197,13 +197,13 @@ line-height: 1;
     height: 100%;
     width: 100%;
     border-radius: 35px;
-    overflow: hidden;
+    /* overflow: hidden; */
     transition: width 0.7s var(--cubic);
 }
 
 .parasiteVideo {
     height: 100%;
-    width: 104%;
+    width: 101%;
     object-fit: cover;
     clip-path: inset(100% 0% 0 0);
     transition: clip-path 0.7s 0.7s var(--cubic);
