@@ -7,7 +7,20 @@ export function Homecopy(){
     function accentOrigin(){
         copyAccent.current.style.setProperty('--copyAccentTransformOrigin', 'right')
       }
-    
+
+      {
+        <div className="copyCont">
+        Фильм «Платформа» доступен на&nbsp;
+
+        <a href="https://www.google.com/search?q=platform+netflix" target="_blank" 
+          onMouseOut={accentOrigin} 
+          ref={copyAccent} 
+          className="copyAccent">Netflix
+          </a>. Все материалы, использованные на этом сайте, являются интеллектуальной собственностью их соответствующих правообладателей и предназначены исключительно для информационных целей.
+            {/* Фильм «Платформа» доступен на <span className="copyAccent">Netflix</span>. Все материалы, использованные на этом сайте, являются интеллектуальной собственностью их правообладателей и размещены в ознакомительных целях. */}
+      </div> 
+      }
+
 
     return(
 
