@@ -233,9 +233,13 @@ line-height: 1;
     justify-content: center;
     /* background: purple; */
     /* background: #9e7f7f37;  */
-    /* border-radius: 35px; */
+    border-radius: 35px;
     margin-inline: 1.5em;
-    mix-blend-mode: difference;
+    
+    transition: background 0.7s ;
+}
+.screebBg {
+    /* background: #d9aeae26; */
 }
 .maxButton {
     background: none;
@@ -244,6 +248,8 @@ line-height: 1;
     aspect-ratio: 1/1;
     transition: transform 0.3s, opacity 0.3s, clip-path 0.7s 0.7s var(--cubic);;
     will-change: transform;
+    mix-blend-mode: difference;
+    display: block;
     /* align-self: center; */
 }
 
@@ -251,8 +257,11 @@ line-height: 1;
     transform: scale(1.2);
 }
 
-.maxScreen{
-background: url('../src/assets/fullscreen.svg') no-repeat center bottom / 70%;
+.maxScreen svg{
+    fill: #a4a4a4fd;
+    mix-blend-mode: difference;
+    transform: translateY(-5%);
+/* background: url('../src/assets/fullarrows.svg') no-repeat center / cover; */
 }
 
 .maxPlay {
