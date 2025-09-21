@@ -47,7 +47,8 @@ export function More ({rate, setRate}){
                    first:translation.current.firstEng,
                    second:translation.current.secondEng
                  },
-                 desc:translation.current.eng})
+                 desc:translation.current.eng
+        })
       
         const toObserve = useRef([])
 

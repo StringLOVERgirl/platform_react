@@ -700,11 +700,11 @@ transform: translateZ(-60svh) scale(0.8) rotateX(-10deg) ;
     .qu{
       z-index: 1;
       
-      animation: qu 10s linear infinite
+      animation: qu 20s linear infinite
     }
     .qu2{
       right: 0;
-      animation: qu2 10s linear infinite
+      animation: qu2 20s linear infinite
     }
     
     
