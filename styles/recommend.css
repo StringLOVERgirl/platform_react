@@ -203,7 +203,7 @@ line-height: 1;
 
 .parasiteVideo {
     height: 100%;
-    width: 100%;
+    width: 104%;
     object-fit: cover;
     clip-path: inset(100% 0% 0 0);
     transition: clip-path 0.7s 0.7s var(--cubic);
