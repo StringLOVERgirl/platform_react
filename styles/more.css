@@ -88,6 +88,7 @@
 .more header a{
   color: var(--moreColor2);
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .more header ul::after{
@@ -148,8 +149,14 @@
   color: var(--moreColor2);
   text-transform: uppercase;
   cursor: pointer;
+  transition: color 0.3s;
   white-space: nowrap;
   transition: transform 0.8s var(--cubic)
+}
+
+
+.platformButton:hover {
+  color: var(--moreAccent);
 }
 
 @keyframes clippath {
