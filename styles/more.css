@@ -130,7 +130,7 @@
 }
 
 
-.plBtnCont{
+.plBtnCont {
   position: absolute;
   font-size: var(--moreLinkSize);
   left: 13em;
@@ -141,6 +141,11 @@
   transition: transform 1s;
 }
 
+.plBtnCont:hover::before {
+  transform: scaleX(1);
+}
+
+
 .platformButton {
   position: relative;
   font-family: oswald;
@@ -149,14 +154,23 @@
   color: var(--moreColor2);
   text-transform: uppercase;
   cursor: pointer;
-  transition: color 0.3s;
   white-space: nowrap;
   transition: transform 0.8s var(--cubic)
 }
 
 
-.platformButton:hover {
-  color: var(--moreAccent);
+.plBtnCont::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+  height: 1px;
+  border-radius: 1px;
+  background: var(--moreAccent);
+  transition: transform 0.8s var(--cubic);
+  transform-origin: left;
+  transform: scaleX(0);
 }
 
 @keyframes clippath {
