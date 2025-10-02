@@ -1,257 +1,143 @@
-import { Link } from "react-router-dom";
-import { useEffect, useRef, useState , useLayoutEffect} from "react";
-import movie2019 from "../assets/the_platform2.webp"
-import movie2024 from "../assets/pl.webp"
+import { useEffect, useRef , useLayoutEffect} from "react";
 import React from "react";
-import { DecorBg } from "./decorbg";
 import { Header } from "./header";
 import { Preloader } from "./preloader";
 import { Homecopy } from "./homecopy";
 import { useLocation } from "react-router-dom";
+import { AsideHome } from "./asideHome";
+import { FooterHome } from "./footerHome";
+import { BlurHome } from "./blurButton";
+import { addBlurLisrs, removeBlurLisrs } from "./blurLisrs";
 
-export function Home({blurState, setBlur, blurFlag}){
 
-    const location = useLocation();
+export function Home({blurState, setBlur, blurFlag}) {
+
+   const location = useLocation();
   
       // window.history.replaceState({}, '')
+   const psedoWindow = useRef()
+
+   const inner = useRef()
+  
+   const titleCont = useRef()
+  
+   const blur = useRef()
+  
+   const asideImgCont = useRef()
+      
+   const isMobile = useRef(false) 
 
   
-    const psedoWindow = useRef()
-    const inner = useRef()
+   function unBlur(ev){
   
-    const titleCont = useRef()
-  
-    const blur = useRef()
-  
-    const asideImgCont = useRef()
-  
-    const year = useRef()
-    
-    const isMobile = useRef(false) 
-
-    let [bg, setBg] = useState(null)
-  
-    let [flags, setFlags] = useState({flagBg: true, flagMinBg:true})
-  
-    
-      function changeBg (){
-
-         let value = flags.flagBg ? 1 : 0
-         let valueMin = flags.flagMinBg ? 0.8 : 0
-
-         setFlags(prev=> ({flagBg: !prev.flagBg ,flagMinBg: !prev.flagMinBg}))
-         console.log(flags)
-         setBg(prev=> prev =='changeBg' ? '' : 'changeBg')
-
-         inner.current.style.setProperty('--opacityBg', value)
-         asideImgCont.current.style.setProperty('--opacityMinBg', valueMin)
-    }
-  
-  
-    function isBlur(){ 
-
-      console.log(blurFlag)
-      blurFlag.current = !blurFlag.current
-      setBlur(prev=> prev =='isBlur' ? '' : 'isBlur')
-  }
-  
-  function unBlur(e){
-  
-    if (blurFlag.current) {
-      blur.current.style.maskImage = `unset`;
-      blur.current.style.webkitMaskImage = `unset`;
-      return
-    }
-    
-  if (isMobile.current) {
-     // отключаем прокрутку при свайпе
-     console.log('precent none')    
-    e.preventDefault();
-  }
-  
-    const evenet = isMobile.current ? e.touches[0] : e
-  
-    const x = evenet.clientX;
-    const y = evenet.clientY;
-    const radius = 100; // можно менять радиус круга здесь
-  
-  // на сам эл или родитель ближайшмй
-    blur.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
-    blur.current.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
-  };
-
-
-
-
-  function changeMobileState(){
-    isMobile.current =  window.innerWidth < 600 ? true : false
-  }
-
-  function removeBlurLisrs(){
-      if (isMobile.current){
-        window.removeEventListener('touchmove', unBlur)
-        console.log('touche has been removed')
-      } else {
-        window.removeEventListener('mousemove', unBlur)
-        console.log('mousemove has been removed')
+      if (blurFlag.current) {
+         blur.current.style.maskImage = `unset`;
+         blur.current.style.webkitMaskImage = `unset`;
+         return
       }
-  }
-
-  function addBlurLisrs(){
-    if (isMobile.current){
-      window.addEventListener('touchmove', unBlur, {passive: false})
-      console.log('touche has been added')
-    } else {
-      window.addEventListener('mousemove', unBlur)
-      console.log('mousemove has been added')
-    }
-}
-
-  
-  useEffect(()=>{
-  
-    // window.addEventListener('resize', () => {     
-    //   removeBlurLisrs()
-    //   changeMobileState()
-    //   addBlurLisrs()
-    // })
     
+      if (isMobile.current) {
+         // отключаем прокрутку при свайпе
+         console.log('precent none')    
+         ev.preventDefault();
+      }
   
-    changeMobileState()
-    
-    addBlurLisrs()    
+      const evenet = isMobile.current ? ev.touches[0] : ev
+  
+      const x = evenet.clientX;
+      const y = evenet.clientY;
+      const radius = 100; // можно менять радиус круга здесь
+  
+      // на сам эл или родитель ближайшмй
+      blur.current.style.maskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
+      blur.current.style.webkitMaskImage = `radial-gradient(circle ${radius}px at ${x}px ${y}px, transparent 0%, black 100%)`;
+   }
 
-    return(removeBlurLisrs)
-  
-  },[])
-  
-  
 
-  function asideParallax(){
+   function changeMobileState() {
+      isMobile.current =  window.innerWidth < 600 ? true : false
+   }
+
+  
+   useEffect(() => {
+  
+     // window.addEventListener('resize', () => {     
+     //   removeBlurLisrs()
+     //   changeMobileState()
+     //   addBlurLisrs()
+     // })
+  
+     changeMobileState()
+     addBlurLisrs(isMobile, unBlur)    
+
+     return(() => removeBlurLisrs(isMobile, unBlur))
+  
+   },[])
+  
+  
+   function asideParallax() {
       let speed = isMobile.current ? 7 : 5
       let value = psedoWindow.current.scrollTop / speed
-      asideImgCont.current.style.setProperty('--parallaxImg', -value+'px')
-  }
+      asideImgCont.current.style.setProperty('--parallaxImg', -value + 'px')
+   }
 
-  const raf = useRef(null)
+   const raf = useRef(null)
 
-  function parallaxSpacing(){
-    let value = window.scrollY * 0.2
-    titleCont.current.style.setProperty('--ls',value+'px')
-    raf.current = requestAnimationFrame(parallaxSpacing)
-}
+   function parallaxSpacing() {
+      let value = psedoWindow.current.scrollTop * 0.2
+      titleCont.current.style.setProperty('--ls', value + 'px')
+      raf.current = requestAnimationFrame(parallaxSpacing)
+   }
 
-useLayoutEffect(()=>{
-    // нужен он если добавляю обработчики на элемент и очищаю их то в обычном 
-    // юс эффект ссылки на элемнты на моменты выполнения очистки будут ноль 
-
-
-    // паралакс картинки
-    console.log(psedoWindow.current)
-    psedoWindow.current.addEventListener('scroll', asideParallax)
-   
-    parallaxSpacing()
+   useLayoutEffect(() => {
+      // нужен он если добавляю обработчики на элемент и очищаю их то в обычном 
+      // юс эффект ссылки на элемнты на моменты выполнения очистки будут ноль 
   
-    return ()=>{
-        psedoWindow.current.removeEventListener('scroll', asideParallax)
-        console.log('aside parallax has been removed')
-        cancelAnimationFrame(raf.current)
-    }
-    },[])
+      // паралакс картинки
+      console.log(psedoWindow.current)
+      psedoWindow.current.addEventListener('scroll', asideParallax)
+     
+      parallaxSpacing()
     
+      return () => {
+          psedoWindow.current.removeEventListener('scroll', asideParallax)
+          console.log('aside parallax has been removed')
+          cancelAnimationFrame(raf.current)
+      }
+   },[])
+    
+   console.log('montirovanie home')
 
 
-    console.log('montirovanie')
-  
+   return(
 
+      <div>
 
-console.log(location.state)
-function tozero(){
-  // window.scrollTo()
-}
+         {location.state === 'more' ? '' : <Preloader></Preloader>}
 
-    return(
-        <div>
-  {location.state === 'more' ? '' : <Preloader></Preloader>}
+          <div className="outter" ref={psedoWindow}>
 
-  <div className="outter" ref={psedoWindow}>
-        
-    <div className="inner" ref={inner}>
-          
-        <Header></Header>
-         
-        <div className="titleCont" ref={titleCont}>{
-            'Platform'.split('').map((e,i)=><h2 className="title" key={'titleLetter '+ i}>{e}</h2>)
-        }</div>
+             <div className="inner" ref={inner}>               
+                 <Header></Header>
+              
+                 <div className="titleCont" ref={titleCont}>{
+                    'Platform'.split('').map((e,i) => 
+                       <h2 className="title" key={'titleLetter' + i}>{e}</h2>)}
+                 </div>
 
-        <div className="blurButtonCont">
-            <div className="blutInnerCont" onClick={isBlur}>
-              <button id="blur">blur</button>
-            </div>
+                 <BlurHome blurFlag={blurFlag} setBlur={setBlur}></BlurHome>
+
+                 <AsideHome inner={inner} asideImgCont={asideImgCont}></AsideHome>
+                 <Homecopy></Homecopy>
+              {/* <!-- end of inner --> */}
+             </div>
+
+             <div className={`blurLayer blur-overlay ${blurState}`} ref={blur}></div>
+             <FooterHome></FooterHome>
+
+          {/* end of outter */}
+          </div>
+          {/* end of component */}
         </div>
-
-
-        <aside className="asideImgCont" ref={asideImgCont} onClick={changeBg}>
-
-            <div className="yearCont">
-                <div className={`year ${bg}`} ref={year} data-labe="2024">
-                    2019
-                </div>
-            </div>
-
-            <img
-              className="asideImg"
-              id="first"
-              src={movie2019}
-              alt="characters goreng and trimagisy"
-            ></img>
-
-            <img
-              className="asideImg"
-              id="second"
-              src={movie2024}
-              alt="main character form second movie"
-            ></img>
-        </aside>
-
-
-        <Homecopy></Homecopy>
-
-          {/* <!-- end of inner --> */}
-    </div>
-
-
-    <div className={`blurLayer blur-overlay ${blurState}`} ref={blur}></div>
-
-    <footer className="textCont">
-          <div className="textContOverlay"></div>
-
-          <div className="decorOutter">
-             <DecorBg keyy={0} type={'up'}/>
-             <DecorBg keyy={1} type={'down'}/>
-          </div>
-
-          <div className="italicMainCont">
-                <span className="italicMain">what is your favorite dish?</span>
-          </div>
-          
-          <div className="linkMainCont">
-            <Link className="linkAcont" 
-            data-label='read more'
-             href="" 
-             to={"/more"}>
-            {'read more'.split('').map((e,i)=>
-            <span className={`linkSymbol ${ e === " "?'space':'linkLetter'}`} 
-               key={'linkLetter '+i}
-               style={{'--delay':(i+1)*0.1+'s'}}
-               data-label={e}
-               >{e}</span>
-               )}
-            </Link></div>
-          {/* end of textcont */}
-        </footer>
-        {/* end of outter */}
-      </div>
-</div>
-    )
+   )
 }

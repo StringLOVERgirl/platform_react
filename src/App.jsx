@@ -9,8 +9,11 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 // npm install react-transition-group
 
 function App() {
+
   let [blurState, setBlur] = useState(null)
-  const blurFlag = useRef()
+  const blurFlag = useRef(null)
+
+  let [firstTransition ,settrans]= useState(false)
 
   let [rate, setRate] = useState('')
 
@@ -20,26 +23,27 @@ function App() {
   return (
   
     <div className="App">
-       <SwitchTransition mode="out-in">    
-         <CSSTransition 
-          classNames='transition'
-          key={location.key}
-          // выше для переходов 
-          timeout={500}>
-            
-            <Routes 
-            location={location} //для переходов
-            >
-               <Route path="/" element={<Home blurState={blurState} setBlur={setBlur} blurFlag={blurFlag}></Home>}></Route>
-               <Route path="/more" element={<More rate={rate} setRate={setRate}></More>}></Route>
-            </Routes>
 
-         </CSSTransition>
-       </SwitchTransition>
-      
-            {/* enf of app */}
+        <SwitchTransition mode="out-in">    
+            <CSSTransition 
+           classNames='transition'
+           key={location.key}
+           // выше для переходов 
+           timeout={500}>
+             
+              <Routes 
+             location={location} //для переходов
+              >
+                  <Route path="/" element={<Home blurState={blurState} setBlur={setBlur} blurFlag={blurFlag}></Home>}></Route>
+                  <Route path="/more" element={<More rate={rate} setRate={setRate} firstTransition={firstTransition} settrans={settrans}></More>}></Route>
+              </Routes>
+
+            </CSSTransition>
+        </SwitchTransition>
+            
+    {/* end of app */}
     </div>
-  );
+  )
 }
 
 export default App;
