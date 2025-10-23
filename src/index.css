@@ -102,7 +102,7 @@ p {
 .inner::after {
   content: '';
   height: inherit;
-  width: 100%;
+  width: 110%;
   position: absolute;
   opacity: var(--opacityBg);
   transition: opacity 0.5s;
