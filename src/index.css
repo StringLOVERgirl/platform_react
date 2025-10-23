@@ -763,13 +763,10 @@ ul::after {
   }
 
   .italicIphone {
-    transform: translateY(-23%);
-  }
-  .italicIphone {
-    transform: translateY(-23%);
+    transform: translateY(-25%);
   }
   .italicEdje {
-    transform: translateY(-25%);
+    transform: translateY(-28%);
   }
 
   .plBtnCont {
