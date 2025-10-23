@@ -689,7 +689,7 @@ ul::after {
   }
 
   .blurButtonCont {
-    bottom: 18svh;
+    bottom: 8svh;
   }
 
   .blurContIphone {
@@ -725,7 +725,7 @@ ul::after {
   .copyCont {
     bottom: unset;
     top: 100%;
-    transform: translateY(-105%);
+    transform: translateY(-115%);
     width: 100%;
     letter-spacing: 0.1px;
     font-size: 0.9em;
@@ -736,7 +736,7 @@ ul::after {
   }
 
   .asideImgCont {
-    bottom: 26svh;
+    bottom: 18svh;
   }
 
   .asideIphone {
