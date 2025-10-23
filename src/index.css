@@ -258,7 +258,7 @@ p {
 }
 
 .blur-overlay {
-  height: 100lvh;
+  height: 100%;
   background: #0000005c;
   backdrop-filter: blur(8px);
 }
@@ -669,7 +669,8 @@ ul::after {
     overflow: unset;
   }
   .outterAlt {
-    height: 75vh;
+    height: 85vh;
+    position: relative;
   }
 
   .lang {
@@ -677,7 +678,7 @@ ul::after {
   }
 
   .inner {
-    height: 100lvh;
+    height: 100%;
     z-index: 0;
     transform: unset !important;
   }
@@ -723,7 +724,7 @@ ul::after {
 
   .copyCont {
     bottom: unset;
-    top: 100svh;
+    top: 100%;
     transform: translateY(-105%);
     width: 100%;
     letter-spacing: 0.1px;
