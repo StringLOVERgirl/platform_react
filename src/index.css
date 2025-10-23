@@ -670,7 +670,7 @@ ul::after {
   }
   .outterAlt {
     height: 85vh;
-    position: relative;
+    /* position: relative; */
   }
 
   .lang {
@@ -678,7 +678,7 @@ ul::after {
   }
 
   .inner {
-    height: 100%;
+    height: 100svh;
     z-index: 0;
     transform: unset !important;
   }
