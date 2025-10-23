@@ -36,6 +36,7 @@ html {
 .App {
   background: linear-gradient(to right, #1f292a, #1f292a);
   /* old 041b1d */
+  position: relative;
 }
 
 h2 {
