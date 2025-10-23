@@ -260,7 +260,7 @@ p {
 }
 
 .blur-overlay {
-  height: 100%;
+  height: 100lvh;
   background: #0000005c;
   backdrop-filter: blur(8px);
 }
