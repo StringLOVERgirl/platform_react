@@ -126,7 +126,7 @@ export function Home({blurState, setBlur, blurFlag}) {
 
    return(
 
-      <div>
+      <div style={{position: 'relative', height:'fit-content'}}>
 
          {location.state === 'more' ? '' : <Preloader></Preloader>}
 
