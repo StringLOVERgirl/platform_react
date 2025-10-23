@@ -10,7 +10,7 @@ import { BlurHome } from "./blurButton";
 import { addBlurLisrs, removeBlurLisrs } from "./blurLisrs";
 
 
-export function Home({blurState, setBlur, blurFlag}) {
+export function Home({blurState, setBlur, blurFlag, userAgent}) {
 
    const location = useLocation();
   
@@ -58,7 +58,7 @@ export function Home({blurState, setBlur, blurFlag}) {
       isMobile.current =  window.innerWidth < 600 ? true : false
    }
 
-   let [userAgent, setuseragent] = useState({blurCont: '', asideCont: '', italic: '', outter: ''})
+   // let [userAgent, setuseragent] = useState({blurCont: '', asideCont: '', italic: '', outter: ''})
   
    useEffect(() => {
   
@@ -70,16 +70,16 @@ export function Home({blurState, setBlur, blurFlag}) {
 
 
 
-        const ua = navigator.userAgent;
-        const isIphone = /iPhone/.test(ua);
-        const safari = /^((?!chrome|android).)*safari/i.test(ua)
-        const isEdge = /Edg/.test(ua);
-        console.log(isIphone || safari)
-        if (isIphone ){
-            setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone', italic: 'italicIphone', outter: 'outterAlt'}))
-        } else if (isEdge) {
-            setuseragent(prev=>({blurCont: 'blurContEdje', asideCont: 'asideEdje', italic: 'italicEdje',  outter: 'outterAlt'}))
-        }
+      //   const ua = navigator.userAgent;
+      //   const isIphone = /iPhone/.test(ua);
+      //   const safari = /^((?!chrome|android).)*safari/i.test(ua)
+      //   const isEdge = /Edg/.test(ua);
+      //   console.log(isIphone || safari)
+      //   if (isIphone ){
+      //       setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone', italic: 'italicIphone', outter: 'outterAlt'}))
+      //   } else if (isEdge) {
+      //       setuseragent(prev=>({blurCont: 'blurContEdje', asideCont: 'asideEdje', italic: 'italicEdje',  outter: 'outterAlt'}))
+      //   }
  
   
      changeMobileState()
