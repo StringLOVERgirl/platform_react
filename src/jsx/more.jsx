@@ -9,6 +9,7 @@ import { Text } from "./text"
 
 export function More ({rate, setRate, firstTransition, settrans}) {
 
+    window.scrollTo(0,0)
     let [lang, setLang] = useState({
         quite: {
             first:translation.firstEng,
