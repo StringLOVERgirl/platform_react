@@ -58,7 +58,7 @@ export function Home({blurState, setBlur, blurFlag}) {
       isMobile.current =  window.innerWidth < 600 ? true : false
    }
 
-   let [userAgent, setuseragent] = useState({blurCont: '', asideCont: '', italic: ''})
+   let [userAgent, setuseragent] = useState({blurCont: '', asideCont: '', italic: '', outter: ''})
   
    useEffect(() => {
   
@@ -76,9 +76,9 @@ export function Home({blurState, setBlur, blurFlag}) {
         const isEdge = /Edg/.test(ua);
         console.log(isIphone || safari)
         if (isIphone ){
-            setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone', italic: 'italicIphone'}))
+            setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone', italic: 'italicIphone', outter: 'outterAlt'}))
         } else if (isEdge) {
-            setuseragent(prev=>({blurCont: 'blurContEdje', asideCont: 'asideEdje', italic: 'italicEdje'}))
+            setuseragent(prev=>({blurCont: 'blurContEdje', asideCont: 'asideEdje', italic: 'italicEdje',  outter: 'outterAlt'}))
         }
  
   
@@ -130,7 +130,7 @@ export function Home({blurState, setBlur, blurFlag}) {
 
          {location.state === 'more' ? '' : <Preloader></Preloader>}
 
-          <div className="outter" ref={psedoWindow}>
+          <div className={`outter ${userAgent.outter}`} ref={psedoWindow}>
 
              <div className="inner" ref={inner}>               
                  <Header></Header>

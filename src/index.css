@@ -668,6 +668,9 @@ ul::after {
     transform-style: unset;
     overflow: unset;
   }
+  .outterAlt {
+    height: 100svh;
+  }
 
   .lang {
     padding-left: 0.5em;
@@ -690,9 +693,11 @@ ul::after {
 
   .blurContIphone {
     bottom: 22svh;
+    bottom: 18svh;
   }
   .blurContEdje {
     bottom: 27svh;
+    bottom: 18svh;
   }
 
 
@@ -735,9 +740,11 @@ ul::after {
 
   .asideIphone {
     bottom: 32svh;
+    bottom: 26svh;
   }
   .asideEdje {
     bottom: 37svh;
+    bottom: 26svh;
   }
 
   .asideImg {
@@ -763,9 +770,11 @@ ul::after {
 
   .italicIphone {
     transform: translateY(-25%);
+    transform: translateY(-10%);
   }
   .italicEdje {
     transform: translateY(-30%);
+    transform: translateY(-10%);
   }
 
   .plBtnCont {
