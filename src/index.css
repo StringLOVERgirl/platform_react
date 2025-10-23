@@ -756,6 +756,10 @@ ul::after {
     transform: translateY(-10%);
   }
 
+  .italicIphone {
+    transform: translateY(-20%);
+  }
+
   .plBtnCont {
     top: 4em;
     font-size: 1em !important;

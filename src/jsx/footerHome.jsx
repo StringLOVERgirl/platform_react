@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { DecorBg } from "./decorbg"
 
 
-export function FooterHome() {
+export function FooterHome({userAgent}) {
 
 
     return(
@@ -14,7 +14,7 @@ export function FooterHome() {
               <DecorBg keyy={1} type={'down'}/>
             </div>
 
-            <div className="italicMainCont">
+            <div className={`italicMainCont ${userAgent.italic}`}>
                <span className="italicMain">what is your favorite dish?</span>
             </div>
      

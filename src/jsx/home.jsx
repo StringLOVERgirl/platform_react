@@ -58,7 +58,7 @@ export function Home({blurState, setBlur, blurFlag}) {
       isMobile.current =  window.innerWidth < 600 ? true : false
    }
 
-   let [userAgent, setuseragent] = useState({blurCont: '', asideCont: ''})
+   let [userAgent, setuseragent] = useState({blurCont: '', asideCont: '', italic: ''})
   
    useEffect(() => {
   
@@ -76,7 +76,7 @@ export function Home({blurState, setBlur, blurFlag}) {
         const isEdge = /Edg/.test(ua);
         console.log(isIphone || safari)
         if (isIphone ){
-            setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone'}))
+            setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone', italic: 'italicIphone'}))
         } else if (isEdge) {
             setuseragent(prev=>({blurCont: 'blurContEdje', asideCont: 'asideEdje'}))
         }
@@ -148,7 +148,7 @@ export function Home({blurState, setBlur, blurFlag}) {
              </div>
 
              <div className={`blurLayer blur-overlay ${blurState}`} ref={blur}></div>
-             <FooterHome></FooterHome>
+             <FooterHome userAgent={userAgent}></FooterHome>
 
           {/* end of outter */}
           </div>
