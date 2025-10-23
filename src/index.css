@@ -693,11 +693,11 @@ ul::after {
 
   .blurContIphone {
     bottom: 22svh;
-    bottom: 18svh;
+    bottom: 22svh;
   }
   .blurContEdje {
     bottom: 27svh;
-    bottom: 18svh;
+    bottom: 27svh;
   }
 
 
@@ -740,11 +740,11 @@ ul::after {
 
   .asideIphone {
     bottom: 32svh;
-    bottom: 26svh;
+    /* bottom: 26svh; */
   }
   .asideEdje {
     bottom: 37svh;
-    bottom: 26svh;
+    /* bottom: 26svh; */
   }
 
   .asideImg {
@@ -770,11 +770,11 @@ ul::after {
 
   .italicIphone {
     transform: translateY(-25%);
-    transform: translateY(-10%);
+    /* transform: translateY(-10%); */
   }
   .italicEdje {
     transform: translateY(-30%);
-    transform: translateY(-10%);
+    /* transform: translateY(-10%); */
   }
 
   .plBtnCont {
