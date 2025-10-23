@@ -29,7 +29,7 @@ useEffect(()=>{
          const isIphone = /iPhone/.test(ua);
          const safari  = /^((?!chrome|android).)*safari/i.test(ua)
          const isEdge = /Edg/.test(ua);
-          isIphone || safari || isEdge ?()=> isnot(true):null
+          // isIphone || safari || isEdge ?()=> isnot(true):null
         // console.log(isIphone.current || safari.current)
         if (isIphone ){
             setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone', italic: 'italicIphone', outter: 'outterAlt'}))
@@ -40,7 +40,7 @@ useEffect(()=>{
   return (
   
     <div className="App">
-{not ? 
+
      <Routes 
      location={location} //для переходов
       >
@@ -48,24 +48,7 @@ useEffect(()=>{
           <Route path="/more" element={<More rate={rate} setRate={setRate} firstTransition={firstTransition} settrans={settrans}></More>}></Route>
       </Routes>
 
-: 
-        <SwitchTransition mode="out-in">    
-            <CSSTransition 
-           classNames='transition'
-           key={location.key}
-           // выше для переходов 
-           timeout={500}>
-             
-              <Routes 
-             location={location} //для переходов
-              >
-                  <Route path="/" element={<Home blurState={blurState} setBlur={setBlur} blurFlag={blurFlag} userAgent={userAgent}></Home>}></Route>
-                  <Route path="/more" element={<More rate={rate} setRate={setRate} firstTransition={firstTransition} settrans={settrans}></More>}></Route>
-              </Routes>
 
-            </CSSTransition>
-        </SwitchTransition>
-}
     {/* end of app */}
     </div>
   )
