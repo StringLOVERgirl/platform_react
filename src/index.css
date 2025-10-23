@@ -692,7 +692,7 @@ ul::after {
     bottom: 22svh;
   }
   .blurContEdje {
-    bottom: 25svh;
+    bottom: 27svh;
   }
 
 
@@ -706,7 +706,6 @@ ul::after {
     backdrop-filter: grayscale(40%);
     display: flex;
     align-items: end;
-
   }
 
   .decorOutter {
@@ -738,7 +737,7 @@ ul::after {
     bottom: 32svh;
   }
   .asideEdje {
-    bottom: 35svh;
+    bottom: 37svh;
   }
 
   .asideImg {
@@ -766,7 +765,7 @@ ul::after {
     transform: translateY(-25%);
   }
   .italicEdje {
-    transform: translateY(-28%);
+    transform: translateY(-30%);
   }
 
   .plBtnCont {
