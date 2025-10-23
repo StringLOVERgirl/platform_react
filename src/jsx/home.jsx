@@ -78,7 +78,7 @@ export function Home({blurState, setBlur, blurFlag}) {
         if (isIphone ){
             setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone', italic: 'italicIphone'}))
         } else if (isEdge) {
-            setuseragent(prev=>({blurCont: 'blurContEdje', asideCont: 'asideEdje'}))
+            setuseragent(prev=>({blurCont: 'blurContEdje', asideCont: 'asideEdje', italic: 'italicEdje'}))
         }
  
   

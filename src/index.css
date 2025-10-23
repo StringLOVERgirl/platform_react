@@ -691,6 +691,9 @@ ul::after {
   .blurContIphone {
     bottom: 22svh;
   }
+  .blurContEdje {
+    bottom: 25svh;
+  }
 
 
   .textCont {
@@ -734,6 +737,9 @@ ul::after {
   .asideIphone {
     bottom: 32svh;
   }
+  .asideEdje {
+    bottom: 35svh;
+  }
 
   .asideImg {
     height: 10svh;
@@ -758,6 +764,12 @@ ul::after {
 
   .italicIphone {
     transform: translateY(-23%);
+  }
+  .italicIphone {
+    transform: translateY(-23%);
+  }
+  .italicEdje {
+    transform: translateY(-25%);
   }
 
   .plBtnCont {
