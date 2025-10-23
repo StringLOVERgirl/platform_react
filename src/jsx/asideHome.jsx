@@ -2,7 +2,7 @@ import { useRef, useState } from "react"
 import movie2019 from "../assets/the_platform2.webp"
 import movie2024 from "../assets/pl.webp"
 
-export function AsideHome({inner, asideImgCont}) {
+export function AsideHome({inner, asideImgCont, userAgent}) {
 
     const year = useRef()
 
@@ -24,7 +24,7 @@ export function AsideHome({inner, asideImgCont}) {
    }
 
     return(
-        <aside className="asideImgCont" ref={asideImgCont} onClick={changeBg}>
+        <aside className={`asideImgCont ${userAgent.asideCont}`} ref={asideImgCont} onClick={changeBg}>
 
         <div className="yearCont">
             <div className={`year ${bg}`} ref={year} data-labe="2024">

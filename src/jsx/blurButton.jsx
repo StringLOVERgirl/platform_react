@@ -1,4 +1,4 @@
-export function BlurHome({blurFlag, setBlur}) {
+export function BlurHome({blurFlag, setBlur, userAgent}) {
 
 
     function isBlur(){ 
@@ -9,7 +9,7 @@ export function BlurHome({blurFlag, setBlur}) {
 
 
     return(
-        <div className="blurButtonCont">
+        <div className={`blurButtonCont ${userAgent.blurCont}`}>
             <div className="blutInnerCont" onClick={isBlur}>
                <button id="blur">blur</button>
             </div>

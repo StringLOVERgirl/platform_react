@@ -396,6 +396,7 @@ ul::after {
   right: 10%;
 }
 
+
 .blutInnerCont {
   overflow: hidden;
   position: relative;
@@ -687,6 +688,10 @@ ul::after {
     bottom: 18svh;
   }
 
+  .blurContIphone {
+    bottom: 22svh;
+  }
+
 
   .textCont {
     z-index: 2;
@@ -724,6 +729,10 @@ ul::after {
 
   .asideImgCont {
     bottom: 26svh;
+  }
+
+  .asideIphone {
+    bottom: 30svh;
   }
 
   .asideImg {

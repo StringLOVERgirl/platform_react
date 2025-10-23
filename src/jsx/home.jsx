@@ -1,4 +1,4 @@
-import { useEffect, useRef , useLayoutEffect} from "react";
+import { useEffect, useRef , useLayoutEffect, useState} from "react";
 import React from "react";
 import { Header } from "./header";
 import { Preloader } from "./preloader";
@@ -58,6 +58,7 @@ export function Home({blurState, setBlur, blurFlag}) {
       isMobile.current =  window.innerWidth < 600 ? true : false
    }
 
+   let [userAgent, setuseragent] = useState({blurCont: '', asideCont: ''})
   
    useEffect(() => {
   
@@ -66,6 +67,20 @@ export function Home({blurState, setBlur, blurFlag}) {
      //   changeMobileState()
      //   addBlurLisrs()
      // })
+
+
+
+        const ua = navigator.userAgent;
+        const isIphone = /iPhone/.test(ua);
+        const safari = /^((?!chrome|android).)*safari/i.test(ua)
+        const isEdge = /Edg/.test(ua);
+        console.log(isIphone || safari)
+        if (isIphone ){
+            setuseragent(prev=>({blurCont: 'blurContIphone', asideCont: 'asideIphone'}))
+        } else if (isEdge) {
+            setuseragent(prev=>({blurCont: 'blurContEdje', asideCont: 'asideEdje'}))
+        }
+ 
   
      changeMobileState()
      addBlurLisrs(isMobile, unBlur)    
@@ -125,9 +140,9 @@ export function Home({blurState, setBlur, blurFlag}) {
                        <h2 className="title" key={'titleLetter' + i}>{e}</h2>)}
                  </div>
 
-                 <BlurHome blurFlag={blurFlag} setBlur={setBlur}></BlurHome>
+                 <BlurHome blurFlag={blurFlag} setBlur={setBlur} userAgent={userAgent}></BlurHome>
 
-                 <AsideHome inner={inner} asideImgCont={asideImgCont}></AsideHome>
+                 <AsideHome inner={inner} asideImgCont={asideImgCont} userAgent={userAgent}></AsideHome>
                  <Homecopy></Homecopy>
               {/* <!-- end of inner --> */}
              </div>
